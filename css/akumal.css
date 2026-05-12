@@ -1,0 +1,1110 @@
+/* ================================================================
+   akumal.css — Overrides de marca Akumal Sport Nutrition
+   Carga después del template CSS, por lo que tiene prioridad
+   en cascada. Usar body .selector para ganar especificidad
+   en lugar de !important siempre que sea posible.
+================================================================ */
+
+/* ── Preloader ───────────────────────────────────────────────── */
+.preloader .site-name img.preloader-logo {
+  width: clamp(220px, 38vw, 420px);
+  height: auto;
+  object-fit: contain;
+}
+
+/* ── Hero logo ───────────────────────────────────────────────── */
+.section-hero-v1 .davies-large img.hero-logo {
+  width: clamp(280px, 50vw, 700px);
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1)
+          drop-shadow(1px  0   0 #000)
+          drop-shadow(-1px 0   0 #000)
+          drop-shadow(0    1px 0 #000)
+          drop-shadow(0   -1px 0 #000)
+          drop-shadow(0    2px 6px rgba(0,0,0,0.7));
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .section-hero-v1 .davies-large img.hero-logo {
+    width: clamp(160px, 60vw, 300px);
+  }
+}
+
+/* ── Hero: layout de columnas ────────────────────────────────── */
+
+/* Columna izquierda: badges arriba, logo abajo — sin cambios */
+
+/* Columna derecha: todo el bloque anclado al fondo del hero */
+body .section-hero-v1 .col-right {
+  justify-content: flex-end;
+  padding-bottom: 48px;
+}
+
+/* "CREA TU MARCA AQUÍ" pasa a ser intro del bloque, no flotante */
+body .section-hero-v1 .col-right .top {
+  margin-bottom: 20px;
+}
+
+/* ── Hero: texto descripción ─────────────────────────────────── */
+body .section-hero-v1 .bot .desc {
+  color: #ffffff !important;
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.9),
+    0 2px 12px rgba(0, 0, 0, 0.7);
+  line-height: 1.75;
+}
+
+@media (max-width: 1599px) {
+  body .section-hero-v1 .col-right .top {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  body .section-hero-v1 .col-right {
+    padding-bottom: 32px;
+  }
+  body .section-hero-v1 .col-right .top {
+    margin-bottom: 16px;
+  }
+}
+
+/* ── Hero: contacto rápido (bajo el CTA) ─────────────────────── */
+.hero-contact-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hero-contact-strip a,
+.hero-contact-strip p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.80);
+  text-decoration: none;
+  margin: 0;
+  transition: color 0.2s;
+}
+
+.hero-contact-strip a:hover {
+  color: #ffffff;
+}
+
+/* ── Layout de secciones ─────────────────────────────────────── */
+.section-feature {
+  position: relative;
+  z-index: 10;
+  background-color: var(--black);
+}
+
+.section-feature-hero {
+  background: linear-gradient(180deg, #607561 0%, #2a3328 30%, var(--black) 80%);
+}
+
+body .section-selected-work {
+  background: linear-gradient(
+    180deg,
+    #0d100d   0%,
+    #1a2a1a  18%,
+    #b8d0b8  44%,
+    #e5f0e5  62%,
+    #f2f7f2  80%,
+    #ffffff 100%
+  );
+}
+
+
+/* Ocultar cursor del template (puede ser sobreescrito por JS,
+   de ahí los !important — son intencionales en este bloque) */
+.tf-mouse,
+.tf-mouse * {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.section-service-2 {
+  position: relative;
+  z-index: 9;
+  min-height: 100vh;
+}
+
+/* Ocultar items 2+ antes de que GSAP arranque, evita el flash */
+@media (min-width: 1200px) {
+  .section-service-2 .wg-service-2:not(:first-child) {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+
+/* ── Service section text color ──────────────────────────────── */
+body .section-service-2 .s-header h2,
+body .section-service-2 .wg-service-2 .title {
+  color: #212529;
+}
+
+body .section-service-2 .wg-service-2 .desc,
+body .section-service-2 .wg-service-2 .tf-list li {
+  color: rgba(33, 37, 41, 0.75);
+}
+
+body .section-service-2 .wg-service-2 .tf-btn {
+  color: #212529;
+  border-color: #212529;
+}
+
+body .section-service-2 .wg-service-2 .tf-btn::before {
+  background-color: #212529;
+}
+
+body .section-service-2 .wg-service-2 .tf-btn:hover {
+  color: #ffffff;
+}
+
+/* ── Transitions ─────────────────────────────────────────────── */
+.transition-light-to-dark {
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(180deg, #dce8dc 0%, #0c110c 100%);
+  margin-top: -1px;
+}
+
+
+/* ── Imagen panorámica "Por qué elegirnos" ───────────────────── */
+.feature-wide-img {
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.feature-wide-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 767px) {
+  .feature-wide-img { height: 260px; }
+}
+
+/* ── Cards "Por qué elegirnos" ───────────────────────────────── */
+.section-feature-hero .feature-image {
+  display: block;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.section-feature-hero .feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── Garantías ───────────────────────────────────────────────── */
+body .section-award {
+  background: #0c110c !important;
+}
+
+.section-feature-hero .wg-feature-v01 .feature-content::before {
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.92) 100%);
+  backdrop-filter: none;
+  border-radius: 0 0 16px 16px;
+}
+
+/* Especificidad suficiente sin !important al añadir body */
+body .section-feature-hero .wg-feature-v01 .feature-content .tag,
+body .section-feature-hero .wg-feature-v01 .feature-content .name,
+body .section-feature-hero .wg-feature-v01 .feature-content .name a,
+body .section-feature-hero .wg-feature-v01 .feature-content .price {
+  color: #ffffff;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+}
+
+/* ── Hero Badges ─────────────────────────────────────────────── */
+.hero-badges {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.25s ease, background 0.25s ease;
+  text-decoration: none;
+}
+
+.hero-badge:hover {
+  border-color: var(--primary);
+  background: rgba(96, 117, 97, 0.2);
+}
+
+.hero-badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(96, 117, 97, 0.35);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.hero-badge-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-badge-text strong {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.hero-badge-text small {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+/* ── Botón MENÚ ──────────────────────────────────────────────── */
+/* .btn-menu-styled convive con .btn-mobile-menu del template;
+   combinamos ambas clases para mayor especificidad */
+.btn-mobile-menu.btn-menu-styled {
+  background-color: var(--primary);
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  gap: 10px;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(96, 117, 97, 0.4);
+}
+
+.btn-mobile-menu.btn-menu-styled:hover {
+  background-color: #4a6b4a;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.tf-header .nav-menu-main .nav-icon {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+body .tf-header .logo-site img {
+  max-height: 58px;
+}
+
+body .tf-header .nav-menu-main .item-link {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+}
+
+body .tf-header .nav-menu-main .item-link span {
+  font-size: 10px;
+  line-height: 14px;
+}
+
+body .tf-header .header-contact .text-caption,
+body .tf-header .header-contact a {
+  font-size: 11px;
+  line-height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body .tf-header .btn-mobile-menu {
+  font-size: 14px;
+}
+
+/* ── Language Selector ───────────────────────────────────────── */
+.lang-selector {
+  position: relative;
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  padding: 4px 0;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.lang-toggle:hover {
+  opacity: 1;
+}
+
+.lang-toggle .lang-flag {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.lang-toggle svg {
+  transition: transform 0.2s;
+  opacity: 0.7;
+}
+
+.lang-selector:hover .lang-toggle svg,
+.lang-selector.open .lang-toggle svg {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: rgba(15, 20, 16, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 90px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+}
+
+.lang-selector:hover .lang-dropdown,
+.lang-selector.open .lang-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.lang-option:hover,
+.lang-option.active {
+  background: rgba(96, 117, 97, 0.35);
+  color: #ffffff;
+}
+
+/* ── Botón marquee (hero CTA) ────────────────────────────────── */
+.btn-23,
+.btn-23 *,
+.btn-23 :after,
+.btn-23 :before,
+.btn-23:after,
+.btn-23:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn-23 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  appearance: button;
+  background-color: #0d1a0e;
+  background-image: none;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.6);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  mask-image: radial-gradient(#000, #fff);
+  padding: 0.8rem 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 99rem;
+  overflow: hidden;
+  position: relative;
+  min-width: 220px;
+}
+
+.btn-23:disabled {
+  cursor: default;
+}
+
+.btn-23 span {
+  display: grid;
+  inset: 0;
+  place-items: center;
+  position: absolute;
+  transition: opacity 0.2s ease;
+}
+
+.btn-23 .marquee {
+  --spacing: 22em;
+  --start: 0em;
+  --end: 22em;
+  animation: marquee 2s linear infinite;
+  animation-play-state: paused;
+  opacity: 0;
+  position: relative;
+  text-shadow: #fff var(--spacing) 0, #fff calc(var(--spacing) * -1) 0, #fff calc(var(--spacing) * -2) 0;
+}
+
+.btn-23:hover .marquee {
+  animation-play-state: running;
+  opacity: 1;
+}
+
+.btn-23:hover .text {
+  opacity: 0;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(var(--start)); }
+  to { transform: translateX(var(--end)); }
+}
+
+/* ── Header Login Button ─────────────────────────────────────── */
+.header-login-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  background: rgba(96,117,97,0.18);
+  border: 1px solid rgba(96,117,97,0.5);
+  border-radius: 99px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.header-login-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.header-login-btn svg {
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+/* ── Hero Login Link ─────────────────────────────────────────── */
+.hero-login-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 99px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.hero-login-link:hover {
+  border-color: var(--primary);
+  color: #fff;
+  background: rgba(96,117,97,0.15);
+}
+
+.hero-login-link svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.hero-login-link:hover svg {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+/* ── Mobile Menu Login CTA ───────────────────────────────────── */
+.mobile-login-cta {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: rgba(96,117,97,0.15);
+  border: 1px solid rgba(96,117,97,0.45);
+  border-radius: 99px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.25s, border-color 0.25s;
+  align-self: flex-start;
+}
+
+.mobile-login-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.mobile-login-cta > p {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+}
+
+/* ── Botón lupa — envases ────────────────────────────────────── */
+.envase-zoom-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px 9px 12px;
+  border-radius: 99px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  cursor: pointer;
+  color: #212529;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  transform: scale(1);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease, color 0.25s ease;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.envase-zoom-btn::after {
+  content: 'VIEW';
+}
+
+html[lang="es"] .envase-zoom-btn::after {
+  content: 'VER';
+}
+
+.envase-zoom-btn:hover {
+  background: #607561;
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 20px rgba(96,117,97,0.40);
+  transform: scale(1.04);
+}
+
+/* ── Modal envase ────────────────────────────────────────────── */
+.envase-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.30s ease;
+}
+
+.envase-modal.is-open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.envase-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5,9,5,0.90);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.envase-modal-card {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  border-radius: 16px;
+  padding: 48px 40px 40px;
+  max-width: 480px;
+  width: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.32s cubic-bezier(0.22,1,0.36,1);
+}
+
+.envase-modal.is-open .envase-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.envase-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.20);
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255,255,255,0.75);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.envase-modal-close:hover {
+  background: rgba(255,255,255,0.14);
+  color: #ffffff;
+}
+
+.envase-modal-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #A2B3A3;
+}
+
+.envase-modal-label {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0;
+  font-family: 'Syne', sans-serif;
+}
+
+.envase-modal-img-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0 12px;
+}
+
+.envase-modal-img {
+  max-width: 100%;
+  max-height: 420px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 60px rgba(0,0,0,0.70));
+}
+
+@media (max-width: 575px) {
+  .envase-modal-card  { padding: 40px 24px 32px; }
+  .envase-modal-img   { max-height: 300px; }
+  .envase-modal-label { font-size: 22px; }
+}
+
+/* ── Tortuga logo — círculo glassmorphism ────────────────────── */
+body .section-selected-work .image-award {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+body .section-selected-work .image-award img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── Formatos Disponibles: tamaño reducido ───────────────────── */
+/* Nombre del formato (Doypack / Stick / Botes) — más pequeño */
+body .section-selected-work .text-slide.text-display-2 {
+  font-size: clamp(22px, 3.5vw, 48px);
+  line-height: clamp(28px, 4vw, 56px);
+}
+
+/* Contenedor de imagen — menos alto */
+body .section-selected-work .slick-for .image {
+  height: 480px;
+  padding-top: 28px;
+}
+
+/* Imagen del producto — más pequeña */
+body .section-selected-work .slick-for .image img {
+  max-height: 360px;
+  margin-bottom: 80px;
+}
+
+/* Ajuste proporcional del efecto 3D del slider de nombres */
+body .section-selected-work .slick-nav .slick-slide:not(.slick-current) {
+  transform: rotateX(45deg) translateY(-80px) translateZ(-80px);
+}
+body .section-selected-work .slick-nav .slick-current ~ .slick-slide:last-child {
+  transform: rotateX(-45deg) translateY(80px) translateZ(-80px);
+}
+
+/* ── Footer inner row — top alignment ──────────────────── */
+.footer-inner .row {
+  align-items: flex-start;
+}
+
+/* ── Header sticky on scroll ────────────────────────────── */
+.tf-header.header-sticky {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 24px rgba(0, 0, 0, 0.07);
+  padding-top: 14px;
+  padding-bottom: 14px;
+  margin-bottom: 0;
+}
+
+/* ── Strip CTA "Personalizar envase" (sección formatos) ─────────── */
+.cfg-cta-strip {
+  background: var(--primary);
+  padding: 28px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.cfg-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cfg-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cfg-cta-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.cfg-cta-desc {
+  font-size: 0.95rem;
+  color: #fff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cfg-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: #fff;
+  color: var(--primary);
+  border-radius: 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cfg-cta-btn:hover {
+  opacity: 0.88;
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 575px) {
+  .cfg-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cfg-cta-btn { width: 100%; justify-content: center; }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   VISOR 3D + CONFIGURADOR DE ENVASE
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Canvas wrapper ─────────────────────────────────────────────── */
+.bottle-3d-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#hero-bottle-canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-height: 520px;
+  cursor: grab;
+  border-radius: 4px;
+}
+#hero-bottle-canvas:active { cursor: grabbing; }
+
+/* Spinner mientras carga el GLB */
+#bottleSpinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+#bottleSpinner::after {
+  content: '';
+  width: 36px; height: 36px;
+  border: 3px solid rgba(96,117,97,.15);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Panel configurador ─────────────────────────────────────────── */
+.bottle-configurator {
+  width: 100%;
+  margin-top: 18px;
+  padding: 18px 20px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(96,117,97,.14);
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.06);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+.bottle-configurator.is-ready {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Título del configurador */
+.cfg-title {
+  font-family: 'Syne', sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 14px;
+}
+
+/* Filas de opciones */
+.cfg-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.cfg-row:last-child { margin-bottom: 0; }
+
+.cfg-row-label {
+  font-size: .72rem;
+  font-weight: 600;
+  color: #555;
+  min-width: 52px;
+  letter-spacing: .04em;
+}
+
+/* ── Swatches de color ──────────────────────────────────────────── */
+.cfg-swatches {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.cfg-swatch {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform .15s, border-color .15s, box-shadow .15s;
+  position: relative;
+  flex-shrink: 0;
+}
+.cfg-swatch:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,.18);
+}
+.cfg-swatch.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(96,117,97,.22);
+}
+/* Swatch blanco — borde visible */
+.cfg-swatch[data-hex="#F2F2F2"],
+.cfg-swatch[data-hex="#E8E8E8"] {
+  border-color: #d0d0d0;
+}
+.cfg-swatch.active[data-hex="#F2F2F2"],
+.cfg-swatch.active[data-hex="#E8E8E8"] {
+  border-color: var(--primary);
+}
+
+/* ── Upload etiqueta ────────────────────────────────────────────── */
+.cfg-upload-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cfg-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+  border: none;
+  outline: none;
+}
+.cfg-upload-btn:hover { opacity: .85; transform: translateY(-1px); }
+.cfg-upload-btn input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.cfg-reset-label {
+  font-size: .72rem;
+  color: #888;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color .15s;
+}
+.cfg-reset-label:hover { color: var(--primary); }
+
+.cfg-hint {
+  font-size: .66rem;
+  color: #aaa;
+  margin: 8px 0 0;
+  line-height: 1.4;
+}
+
+/* ── Divisor interno ───────────────────────────────────────────── */
+.cfg-divider {
+  border: none;
+  border-top: 1px solid rgba(96,117,97,.10);
+  margin: 14px 0;
+}
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  #hero-bottle-canvas { aspect-ratio: 3 / 4; max-height: 380px; }
+  .bottle-configurator { padding: 14px 16px; }
+  .cfg-swatch { width: 24px; height: 24px; }
+}
+
+/* ── Formatos: hover de pills en content-wrap-2 ──────────────────
+   sections.css fuerza color:#fff !important en todos los <a>
+   de .content-wrap-2; esto restaura el color oscuro en hover
+   para que el texto sea legible al rellenar el botón.          */
+body .section-selected-work .content-wrap-2 a.tf-btn:hover {
+  color: #0d100d !important;
+}

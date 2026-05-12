@@ -1,0 +1,21 @@
+# Dependencias Node
+api/node_modules/
+node_modules/
+
+# Variables de entorno con credenciales
+api/.env
+.env
+
+# Directus — Docker usa volúmenes nombrados, estas carpetas se crean vacías
+directus/database/
+directus/uploads/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*

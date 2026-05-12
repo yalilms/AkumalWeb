@@ -1,0 +1,29 @@
+services:
+  directus:
+    image: directus/directus:11
+    ports:
+      - "8055:8055"
+    volumes:
+      - directus_db:/directus/database
+      - directus_uploads:/directus/uploads
+    environment:
+      SECRET: "akumal-dev-secret-cambiar-en-produccion"
+
+      # Base de datos SQLite — sin necesidad de contenedor adicional
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+
+      # Credenciales del panel de administración
+      ADMIN_EMAIL: "admin@akumal.com"
+      ADMIN_PASSWORD: "akumal2025"
+
+      # CORS — permite peticiones desde la web local
+      CORS_ENABLED: "true"
+      CORS_ORIGIN: "true"
+
+      PUBLIC_URL: "http://localhost:8055"
+      WEBSOCKETS_ENABLED: "false"
+
+volumes:
+  directus_db:
+  directus_uploads:

@@ -1,0 +1,382 @@
+/* ── section-about-me ──────────────────────────────────── */
+.section-about-me {
+  position: relative;
+}
+
+.section-about-me .col-left {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.section-about-me .col-left .badget {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border-radius: 50%;
+  box-shadow: 0px 0.25px 0.25px 0px rgba(255, 255, 255, 0.32) inset,
+              0px 4px 16px 0px rgba(96, 117, 97, 0.2) inset,
+              0px 0px 0px 0.75px rgba(0, 0, 0, 0.56),
+              0px 10px 10px 0px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+}
+
+.section-about-me .col-left .badget svg {
+  animation: spin 20s linear infinite;
+  display: block;
+}
+
+.section-about-me .col-left .badget .badge-circle-text {
+  fill: rgba(255, 255, 255, 0.55);
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.section-about-me .col-left .signature {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.section-about-me .davies-video {
+  position: relative;
+  display: flex;
+}
+
+.section-about-me .davies-video .video {
+  background-blend-mode: luminosity;
+  max-height: 666px;
+  aspect-ratio: 0.8;
+  filter: grayscale(100%);
+  object-fit: cover;
+  width: 100%;
+}
+
+.section-about-me .davies-video .overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Dark-theme edge fades — match body background #0d100d */
+.section-about-me .davies-video .overlay.mark-1 {
+  background: linear-gradient(270deg, #0d100d 0%, rgba(13,16,13,0) 20%, rgba(13,16,13,0) 80%, #0d100d 100%);
+}
+
+.section-about-me .davies-video .overlay.mark-2 {
+  background: linear-gradient(180deg, #0d100d 0%, rgba(13,16,13,0) 15%, rgba(13,16,13,0) 80%, #0d100d 100%);
+}
+
+.section-about-me .col-right .br-line {
+  background-color: rgba(96, 117, 97, 0.2);
+  display: flex;
+  margin-bottom: 32px;
+  margin-top: 32px;
+}
+
+@media (min-width: 1200px) {
+  .section-about-me .col-left .badget {
+    transform: translate(50%, -50%);
+    right: 0;
+  }
+  .section-about-me .col-left .signature {
+    bottom: 40px;
+  }
+  .section-about-me .col-right .br-line {
+    margin-bottom: 56px;
+    margin-top: 56px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .section-about-me .badget {
+    max-width: 100px;
+  }
+}
+
+/* ── experience-list ───────────────────────────────────── */
+.experience-list {
+  display: grid;
+  gap: 16px;
+}
+
+.experience-list li {
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.experience-list li:first-child {
+  color: var(--white-64);
+}
+
+.experience-list .exp_name {
+  flex: 1;
+}
+
+.experience-list .exp_year {
+  color: var(--white-64);
+  min-width: 109px;
+  text-align: end;
+}
+
+/* ── nosotros-hero ─────────────────────────────────────── */
+.nosotros-hero {
+  padding-top: 140px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nosotros-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,16,13,0.55) 0%, rgba(13,16,13,0.3) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.nosotros-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.nosotros-hero h1 em {
+  font-style: italic;
+  color: var(--primary, #607561);
+}
+
+/* ── stats counter fullwidth ──────────────────────────────── */
+.section-nosotros-stats {
+  border-top: 1px solid rgba(96, 117, 97, 0.2);
+  border-bottom: 1px solid rgba(96, 117, 97, 0.2);
+  background: rgba(96, 117, 97, 0.03);
+  overflow: hidden;
+  position: relative;
+}
+
+.stats-fullwidth-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: 100%;
+}
+
+.stat-fw-col {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 64px 32px;
+  text-align: center;
+  position: relative;
+  transition: background 0.35s ease;
+}
+
+.stat-fw-col:not(:last-child) {
+  border-right: 1px solid rgba(96, 117, 97, 0.18);
+}
+
+.stat-fw-col::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #607561;
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stat-fw-col:hover::before {
+  width: 60%;
+}
+
+.stat-fw-col:hover {
+  background: rgba(96, 117, 97, 0.07);
+}
+
+/* Columna especial: "+1 millón" — "millón" en tamaño menor */
+.stat-fw-col--million .stat-fw-suffix {
+  font-size: 0.45em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-left: 4px;
+  opacity: 1;
+}
+
+
+/* Número principal */
+.stat-fw-number {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 3px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  color: #607561;
+  line-height: 1;
+  font-size: clamp(2.4rem, 4.5vw, 5.5rem);
+  margin-bottom: 14px;
+}
+
+.stat-fw-prefix,
+.stat-fw-suffix {
+  font-size: 0.65em;
+  opacity: 0.85;
+}
+
+/* Animación de entrada del número */
+.stat-fw-val {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stat-fw-col.counting .stat-fw-val {
+  animation: statPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes statPop {
+  0%   { transform: scale(0.7); opacity: 0; }
+  60%  { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Etiqueta y subtexto */
+.stat-fw-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+
+.stat-fw-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.38);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive: apilado en columna en mobile pequeño */
+@media (max-width: 639px) {
+  .stats-fullwidth-row {
+    flex-wrap: wrap !important;
+  }
+  .stat-fw-col {
+    flex: 1 1 33.333%;
+    padding: 28px 10px;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(96, 117, 97, 0.15);
+  }
+  .stat-fw-col:nth-child(odd) {
+    border-right: 1px solid rgba(96, 117, 97, 0.15) !important;
+  }
+  .stat-fw-col:last-child {
+    flex: 1 1 100%;
+    border-right: none !important;
+    border-bottom: none;
+  }
+  .stat-fw-number {
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+  }
+  .stat-fw-label {
+    font-size: 0.5rem;
+  }
+  .stat-fw-sub {
+    display: none;
+  }
+}
+
+
+/* ── nacimos section ───────────────────────────────────── */
+.section-nacimos .nacimos-quote {
+  border-left: 3px solid #607561;
+  padding-left: 24px;
+  margin: 0;
+}
+
+.section-nacimos .nacimos-quote h3 em {
+  font-style: italic;
+  color: var(--primary, #607561);
+}
+
+.section-nacimos .nacimos-media {
+  overflow: hidden;
+}
+
+.section-nacimos .nacimos-media img {
+  transition: transform 0.8s ease;
+}
+
+.section-nacimos .nacimos-media:hover img {
+  transform: scale(1.03);
+}
+
+/* ── testimonials ──────────────────────────────────────── */
+.section-testimonials .testimonial-card {
+  background: rgba(96, 117, 97, 0.06);
+  border: 1px solid rgba(96, 117, 97, 0.18);
+  border-radius: 2px;
+  padding: 32px;
+  height: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.section-testimonials .testimonial-card:hover {
+  border-color: rgba(96, 117, 97, 0.45);
+}
+
+.section-testimonials .testimonial-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.section-testimonials .author-avatar {
+  width: 44px;
+  height: 44px;
+  background: rgba(96, 117, 97, 0.2);
+  border: 1px solid rgba(96, 117, 97, 0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #607561;
+  flex-shrink: 0;
+}
+
+/* ── cta nosotros ──────────────────────────────────────── */
+.section-cta-nosotros h3 em {
+  font-style: italic;
+  color: var(--primary, #607561);
+}
+
+/* ── Fix text-color-change: visible on dark bg ──────────── */
+.section-about-me .text-color-change h5 {
+  color: rgba(255,255,255,0.9);
+}
+
+
+/* ── spin keyframe (badge) ─────────────────────────────── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

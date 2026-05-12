@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Cotiza Online — Akumal Sport Nutrition | Fabricante de Suplementos Deportivos</title>
+    <meta name="description"
+        content="Fabricante de suplementos deportivos con instalaciones propias. Creamos tu marca de suplementos desde cero. GMP certificado.">
+    <meta name="author" content="Akumal Sport Nutrition">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Icomoon Icons -->
+    <link rel="stylesheet" href="https://wpriverthemes.com/HTML/davies/assets/icon/icomoon/style.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Odometer -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-minimal.min.css">
+    <!-- Slick -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <!-- Custom CSS -->
+    <link rel="shortcut icon" href="../assets/images/akumal/LOGO TORTUGA.png">
+    <link rel="stylesheet" href="../css/base.css?v=2">
+    <link rel="stylesheet" href="../css/components.css?v=1">
+    <link rel="stylesheet" href="../css/sections.css?v=5">
+    <link rel="stylesheet" href="../css/akumal.css?v=22">
+    <link rel="stylesheet" href="../css/pages/contacto.css?v=5">
+    <style>
+        /* ── Survey image zoom button ── */
+        .survey-img-card-photo { position: relative; overflow: hidden; cursor: zoom-in; }
+        .survey-img-zoom {
+            position: absolute;
+            top: 6px; right: 6px;
+            background: rgba(0,0,0,0.52);
+            border: none;
+            border-radius: 6px;
+            padding: 5px 6px;
+            cursor: pointer;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity .2s, background .2s;
+            backdrop-filter: blur(4px);
+            line-height: 0;
+        }
+        .survey-img-card-photo:hover .survey-img-zoom { opacity: 1; }
+        @media (hover: none) { .survey-img-zoom { opacity: .75; } }
+        /* ── Lightbox modal ── */
+        .survey-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(0,0,0,.90);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            cursor: zoom-out;
+        }
+        .survey-modal-close {
+            position: fixed;
+            top: 18px; right: 18px;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.22);
+            border-radius: 50%;
+            width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            color: #fff;
+            transition: background .2s;
+            z-index: 100001;
+            line-height: 0;
+        }
+        .survey-modal-close:hover { background: rgba(255,255,255,.24); }
+        .survey-modal-content { text-align: center; cursor: default; }
+        .survey-modal-content img {
+            max-width: min(96vw, 1300px);
+            max-height: 92vh;
+            width: auto;
+            height: auto;
+            border-radius: 10px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,.5);
+        }
+        .survey-modal-caption {
+            color: rgba(255,255,255,.65);
+            margin-top: 14px;
+            font-size: 13px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+    </style>
+    <script src="../js/config.js"></script>
+</head>
+<body class="counter-scroll">
+    
+    <!-- Scroll Top -->
+    <button id="goTop">
+        <span class="border-progress">
+        </span>
+        <span class="ic-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </span>
+    </button>
+    <!-- /Scroll Top -->
+    <!-- Preload -->
+    <div class="preloader overflow-hidden">
+        <div class="site-name">
+            <img src="../assets/images/akumal/LOGO AKUMAL.png" alt="Akumal Sport Nutrition" class="preloader-logo">
+        </div>
+        <div class="preloader-gutters">
+            <div class="bar">
+                <div class="inner-bar">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar">
+                </div>
+            </div>
+            <div class="bar">
+                <div class="inner-bar">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Preload -->
+    <main id="wrapper">
+        <!-- Header -->
+        <header class="tf-header">
+            <div class="header-inner">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-6 col-md-1">
+                            <a href="index.html" class="logo-site">
+                                <img src="../assets/images/akumal/logoAkumalBlanco.png" alt="Akumal" style="max-height: 40px; object-fit: contain;">
+                            </a>
+                        </div>
+                        <div class="col-md-8 d-none d-md-block ps-4">
+                            <div class="box-navigation">
+                                <ul class="nav-menu-main">
+                                    <li class="menu-item">
+                                        <a href="index.html" class="item-link link text-caption">
+                                            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>INICIO</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="nosotros.html" class="item-link link text-caption">
+                                            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>SOBRE NOSOTROS</a>
+                                    </li>
+                                    <li class="menu-item active">
+                                        <a href="contacto.html" class="item-link link text-caption">
+                                            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>COTIZA ONLINE</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="blog.html" class="item-link link text-caption">
+                                            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M2 15h10"/><path d="M2 11h6"/><path d="M2 19h10"/></svg></span>NOTICIAS</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="equipo.html" class="item-link link text-caption">
+                                            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>ÚNETE AL EQUIPO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3 col-md-3 d-flex justify-content-end align-items-center align-self-center gap-3">
+                            <!-- Language Selector -->
+                            <div class="lang-selector">
+                                <button class="lang-toggle text-caption link" type="button">
+                                    <span class="lang-flag">🇪🇸</span>
+                                    <span class="lang-code">ES</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                                </button>
+                                <div class="lang-dropdown">
+                                    <a href="contacto.html" class="lang-option active" data-lang="es">
+                                        <span>🇪🇸</span> ES
+                                    </a>
+                                    <a href="../pages/contact.html" class="lang-option" data-lang="en">
+                                        <span>🇬🇧</span> EN
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Login Button (empleados) -->
+                            <a href="login.html" class="header-login-btn link text-caption d-none d-md-flex" title="Acceso empleados">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                                <span>INICIAR SESIÓN</span>
+                            </a>
+                            <button type="button" class="btn-mobile-menu btn-menu-styled open-mb-menu text-caption text-white link">
+                                MENÚ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- /Header -->
+        <!-- Contact Hero -->
+        <section class="contact-hero flat-spacing">
+            <div class="contact-hero-bg-text">COTIZA</div>
+            <div class="container">
+                <p class="contact-hero-eyebrow effectFade fadeUp">Solicitar cotización</p>
+                <h1 class="effectFade fadeUp">Tu marca empieza<br><em>con una conversación</em></h1>
+                <p class="contact-hero-sub effectFade fadeUp">Cuéntanos tu proyecto. Sin compromisos, sin formulismos. Nuestro equipo te responde en menos de 24 horas con toda la información que necesitas.</p>
+                <div class="contact-stats effectFade fadeUp" id="contactStats">
+                    <div class="contact-stat-item">
+                        <span class="contact-stat-num">+200</span>
+                        <span class="contact-stat-label">Marcas creadas</span>
+                    </div>
+                    <div class="contact-stat-item">
+                        <span class="contact-stat-num">&lt;24h</span>
+                        <span class="contact-stat-label">Tiempo de respuesta</span>
+                    </div>
+                    <div class="contact-stat-item">
+                        <span class="contact-stat-num">GMP</span>
+                        <span class="contact-stat-label">Certificación activa</span>
+                    </div>
+                    <div class="contact-stat-item">
+                        <span class="contact-stat-num">100%</span>
+                        <span class="contact-stat-label">Laboratorio propio</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Contact Hero -->
+
+        <!-- Survey Multi-Step -->
+        <section class="section-survey">
+            <div class="container">
+                <div class="survey-wrapper effectFade fadeUp">
+
+                    <!-- Progress Bar -->
+                    <div class="survey-progress">
+                        <div class="survey-progress-bar" id="surveyProgressBar"></div>
+                    </div>
+                    <div class="survey-step-indicator">
+                        <span id="surveyStepCurrent">1</span> / <span id="surveyStepTotal">7</span>
+                    </div>
+
+                    <!-- PASO 1: Formato Galénico -->
+                    <div class="survey-step active" data-step="1">
+                        <div class="survey-step-header">
+                            <span class="survey-eyebrow">Paso 1 de 7</span>
+                            <h2>¿Qué tipo de producto quieres fabricar?</h2>
+                            <p>¡Elige el formato galénico que más se adapte a tus necesidades!</p>
+                        </div>
+                        <div class="survey-img-grid">
+                            <label class="survey-img-card">
+                                <input type="radio" name="galenica" value="Cápsula Dura">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Cápsula Dura</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="../assets/formulario/capsulasDuras.jpg" alt="Cápsula Dura" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Alta precisión de dosis, fácil de tragar</span>
+                                </div>
+                            </label>
+                            <label class="survey-img-card">
+                                <input type="radio" name="galenica" value="Cápsula Blanda">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Cápsula Blanda</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="../assets/formulario/capsulasBlandas.jpg" alt="Cápsula Blanda" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Ideal para aceites y activos lipofílicos</span>
+                                </div>
+                            </label>
+                            <label class="survey-img-card">
+                                <input type="radio" name="galenica" value="Comprimido">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Comprimido</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="../assets/formulario/comprimido.jpg" alt="Comprimido" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Larga vida útil, económico a gran escala</span>
+                                </div>
+                            </label>
+                            <label class="survey-img-card">
+                                <input type="radio" name="galenica" value="Polvo / Shake">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Polvo / Shake</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="../assets/formulario/polvo.jpg" alt="Polvo Shake" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Proteínas, gainers, pre-entrenos</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- PASO 2: Acondicionamiento -->
+                    <div class="survey-step" data-step="2">
+                        <div class="survey-step-header">
+                            <span class="survey-eyebrow">Paso 2 de 7</span>
+                            <h2>¿Cómo quieres acondicionar tu producto?</h2>
+                            <p>Elige el formato de acondicionamiento.</p>
+                        </div>
+                        <!-- Sólidos: Cápsula Dura / Blanda / Comprimido -->
+                        <div id="acond-solidos" class="survey-option-list" style="display:none;">
+                            <label class="survey-option-row">
+                                <input type="radio" name="acondicionamiento" value="A Granel">
+                                <span class="survey-option-row-label">A Granel</span>
+                                <span class="survey-option-radio"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="radio" name="acondicionamiento" value="Bote">
+                                <span class="survey-option-row-label">Bote</span>
+                                <span class="survey-option-radio"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="radio" name="acondicionamiento" value="Blíster">
+                                <span class="survey-option-row-label">Blíster</span>
+                                <span class="survey-option-radio"></span>
+                            </label>
+                        </div>
+                        <!-- Polvo / Shake -->
+                        <div id="acond-polvo" class="survey-option-list" style="display:none;">
+                            <label class="survey-option-row">
+                                <input type="radio" name="acondicionamiento" value="A Granel">
+                                <span class="survey-option-row-label">A Granel</span>
+                                <span class="survey-option-radio"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="radio" name="acondicionamiento" value="Doypack">
+                                <span class="survey-option-row-label">Doypack</span>
+                                <span class="survey-option-radio"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="radio" name="acondicionamiento" value="Bote">
+                                <span class="survey-option-row-label">Bote</span>
+                                <span class="survey-option-radio"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="radio" name="acondicionamiento" value="Stick Pack">
+                                <span class="survey-option-row-label">Stick Pack</span>
+                                <span class="survey-option-radio"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- PASO 3: Aplicación -->
+                    <div class="survey-step" data-step="3">
+                        <div class="survey-step-header">
+                            <span class="survey-eyebrow">Paso 3 de 7</span>
+                            <h2>¿A qué aplicación va dirigido tu producto?</h2>
+                            <p>Puedes seleccionar más de una opción.</p>
+                        </div>
+                        <div class="survey-option-list">
+                            <label class="survey-option-row">
+                                <input type="checkbox" name="aplicacion" value="Deportivo">
+                                <span class="survey-option-row-label">🏋️ Deportivo</span>
+                                <span class="survey-option-checkbox"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="checkbox" name="aplicacion" value="Salud femenina">
+                                <span class="survey-option-row-label">🌸 Salud femenina</span>
+                                <span class="survey-option-checkbox"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="checkbox" name="aplicacion" value="Inmunitario">
+                                <span class="survey-option-row-label">🛡️ Inmunitario</span>
+                                <span class="survey-option-checkbox"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="checkbox" name="aplicacion" value="Sueño">
+                                <span class="survey-option-row-label">🌙 Sueño</span>
+                                <span class="survey-option-checkbox"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="checkbox" name="aplicacion" value="Antioxidante">
+                                <span class="survey-option-row-label">✨ Antioxidante</span>
+                                <span class="survey-option-checkbox"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="checkbox" name="aplicacion" value="Detox">
+                                <span class="survey-option-row-label">🌿 Detox</span>
+                                <span class="survey-option-checkbox"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="checkbox" name="aplicacion" value="Articular">
+                                <span class="survey-option-row-label">🦴 Articular</span>
+                                <span class="survey-option-checkbox"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="checkbox" name="aplicacion" value="Cognitivo">
+                                <span class="survey-option-row-label">🧠 Cognitivo</span>
+                                <span class="survey-option-checkbox"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="checkbox" name="aplicacion" value="Hormonal">
+                                <span class="survey-option-row-label">⚗️ Hormonal</span>
+                                <span class="survey-option-checkbox"></span>
+                            </label>
+                            <label class="survey-option-row">
+                                <input type="checkbox" name="aplicacion" value="Otro">
+                                <span class="survey-option-row-label">🔬 Otro</span>
+                                <span class="survey-option-checkbox"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- PASO 4: Volumen -->
+                    <div class="survey-step" data-step="4">
+                        <div class="survey-step-header">
+                            <span class="survey-eyebrow">Paso 4 de 7</span>
+                            <h2>¿Cuántas unidades necesitas?</h2>
+                            <p>¿Qué cantidad de unidades necesitas de producto final?</p>
+                        </div>
+                        <div class="survey-img-grid">
+                            <label class="survey-img-card">
+                                <input type="radio" name="volumen" value="Menos de 500 unidades">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Menos de 500 uds.</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="https://images.unsplash.com/photo-1495592822108-db7e8e2c7f5f?w=220&h=130&fit=crop&q=80" alt="Pequeño lote" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Test de mercado / MVP</span>
+                                </div>
+                            </label>
+                            <label class="survey-img-card">
+                                <input type="radio" name="volumen" value="500 – 2.000 unidades">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">500 – 2.000 uds.</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="https://images.unsplash.com/photo-1516192518150-0d8fee5425e3?w=220&h=130&fit=crop&q=80" alt="Lanzamiento" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Lanzamiento inicial</span>
+                                </div>
+                            </label>
+                            <label class="survey-img-card">
+                                <input type="radio" name="volumen" value="2.000 – 10.000 unidades">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">2.000 – 10.000 uds.</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=220&h=130&fit=crop&q=80" alt="Crecimiento" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Escala de crecimiento</span>
+                                </div>
+                            </label>
+                            <label class="survey-img-card">
+                                <input type="radio" name="volumen" value="Más de 10.000 unidades">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Más de 10.000 uds.</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="https://images.unsplash.com/photo-1565793979507-1fece1fae5a6?w=220&h=130&fit=crop&q=80" alt="Gran escala" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Producción a gran escala</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="survey-secondary">
+                            <p class="survey-secondary-label">¿Cuál es tu volumen anual esperado? <span class="survey-optional">(opcional)</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="volumen_anual" value="Menos de 10.000 uds/año">
+                                    <span class="survey-option-row-label">Inf. 10.000 / año</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="volumen_anual" value="10.000 – 100.000 uds/año">
+                                    <span class="survey-option-row-label">Entre 10.000 y 100.000 / año</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="volumen_anual" value="Más de 100.000 uds/año">
+                                    <span class="survey-option-row-label">Sup. 100.000 / año</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PASO 5: Fórmula -->
+                    <div class="survey-step" data-step="5">
+                        <div class="survey-step-header">
+                            <span class="survey-eyebrow">Paso 5 de 7</span>
+                            <h2>Fórmula</h2>
+                            <p>¿Tienes la fórmula definida? No te preocupes si aún no la tienes.</p>
+                        </div>
+                        <div class="survey-img-grid">
+                            <label class="survey-img-card">
+                                <input type="radio" name="formula_estado" value="Sí, tengo fórmula definida">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Sí, la tengo</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="https://images.unsplash.com/photo-1532094349884-32b43cc2c2e3?w=220&h=130&fit=crop&q=80" alt="Fórmula definida" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Tengo ingredientes y dosis</span>
+                                </div>
+                            </label>
+                            <label class="survey-img-card">
+                                <input type="radio" name="formula_estado" value="Tengo idea general, necesito ayuda técnica">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Idea general</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=220&h=130&fit=crop&q=80" alt="Idea general" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Necesito asesoramiento técnico</span>
+                                </div>
+                            </label>
+                            <label class="survey-img-card">
+                                <input type="radio" name="formula_estado" value="Quiero fórmula estándar de catálogo">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Catálogo estándar</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=220&h=130&fit=crop&q=80" alt="Catálogo estándar" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Uso una de vuestras fórmulas</span>
+                                </div>
+                            </label>
+                            <label class="survey-img-card">
+                                <input type="radio" name="formula_estado" value="No lo sé, necesito asesoramiento">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Me asesoran</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=220&h=130&fit=crop&q=80" alt="Asesoramiento" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Decidiré con vuestro equipo</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="survey-fórmula-textarea" id="formulaTextareaBlock" style="display:none;">
+                            <div class="survey-secondary">
+                                <p class="survey-secondary-label">Ingredientes &amp; Dosis <span class="survey-optional">(opcional)</span></p>
+                                <textarea id="sq-fórmula" name="fórmula" rows="4" placeholder="Ej: Creatina monohidrato 3g, L-Glutamina 2g, Vitamina B6 1.4mg…"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PASO 6: Tu empresa -->
+                    <div class="survey-step" data-step="6">
+                        <div class="survey-step-header">
+                            <span class="survey-eyebrow">Paso 6 de 7</span>
+                            <h2>Empresa</h2>
+                            <p>Nos adaptamos a tu situación actual, seas startup o empresa consolidada.</p>
+                        </div>
+                        <div class="survey-sub-section">
+                            <p class="survey-sub-label">¿Tu empresa está ya constituida y funcionando?</p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="empresa_constituida" value="Sí">
+                                    <span class="survey-option-row-label">Sí</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="empresa_constituida" value="No">
+                                    <span class="survey-option-row-label">No</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="survey-secondary">
+                            <p class="survey-secondary-label">¿Tienes una fecha prevista para el lanzamiento de tu proyecto? <span class="survey-optional">(opcional)</span></p>
+                            <input type="date" id="sq-fecha" name="fecha_lanzamiento" class="survey-date-input">
+                        </div>
+                        <div class="survey-secondary">
+                            <p class="survey-secondary-label">¿Necesitas que gestionemos alguno de los siguientes servicios? <span class="survey-optional">(opcional)</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="servicios" value="Asesoramiento Legal y/o Técnico">
+                                    <span class="survey-option-row-label">Asesoramiento Legal y/o Técnico</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="servicios" value="Logística del producto">
+                                    <span class="survey-option-row-label">Logística del producto</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="servicios" value="Gestión de Registro Sanitario">
+                                    <span class="survey-option-row-label">Gestión de Registro Sanitario y tramitación de documentación</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="servicios" value="Diseño y/o marketing">
+                                    <span class="survey-option-row-label">Diseño y/o marketing del producto</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PASO 7: Datos de contacto -->
+                    <div class="survey-step" data-step="7">
+                        <div class="survey-step-header">
+                            <span class="survey-eyebrow">Paso 7 de 7</span>
+                            <h2>Datos de contacto</h2>
+                            <p>Te respondemos en menos de 24 horas con una propuesta personalizada.</p>
+                        </div>
+                        <div class="survey-contact-form">
+                            <div class="scf-row">
+                                <div class="scf-field">
+                                    <label for="sq-nombre">Nombre *</label>
+                                    <input type="text" id="sq-nombre" name="nombre" placeholder="Tu nombre" required>
+                                </div>
+                                <div class="scf-field">
+                                    <label for="sq-apellidos">Apellido(s)</label>
+                                    <input type="text" id="sq-apellidos" name="apellidos" placeholder="Tus apellidos">
+                                </div>
+                            </div>
+                            <div class="scf-row">
+                                <div class="scf-field">
+                                    <label for="sq-empresa">Empresa / Marca</label>
+                                    <input type="text" id="sq-empresa" name="empresa" placeholder="Nombre de tu empresa">
+                                </div>
+                                <div class="scf-field">
+                                    <label for="sq-telefono">Número de teléfono</label>
+                                    <input type="tel" id="sq-telefono" name="telefono" placeholder="+34 600 000 000">
+                                </div>
+                            </div>
+                            <div class="scf-full scf-field">
+                                <label for="sq-email">Correo electrónico *</label>
+                                <input type="email" id="sq-email" name="email" placeholder="tu@email.com" required>
+                            </div>
+                            <div class="scf-full scf-field">
+                                <label for="sq-notas">¿Necesitamos más detalles? <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(0,0,0,0.3)">(opcional)</span></label>
+                                <textarea id="sq-notas" name="notas" placeholder="Si es necesario, déjanos información más específica sobre tu idea de producto o algún comentario adicional."></textarea>
+                            </div>
+                            <div class="scf-legal">
+                                <label class="scf-check">
+                                    <input type="checkbox" id="sq-privacidad" required>
+                                    <span>He leído y entendido la <a href="#">Política de privacidad</a> y los Avisos Legales. Doy mi consentimiento para que este sitio web almacene mi información enviada.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navegación -->
+                    <div class="survey-nav">
+                        <button class="survey-btn-back" id="surveyBack" type="button" style="display:none;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                            Anterior
+                        </button>
+                        <button class="survey-btn-next" id="surveyNext" type="button">
+                            Siguiente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <button class="survey-btn-submit" id="surveySubmit" type="button" style="display:none;">
+                            <span id="surveySubmitText">Enviar solicitud</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                    </div>
+
+                    <!-- Pantalla de éxito -->
+                    <div class="survey-success" id="surveySuccess" style="display:none;">
+                        <div class="survey-success-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#607561" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <h2>¡Solicitud recibida!</h2>
+                        <p>Nuestro equipo revisará tu proyecto y te contactará en menos de 24 horas con una propuesta personalizada.</p>
+                        <div class="survey-success-data" id="surveySuccessData"></div>
+                        <a href="index.html" class="tf-btn mt-4">Volver al inicio</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- /Survey -->
+        <!-- Footer -->
+        <footer class="tf-footer">
+            <div class="container">
+                <div class="br-line">
+                </div>
+            </div>
+            <div class="footer-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a href="index.html" class="footer-logo mb-4 d-inline-block">
+                                <img src="../assets/images/akumal/LOGO AKUMAL.png" alt="Akumal Sport Nutrition" style="max-width: 200px; filter: brightness(0) invert(1);">
+                            </a>
+                            <p class="title text-has-dot text-caption fw-medium mt-4 mb-2">
+                                <span class="br-dot" style="background-color:#607561; width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:8px;">
+                                </span>
+                                DONDE NACEN LAS MARCAS
+                            </p>
+                            <p class="text-body-2 mt-3" style="line-height:1.6; color: rgba(255,255,255,0.60);">
+                                Donde nacen las marcas que marcan la diferencia. Somos ese socio estratégico que toda marca necesita cuando decide tomarse en serio su producto, su posicionamiento y su crecimiento. Trabajamos para terceros, en un modelo B2B, acompañando a empresas que buscan lanzar o mejorar su propia línea de suplementación deportiva.
+                            </p>
+                        </div>
+                        <div class="col-6 col-sm-2 col-md-1">
+                            <p class="footer-heading text-caption fw-medium text-white-64">
+                                ENLACES
+                            </p>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <ul class="footer-menu-list mb-sm-0">
+                                <li>
+                                    <a href="index.html" class="link letter-space--2 h5">Inicio</a>
+                                </li>
+                                <li>
+                                    <a href="nosotros.html" class="link letter-space--2 h5">Sobre Nosotros</a>
+                                </li>
+                                <li>
+                                    <a href="contacto.html" class="link letter-space--2 h5">Cotiza Online</a>
+                                </li>
+                                <li>
+                                    <a href="blog.html" class="link letter-space--2 h5">Noticias</a>
+                                </li>
+                                <li>
+                                    <a href="equipo.html" class="link letter-space--2 h5">Únete al Equipo</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-sm-2 col-md-1">
+                            <p class="footer-heading text-caption fw-medium text-white-64">
+                                CONTACTO
+                            </p>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-4">
+                            <ul class="footer-menu-list mb-0">
+                                <li>
+                                    <a href="mailto:info@akumalnutrition.com" class="link letter-space--2 h5 d-flex align-items-center gap-2">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Correo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tel:+34633825132" class="link letter-space--2 h5 d-flex align-items-center gap-2">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +34 633 82 51 32
+                                    </a>
+                                </li>
+                                <li class="mt-3">
+                                    <div class="d-flex gap-2">
+                                        <a href="https://www.linkedin.com/company/akumal-sport-nutrition/posts/?feedView=all" target="_blank" class="social-icon-circle">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                        </a>
+                                        <a href="https://www.facebook.com/akumalsportnutrition" target="_blank" class="social-icon-circle">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                                        </a>
+                                        <a href="https://www.instagram.com/akumalsportnutrition" target="_blank" class="social-icon-circle">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+<div class="bottom">
+                        <p class="text-nocopy text-caption fw-medium letter-space--1">
+                            © AKUMAL SPORT NUTRITION 2026
+                        </p>
+                        <div class="d-flex align-items-center gap-3 flex-wrap justify-content-end">
+                            <a href="politica-privacidad.html" class="link text-caption fw-medium letter-space--1" style="color:#fff">POLÍTICA DE PRIVACIDAD</a>
+                            <a href="aviso-legal.html" class="link text-caption fw-medium letter-space--1" style="color:#fff">AVISO LEGAL</a>
+                            <a href="politica-cookies.html" class="link text-caption fw-medium letter-space--1" style="color:#fff">POLÍTICA DE COOKIES</a>
+                            <a href="#" class="action-go-top tf-link-icon link text-caption fw-medium letter-space--1" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+                                VOLVER ARRIBA
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px;"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- /Footer -->
+    </main>
+    <!-- Image Lightbox Modal -->
+    <div id="surveyImgModal" class="survey-modal" style="display:none;" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+        <button class="survey-modal-close" id="surveyModalClose" aria-label="Cerrar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="survey-modal-content">
+            <img id="surveyModalImg" src="" alt="">
+            <p class="survey-modal-caption" id="surveyModalCaption"></p>
+        </div>
+    </div>
+    <!-- /Image Lightbox Modal -->
+    <!-- Mobile Menu -->
+    <div class="offcanvas-menu">
+        <div class="offcanvas-content">
+            <div class="container h-100">
+                <div class="offcanvas-content_wrapin">
+                    <div class="canvas_head">
+                        <a href="index.html" class="logo-site">
+                            <img src="../assets/images/akumal/logoAkumalBlanco.png" alt="Akumal" style="max-width: 150px;">
+                        </a>
+                        <div class="btn-mobile-menu close-mb-menu text-caption link d-flex align-items-center gap-2">
+                            <i class="icon icon-close">
+                            </i>
+                            CERRAR
+                        </div>
+                    </div>
+                    <div class="canvas_center">
+                        <ul class="nav-ul-mb">
+                            <li>
+                                <div class="item close-mb-menu">
+                                    <a href="index.html" class="mb-menu-link text-display-1">
+                                        <span class="text">Inicio</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Inicio</p>
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Inicio</p>
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Inicio</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item close-mb-menu">
+                                    <a href="nosotros.html" class="mb-menu-link text-display-1">
+                                        <span class="text">Sobre Nosotros</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Sobre Nosotros</p>
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Sobre Nosotros</p>
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Sobre Nosotros</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item close-mb-menu">
+                                    <a href="contacto.html" class="mb-menu-link text-display-1">
+                                        <span class="text">Cotiza Online</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Cotiza Online</p>
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Cotiza Online</p>
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Cotiza Online</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item close-mb-menu">
+                                    <a href="blog.html" class="mb-menu-link text-display-1">
+                                        <span class="text">Noticias</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Noticias</p>
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Noticias</p>
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Noticias</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                                                        <li>
+                                <div class="item close-mb-menu">
+                                    <a href="#" class="mb-menu-link text-display-1">
+                                        <span class="text">Únete al Equipo</span>
+                                        <div class="infiniteSlide_text_main">
+                                            <div class="infiniteSlide infiniteSlide_text" data-clone="5">
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Únete al Equipo</p>
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Únete al Equipo</p>
+                                                <p class="text-body-2 letter-space--1"><span class="text-primary">//</span> Únete al Equipo</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="canvas_foot">
+                        <div class="left">
+                            <a href="mailto:info@akumalnutrition.com"
+                                class="link text-caption d-flex align-items-center gap-2 mb-2">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> INFO@AKUMALNUTRITION.COM</a>
+                            
+                        </div>
+                        <div class="right d-flex flex-column align-items-end gap-3">
+                            <a href="tel:+34633825132" class="tf-link-icon text-caption link d-flex align-items-center gap-2 justify-content-end">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                +34 633 82 51 32
+                            </a>
+                            <div class="d-flex gap-2">
+                                <a href="https://www.linkedin.com/company/akumal-sport-nutrition/posts/?feedView=all" target="_blank" class="social-icon-circle">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                </a>
+                                <a href="https://www.facebook.com/akumalsportnutrition" target="_blank" class="social-icon-circle">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                                </a>
+                                <a href="https://www.instagram.com/akumalsportnutrition" target="_blank" class="social-icon-circle">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Mobile Menu -->
+    <!-- Javascript -->
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Nice Select -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Slick -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!-- Odometer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <!-- SplitText -->
+    <!-- ScrollSmoother -->
+    <!-- Carousel init -->
+    <!-- InfinitySlide -->
+    <!-- GSAP Animations -->
+    <!-- Main JS -->
+    <script src="../js/vendor/splittext.min.js"></script>
+    <script src="../js/scrollsmoother.js"></script>
+    <script src="../js/carousel.js"></script>
+    <script src="../js/vendor/infinityslide.js"></script>
+    <script src="../js/gsap-animations.js"></script>
+    <script src="../js/main.js"></script>
+    <!-- Survey Logic -->
+    <script>
+    (function () {
+        'use strict';
+
+        const TOTAL_STEPS = 7;
+        let currentStep = 1;
+
+        const steps       = document.querySelectorAll('.survey-step');
+        const btnBack     = document.getElementById('surveyBack');
+        const btnNext     = document.getElementById('surveyNext');
+        const btnSubmit   = document.getElementById('surveySubmit');
+        const progressBar = document.getElementById('surveyProgressBar');
+        const stepCurrent = document.getElementById('surveyStepCurrent');
+        const successDiv  = document.getElementById('surveySuccess');
+        const successData = document.getElementById('surveySuccessData');
+
+        function showAcondSubgrid() {
+            const galenica = (document.querySelector('input[name="galenica"]:checked') || {}).value || '';
+            const isPolvo  = galenica === 'Polvo / Shake';
+            const solidos  = document.getElementById('acond-solidos');
+            const polvo    = document.getElementById('acond-polvo');
+            document.querySelectorAll('input[name="acondicionamiento"]').forEach(function (r) { r.checked = false; });
+            if (solidos) solidos.style.display = isPolvo ? 'none' : 'block';
+            if (polvo)   polvo.style.display   = isPolvo ? 'block' : 'none';
+        }
+
+        function renderStep(n) {
+            steps.forEach(s => s.classList.remove('active'));
+            const target = document.querySelector('.survey-step[data-step="' + n + '"]');
+            if (target) target.classList.add('active');
+            if (n === 2) showAcondSubgrid();
+            stepCurrent.textContent = n;
+            progressBar.style.width = (n / TOTAL_STEPS * 100) + '%';
+            btnBack.style.display   = n > 1 ? 'inline-flex' : 'none';
+            btnNext.style.display   = n < TOTAL_STEPS ? 'inline-flex' : 'none';
+            btnSubmit.style.display = n === TOTAL_STEPS ? 'inline-flex' : 'none';
+        }
+
+        function validateStep(n) {
+            if (n === 1) return !!document.querySelector('input[name="galenica"]:checked');
+            if (n === 2) return !!document.querySelector('input[name="acondicionamiento"]:checked');
+            if (n === 3) return !!document.querySelector('input[name="aplicacion"]:checked');
+            if (n === 4) return !!document.querySelector('input[name="volumen"]:checked');
+            if (n === 5) return !!document.querySelector('input[name="formula_estado"]:checked');
+            if (n === 6) return !!document.querySelector('input[name="empresa_constituida"]:checked');
+            if (n === 7) {
+                const nombre     = document.getElementById('sq-nombre');
+                const email      = document.getElementById('sq-email');
+                const privacidad = document.getElementById('sq-privacidad');
+                if (!nombre.value.trim()) { nombre.focus(); return false; }
+                if (!email.value.trim() || !email.validity.valid) { email.focus(); return false; }
+                if (!privacidad.checked) { alert('Por favor acepta la política de privacidad.'); return false; }
+                return true;
+            }
+            return true;
+        }
+
+        function collectData() {
+            return {
+                galenica:            (document.querySelector('input[name="galenica"]:checked') || {}).value || '',
+                acondicionamiento:   (document.querySelector('input[name="acondicionamiento"]:checked') || {}).value || '',
+                aplicacion:          [...document.querySelectorAll('input[name="aplicacion"]:checked')].map(i => i.value).join(', '),
+                volumen:             (document.querySelector('input[name="volumen"]:checked') || {}).value || '',
+                volumen_anual:       (document.querySelector('input[name="volumen_anual"]:checked') || {}).value || '',
+                formula_estado:      (document.querySelector('input[name="formula_estado"]:checked') || {}).value || '',
+                fórmula:             (document.getElementById('sq-fórmula') || {}).value || '',
+                empresa_constituida: (document.querySelector('input[name="empresa_constituida"]:checked') || {}).value || '',
+                fecha_lanzamiento:   (document.getElementById('sq-fecha') || {}).value || '',
+                servicios:           [...document.querySelectorAll('input[name="servicios"]:checked')].map(i => i.value).join(', '),
+                nombre:   document.getElementById('sq-nombre').value.trim(),
+                empresa:  document.getElementById('sq-empresa').value.trim(),
+                email:    document.getElementById('sq-email').value.trim(),
+                telefono: document.getElementById('sq-telefono').value.trim(),
+                notas:    document.getElementById('sq-notas').value.trim()
+            };
+        }
+
+        async function sendToOdoo(data) {
+            const apiUrl = (window.AKUMAL_CONFIG && window.AKUMAL_CONFIG.API_URL) || 'http://localhost:3001';
+            const res = await fetch(apiUrl + '/api/lead', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:    JSON.stringify(data)
+            });
+            if (!res.ok) throw new Error('Error HTTP ' + res.status);
+            const result = await res.json();
+            if (!result.ok) throw new Error(result.error || 'Error del servidor');
+            return result;
+        }
+
+        function showSuccess(data) {
+            document.querySelector('.survey-progress').style.display = 'none';
+            document.querySelector('.survey-step-indicator').style.display = 'none';
+            steps.forEach(s => s.style.display = 'none');
+            document.querySelector('.survey-nav').style.display = 'none';
+            successDiv.style.display = 'block';
+            const tags = [data.galenica, data.acondicionamiento, data.volumen].filter(Boolean);
+            successData.innerHTML = tags.map(t =>
+                '<span class="survey-success-tag">' + t + '</span>'
+            ).join('');
+        }
+
+        function scrollToSurvey() {
+            const el = document.querySelector('.survey-wrapper');
+            if (!el) return;
+            const top = el.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        }
+
+        btnNext.addEventListener('click', function () {
+            if (!validateStep(currentStep)) { shakeNav(); return; }
+            currentStep++;
+            renderStep(currentStep);
+            scrollToSurvey();
+        });
+
+        btnBack.addEventListener('click', function () {
+            currentStep--;
+            renderStep(currentStep);
+            scrollToSurvey();
+        });
+
+        btnSubmit.addEventListener('click', async function () {
+            if (!validateStep(TOTAL_STEPS)) return;
+            const data = collectData();
+            const submitText = document.getElementById('surveySubmitText');
+            btnSubmit.classList.add('loading');
+            submitText.textContent = 'Enviando...';
+            try {
+                await sendToOdoo(data);
+                showSuccess(data);
+            } catch (err) {
+                console.error('[Survey] Error al enviar:', err);
+                showSuccess(data);
+            }
+        });
+
+        // ── Helpers de DOM ────────────────────────────────────────────────────
+
+        function escHtml(s) {
+            return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        function renderImgCard(fieldName, item) {
+            return '<label class="survey-img-card">' +
+                '<input type="radio" name="' + fieldName + '" value="' + escHtml(item.valor) + '">' +
+                '<div class="survey-img-card-inner">' +
+                    '<div class="survey-img-card-top">' +
+                        '<span class="survey-img-card-label">' + escHtml(item.etiqueta) + '</span>' +
+                        '<span class="survey-img-card-indicator"></span>' +
+                    '</div>' +
+                    '<div class="survey-img-card-photo">' +
+                        (item.imagen_url ? '<img src="' + escHtml(item.imagen_url) + '" alt="' + escHtml(item.etiqueta) + '" loading="lazy">' : '') +
+                    '</div>' +
+                    '<span class="survey-img-card-desc">' + escHtml(item.descripcion || '') + '</span>' +
+                '</div>' +
+                '</label>';
+        }
+
+        function renderCheckboxRow(fieldName, inputType, item) {
+            const prefix = item.emoji ? item.emoji + ' ' : '';
+            const indicator = inputType === 'checkbox'
+                ? '<span class="survey-option-checkbox"></span>'
+                : '<span class="survey-option-radio"></span>';
+            return '<label class="survey-option-row">' +
+                '<input type="' + inputType + '" name="' + fieldName + '" value="' + escHtml(item.valor) + '">' +
+                '<span class="survey-option-row-label">' + prefix + escHtml(item.etiqueta) + '</span>' +
+                indicator +
+                '</label>';
+        }
+
+        // ── Listeners reutilizables ────────────────────────────────────────────
+
+        function wireFormulaEstado() {
+            document.querySelectorAll('input[name="formula_estado"]').forEach(function (radio) {
+                radio.addEventListener('change', function () {
+                    const block = document.getElementById('formulaTextareaBlock');
+                    const show = this.value === 'Sí, tengo fórmula definida' || this.value === 'Tengo idea general, necesito ayuda técnica';
+                    block.style.display = show ? 'block' : 'none';
+                });
+            });
+        }
+
+        function wireGalenica() {
+            document.querySelectorAll('input[name="galenica"]').forEach(function (radio) {
+                radio.addEventListener('change', function () {
+                    if (currentStep === 1) {
+                        setTimeout(function () {
+                            currentStep++;
+                            renderStep(currentStep);
+                            scrollToSurvey();
+                        }, 350);
+                    }
+                });
+            });
+        }
+
+        // ── Carga dinámica desde Directus ─────────────────────────────────────
+
+        async function loadFromDirectus() {
+            const cfg  = window.AKUMAL_CONFIG || {};
+            const base = cfg.DIRECTUS_URL || 'http://localhost:8055';
+
+            try {
+                const res = await fetch(
+                    base + '/items/survey_opciones?filter[activo][_eq]=true&sort=orden&limit=200',
+                    { signal: AbortSignal.timeout(3000) }
+                );
+                if (res.ok) {
+                    const { data } = await res.json();
+                    if (data && data.length) {
+                        const byField = {};
+                        data.forEach(function (item) {
+                            if (!byField[item.campo]) byField[item.campo] = [];
+                            byField[item.campo].push(item);
+                        });
+                        if (byField.galenica) {
+                            const grid = document.querySelector('.survey-step[data-step="1"] .survey-img-grid');
+                            if (grid) { grid.innerHTML = byField.galenica.map(function (o) { return renderImgCard('galenica', o); }).join(''); wireGalenica(); }
+                        }
+                        if (byField.aplicacion) {
+                            const list = document.querySelector('.survey-step[data-step="3"] .survey-option-list');
+                            if (list) list.innerHTML = byField.aplicacion.map(function (o) { return renderCheckboxRow('aplicacion', 'checkbox', o); }).join('');
+                        }
+                        if (byField.volumen) {
+                            const grid = document.querySelector('.survey-step[data-step="4"] .survey-img-grid');
+                            if (grid) grid.innerHTML = byField.volumen.map(function (o) { return renderImgCard('volumen', o); }).join('');
+                        }
+                        if (byField.formula_estado) {
+                            const grid = document.querySelector('.survey-step[data-step="5"] .survey-img-grid');
+                            if (grid) { grid.innerHTML = byField.formula_estado.map(function (o) { return renderImgCard('formula_estado', o); }).join(''); wireFormulaEstado(); }
+                        }
+                        if (byField.servicios) {
+                            const lists = document.querySelectorAll('.survey-step[data-step="6"] .survey-secondary .survey-option-list');
+                            const list  = lists[lists.length - 1];
+                            if (list) list.innerHTML = byField.servicios.map(function (o) { return renderCheckboxRow('servicios', 'checkbox', o); }).join('');
+                        }
+                    }
+                }
+            } catch (e) { /* Directus inactivo — HTML hardcodeado permanece */ }
+
+            try {
+                const res = await fetch(
+                    base + '/items/estadisticas?filter[activo][_eq]=true&sort=orden',
+                    { signal: AbortSignal.timeout(3000) }
+                );
+                if (res.ok) {
+                    const { data } = await res.json();
+                    if (data && data.length) {
+                        const container = document.getElementById('contactStats');
+                        if (container) {
+                            container.innerHTML = data.map(function (item) {
+                                return '<div class="contact-stat-item">' +
+                                    '<span class="contact-stat-num">' + escHtml(item.valor) + '</span>' +
+                                    '<span class="contact-stat-label">' + escHtml(item.etiqueta) + '</span>' +
+                                    '</div>';
+                            }).join('');
+                        }
+                    }
+                }
+            } catch (e) { /* silently ignore */ }
+        }
+
+        // Wire hardcoded fallback listeners (re-wired by loadFromDirectus if DOM is replaced)
+        wireFormulaEstado();
+        wireGalenica();
+
+        function shakeNav() {
+            const nav = document.querySelector('.survey-nav');
+            nav.style.animation = 'none';
+            nav.offsetHeight;
+            nav.style.animation = 'shake 0.4s ease';
+        }
+
+        const shakeStyle = document.createElement('style');
+        shakeStyle.textContent = '@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }';
+        document.head.appendChild(shakeStyle);
+
+        loadFromDirectus().finally(function () { renderStep(1); });
+    })();
+    </script>
+    <!-- Survey image lightbox -->
+    <script>
+    (function () {
+        var modal      = document.getElementById('surveyImgModal');
+        var modalImg   = document.getElementById('surveyModalImg');
+        var modalCap   = document.getElementById('surveyModalCaption');
+        var modalClose = document.getElementById('surveyModalClose');
+
+        function hiResSrc(src) {
+            if (src.includes('unsplash.com')) {
+                return src
+                    .replace(/w=\d+/, 'w=1400')
+                    .replace(/h=\d+/, 'h=900')
+                    .replace(/q=\d+/, 'q=95');
+            }
+            return src;
+        }
+
+        function openModal(src, alt) {
+            modalImg.src = hiResSrc(src);
+            modalImg.alt = alt || '';
+            modalCap.textContent = alt || '';
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+            modalImg.src = '';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.style.display !== 'none') closeModal();
+        });
+
+        var ZOOM_SVG = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>';
+
+        function addZoom(photoEl) {
+            if (!photoEl || photoEl.querySelector('.survey-img-zoom')) return;
+            var img = photoEl.querySelector('img');
+            if (!img) return;
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'survey-img-zoom';
+            btn.setAttribute('aria-label', 'Ver imagen ampliada');
+            btn.innerHTML = ZOOM_SVG;
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                openModal(img.src, img.alt);
+            });
+            photoEl.appendChild(btn);
+        }
+
+        function initZoomButtons() {
+            document.querySelectorAll('.survey-img-card-photo').forEach(addZoom);
+        }
+
+        initZoomButtons();
+
+        // Re-init zoom buttons when Directus replaces card HTML
+        var wrapper = document.querySelector('.survey-wrapper');
+        if (wrapper && window.MutationObserver) {
+            new MutationObserver(function (mutations) {
+                mutations.forEach(function (m) {
+                    m.addedNodes.forEach(function (node) {
+                        if (node.nodeType !== 1) return;
+                        if (node.classList && node.classList.contains('survey-img-card-photo')) {
+                            addZoom(node);
+                        } else {
+                            node.querySelectorAll('.survey-img-card-photo').forEach(addZoom);
+                        }
+                    });
+                });
+            }).observe(wrapper, { childList: true, subtree: true });
+        }
+    })();
+    </script>
+</body>
+</html>
+
