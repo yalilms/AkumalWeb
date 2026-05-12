@@ -844,6 +844,26 @@
 }
 .survey-date-input:focus { border-color: #607561; }
 
+/* ── Number input (paso 4 Volumen) ── */
+.survey-number-input {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  background: #fff;
+  border: 1.5px solid #dde1dc;
+  border-radius: 6px;
+  padding: 11px 14px;
+  font-size: 14px;
+  color: #2a3328;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.survey-number-input:focus { border-color: #607561; }
+
+/* ── Asterisco requerido ── */
+.survey-req { color: #e53935; margin-left: 2px; }
+
 /* ── Textarea fórmula ── */
 .survey-formula-textarea { animation: stepIn 0.3s ease; }
 .survey-formula-textarea textarea {

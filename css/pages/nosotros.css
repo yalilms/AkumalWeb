@@ -380,3 +380,8 @@
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
+
+/* ── Badge tortuga: solo en desktop ────────────────────── */
+@media (max-width: 767px) {
+  .section-about-me .col-left .badget { display: none; }
+}

@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="../css/base.css?v=2">
     <link rel="stylesheet" href="../css/components.css?v=1">
     <link rel="stylesheet" href="../css/sections.css?v=5">
-    <link rel="stylesheet" href="../css/akumal.css?v=22">
+    <link rel="stylesheet" href="../css/akumal.css?v=37">
     <link rel="stylesheet" href="../css/pages/contacto.css?v=5">
     <style>
         /* ── Survey image zoom button ── */
@@ -215,7 +215,7 @@
                                 </div>
                             </div>
                             <!-- Login Button (empleados) -->
-                            <a href="login.html" class="header-login-btn link text-caption d-none d-md-flex" title="Acceso empleados">
+                            <a href="login.html" class="header-login-btn link text-caption d-flex" title="Acceso empleados">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
                                 <span>INICIAR SESIÓN</span>
                             </a>
@@ -341,44 +341,100 @@
                             <p>Elige el formato de acondicionamiento.</p>
                         </div>
                         <!-- Sólidos: Cápsula Dura / Blanda / Comprimido -->
-                        <div id="acond-solidos" class="survey-option-list" style="display:none;">
-                            <label class="survey-option-row">
+                        <div id="acond-solidos" class="survey-img-grid" style="display:none;">
+                            <label class="survey-img-card">
                                 <input type="radio" name="acondicionamiento" value="A Granel">
-                                <span class="survey-option-row-label">A Granel</span>
-                                <span class="survey-option-radio"></span>
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">A Granel</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="../assets/formulario/capsulas.png" alt="A Granel" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Sin envase, entrega a peso</span>
+                                </div>
                             </label>
-                            <label class="survey-option-row">
+                            <label class="survey-img-card">
                                 <input type="radio" name="acondicionamiento" value="Bote">
-                                <span class="survey-option-row-label">Bote</span>
-                                <span class="survey-option-radio"></span>
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Bote</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="../assets/formulario/bote.png" alt="Bote" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Envase rígido con tapa</span>
+                                </div>
                             </label>
-                            <label class="survey-option-row">
+                            <label class="survey-img-card">
                                 <input type="radio" name="acondicionamiento" value="Blíster">
-                                <span class="survey-option-row-label">Blíster</span>
-                                <span class="survey-option-radio"></span>
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Blíster</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="../assets/formulario/blister.png" alt="Blíster" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Dosis unitarias selladas</span>
+                                </div>
                             </label>
                         </div>
                         <!-- Polvo / Shake -->
-                        <div id="acond-polvo" class="survey-option-list" style="display:none;">
-                            <label class="survey-option-row">
+                        <div id="acond-polvo" class="survey-img-grid" style="display:none;">
+                            <label class="survey-img-card">
                                 <input type="radio" name="acondicionamiento" value="A Granel">
-                                <span class="survey-option-row-label">A Granel</span>
-                                <span class="survey-option-radio"></span>
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">A Granel</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="../assets/formulario/polvo.jpg" alt="A Granel polvo" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Sin envase, entrega a peso</span>
+                                </div>
                             </label>
-                            <label class="survey-option-row">
-                                <input type="radio" name="acondicionamiento" value="Doypack">
-                                <span class="survey-option-row-label">Doypack</span>
-                                <span class="survey-option-radio"></span>
-                            </label>
-                            <label class="survey-option-row">
+                            <label class="survey-img-card">
                                 <input type="radio" name="acondicionamiento" value="Bote">
-                                <span class="survey-option-row-label">Bote</span>
-                                <span class="survey-option-radio"></span>
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Bote</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="../assets/formulario/bote.png" alt="Bote" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Envase rígido con tapa</span>
+                                </div>
                             </label>
-                            <label class="survey-option-row">
+                            <label class="survey-img-card">
+                                <input type="radio" name="acondicionamiento" value="Doypack">
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Doypack</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="../assets/formulario/doypack.png" alt="Doypack" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Bolsa flexible resellable</span>
+                                </div>
+                            </label>
+                            <label class="survey-img-card">
                                 <input type="radio" name="acondicionamiento" value="Stick Pack">
-                                <span class="survey-option-row-label">Stick Pack</span>
-                                <span class="survey-option-radio"></span>
+                                <div class="survey-img-card-inner">
+                                    <div class="survey-img-card-top">
+                                        <span class="survey-img-card-label">Stick Pack</span>
+                                        <span class="survey-img-card-indicator"></span>
+                                    </div>
+                                    <div class="survey-img-card-photo">
+                                        <img src="../assets/formulario/sticks.png" alt="Stick Pack" loading="lazy">
+                                    </div>
+                                    <span class="survey-img-card-desc">Monodosis práctica</span>
+                                </div>
                             </label>
                         </div>
                     </div>
@@ -444,86 +500,169 @@
                         </div>
                     </div>
 
-                    <!-- PASO 4: Volumen -->
+                    <!-- PASO 4: Volumen / Unidades (dinámico según acondicionamiento) -->
                     <div class="survey-step" data-step="4">
                         <div class="survey-step-header">
                             <span class="survey-eyebrow">Paso 4 de 7</span>
-                            <h2>¿Cuántas unidades necesitas?</h2>
-                            <p>¿Qué cantidad de unidades necesitas de producto final?</p>
+                            <h2>Unidades</h2>
+                            <p>Indícanos las cantidades que necesitas.</p>
                         </div>
-                        <div class="survey-img-grid">
-                            <label class="survey-img-card">
-                                <input type="radio" name="volumen" value="Menos de 500 unidades">
-                                <div class="survey-img-card-inner">
-                                    <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">Menos de 500 uds.</span>
-                                        <span class="survey-img-card-indicator"></span>
-                                    </div>
-                                    <div class="survey-img-card-photo">
-                                        <img src="https://images.unsplash.com/photo-1495592822108-db7e8e2c7f5f?w=220&h=130&fit=crop&q=80" alt="Pequeño lote" loading="lazy">
-                                    </div>
-                                    <span class="survey-img-card-desc">Test de mercado / MVP</span>
-                                </div>
-                            </label>
-                            <label class="survey-img-card">
-                                <input type="radio" name="volumen" value="500 – 2.000 unidades">
-                                <div class="survey-img-card-inner">
-                                    <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">500 – 2.000 uds.</span>
-                                        <span class="survey-img-card-indicator"></span>
-                                    </div>
-                                    <div class="survey-img-card-photo">
-                                        <img src="https://images.unsplash.com/photo-1516192518150-0d8fee5425e3?w=220&h=130&fit=crop&q=80" alt="Lanzamiento" loading="lazy">
-                                    </div>
-                                    <span class="survey-img-card-desc">Lanzamiento inicial</span>
-                                </div>
-                            </label>
-                            <label class="survey-img-card">
-                                <input type="radio" name="volumen" value="2.000 – 10.000 unidades">
-                                <div class="survey-img-card-inner">
-                                    <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">2.000 – 10.000 uds.</span>
-                                        <span class="survey-img-card-indicator"></span>
-                                    </div>
-                                    <div class="survey-img-card-photo">
-                                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=220&h=130&fit=crop&q=80" alt="Crecimiento" loading="lazy">
-                                    </div>
-                                    <span class="survey-img-card-desc">Escala de crecimiento</span>
-                                </div>
-                            </label>
-                            <label class="survey-img-card">
-                                <input type="radio" name="volumen" value="Más de 10.000 unidades">
-                                <div class="survey-img-card-inner">
-                                    <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">Más de 10.000 uds.</span>
-                                        <span class="survey-img-card-indicator"></span>
-                                    </div>
-                                    <div class="survey-img-card-photo">
-                                        <img src="https://images.unsplash.com/photo-1565793979507-1fece1fae5a6?w=220&h=130&fit=crop&q=80" alt="Gran escala" loading="lazy">
-                                    </div>
-                                    <span class="survey-img-card-desc">Producción a gran escala</span>
-                                </div>
-                            </label>
-                        </div>
-                        <div class="survey-secondary">
-                            <p class="survey-secondary-label">¿Cuál es tu volumen anual esperado? <span class="survey-optional">(opcional)</span></p>
+
+                        <!-- A Granel — sólidos (cápsulas/comprimidos) -->
+                        <div id="vol-granel-solid" class="vol-sub" style="display:none;">
+                            <p class="survey-sub-label">¿Cuántas cápsulas a granel necesitas? <span class="survey-req">*</span></p>
                             <div class="survey-option-list">
                                 <label class="survey-option-row">
-                                    <input type="radio" name="volumen_anual" value="Menos de 10.000 uds/año">
-                                    <span class="survey-option-row-label">Inf. 10.000 / año</span>
+                                    <input type="radio" name="vol_cantidad" value="&lt;100.000 uds.">
+                                    <span class="survey-option-row-label">&lt;100.000 uds.</span>
                                     <span class="survey-option-radio"></span>
                                 </label>
                                 <label class="survey-option-row">
-                                    <input type="radio" name="volumen_anual" value="10.000 – 100.000 uds/año">
-                                    <span class="survey-option-row-label">Entre 10.000 y 100.000 / año</span>
+                                    <input type="radio" name="vol_cantidad" value="100.000 – 500.000 uds.">
+                                    <span class="survey-option-row-label">100.000 – 500.000 uds.</span>
                                     <span class="survey-option-radio"></span>
                                 </label>
                                 <label class="survey-option-row">
-                                    <input type="radio" name="volumen_anual" value="Más de 100.000 uds/año">
-                                    <span class="survey-option-row-label">Sup. 100.000 / año</span>
+                                    <input type="radio" name="vol_cantidad" value="&gt;500.000 uds.">
+                                    <span class="survey-option-row-label">&gt;500.000 uds.</span>
                                     <span class="survey-option-radio"></span>
                                 </label>
                             </div>
+                        </div>
+
+                        <!-- Bote — sólidos -->
+                        <div id="vol-bote-solid" class="vol-sub" style="display:none;">
+                            <p class="survey-sub-label">¿Cuántas cápsulas por bote necesitas? <span class="survey-req">*</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_caps_bote" value="30">
+                                    <span class="survey-option-row-label">30</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_caps_bote" value="60">
+                                    <span class="survey-option-row-label">60</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_caps_bote" value="90">
+                                    <span class="survey-option-row-label">90</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_caps_bote" value="120">
+                                    <span class="survey-option-row-label">120</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                            </div>
+                            <div class="survey-secondary">
+                                <p class="survey-sub-label">¿Qué cantidad de unidades necesitas de producto final? <span class="survey-req">*</span></p>
+                                <input type="number" id="vol-unidades-bote" name="vol_unidades_final" class="survey-number-input" placeholder="Ej: 5.000" min="1">
+                            </div>
+                        </div>
+
+                        <!-- Blíster — sólidos -->
+                        <div id="vol-blister" class="vol-sub" style="display:none;">
+                            <p class="survey-sub-label">¿Cuántas cápsulas necesitas por blíster? <span class="survey-req">*</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_caps_blister" value="4">
+                                    <span class="survey-option-row-label">4</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_caps_blister" value="10">
+                                    <span class="survey-option-row-label">10</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_caps_blister" value="15">
+                                    <span class="survey-option-row-label">15</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                            </div>
+                            <div class="survey-secondary">
+                                <p class="survey-sub-label">¿Qué cantidad de unidades necesitas de producto final? <span class="survey-req">*</span></p>
+                                <input type="number" id="vol-unidades-blister" name="vol_unidades_final" class="survey-number-input" placeholder="Ej: 5.000" min="1">
+                            </div>
+                        </div>
+
+                        <!-- Polvo: A Granel -->
+                        <div id="vol-granel-polvo" class="vol-sub" style="display:none;">
+                            <p class="survey-sub-label">¿Cuántos Kg de polvo a granel necesitas? <span class="survey-req">*</span></p>
+                            <input type="number" id="vol-kg-granel" name="vol_kg_granel" class="survey-number-input" placeholder="Ej: 1.000" min="1">
+                        </div>
+
+                        <!-- Polvo: Bote -->
+                        <div id="vol-bote-polvo" class="vol-sub" style="display:none;">
+                            <p class="survey-sub-label">¿De qué capacidad necesitas tu Bote? <span class="survey-req">*</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_capacidad_bote_polvo" value="Inferior a 500g">
+                                    <span class="survey-option-row-label">Inferior a 500g</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_capacidad_bote_polvo" value="Entre 500g y 2kg">
+                                    <span class="survey-option-row-label">Entre 500g y 2kg</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_capacidad_bote_polvo" value="Más de 2kg">
+                                    <span class="survey-option-row-label">Más de 2kg</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                            </div>
+                            <p class="survey-sub-label mt-3">¿Qué cantidad de unidades necesitas de producto final? <span class="survey-req">*</span></p>
+                            <input type="number" id="vol-unidades-bote-polvo" name="vol_unidades_bote_polvo" class="survey-number-input" placeholder="Ej: 5.000" min="1">
+                        </div>
+
+                        <!-- Polvo: Doypack -->
+                        <div id="vol-doypack" class="vol-sub" style="display:none;">
+                            <p class="survey-sub-label">¿De qué capacidad para tu Doypack necesitas? <span class="survey-req">*</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_capacidad_doypack" value="Inferior a 500g">
+                                    <span class="survey-option-row-label">Inferior a 500g</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_capacidad_doypack" value="Entre 500g y 1kg">
+                                    <span class="survey-option-row-label">Entre 500g y 1kg</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_capacidad_doypack" value="Más de 1kg">
+                                    <span class="survey-option-row-label">Más de 1kg</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                            </div>
+                            <p class="survey-sub-label mt-3">¿Qué cantidad de unidades necesitas de producto final? <span class="survey-req">*</span></p>
+                            <input type="number" id="vol-unidades-doypack" name="vol_unidades_doypack" class="survey-number-input" placeholder="Ej: 5.000" min="1">
+                        </div>
+
+                        <!-- Polvo: Stick Pack -->
+                        <div id="vol-stickpack" class="vol-sub" style="display:none;">
+                            <p class="survey-sub-label">¿Cuántos Sticks necesita por paquete? <span class="survey-req">*</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_sticks_paquete" value="1">
+                                    <span class="survey-option-row-label">1</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_sticks_paquete" value="+de 5">
+                                    <span class="survey-option-row-label">+de 5</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="vol_sticks_paquete" value="+de 10">
+                                    <span class="survey-option-row-label">+de 10</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                            </div>
+                            <p class="survey-sub-label mt-3">¿Qué cantidad de unidades necesitas de producto final? <span class="survey-req">*</span></p>
+                            <input type="number" id="vol-unidades-stickpack" name="vol_unidades_stickpack" class="survey-number-input" placeholder="Ej: 5.000" min="1">
                         </div>
                     </div>
 
@@ -1009,8 +1148,32 @@
             const solidos  = document.getElementById('acond-solidos');
             const polvo    = document.getElementById('acond-polvo');
             document.querySelectorAll('input[name="acondicionamiento"]').forEach(function (r) { r.checked = false; });
-            if (solidos) solidos.style.display = isPolvo ? 'none' : 'block';
-            if (polvo)   polvo.style.display   = isPolvo ? 'block' : 'none';
+            if (solidos) solidos.style.display = isPolvo ? 'none' : 'grid';
+            if (polvo)   polvo.style.display   = isPolvo ? 'grid' : 'none';
+        }
+
+        function showVolumenSubform() {
+            const acond    = (document.querySelector('input[name="acondicionamiento"]:checked') || {}).value || '';
+            const galenica = (document.querySelector('input[name="galenica"]:checked') || {}).value || '';
+            const isPolvo  = galenica === 'Polvo / Shake';
+            document.querySelectorAll('.vol-sub input[type="radio"]').forEach(r => { r.checked = false; });
+            document.querySelectorAll('.vol-sub input[type="number"]').forEach(i => { i.value = ''; });
+            document.querySelectorAll('.vol-sub').forEach(d => { d.style.display = 'none'; });
+            let targetId = null;
+            if (isPolvo) {
+                if (acond === 'A Granel')        targetId = 'vol-granel-polvo';
+                else if (acond === 'Bote')       targetId = 'vol-bote-polvo';
+                else if (acond === 'Doypack')    targetId = 'vol-doypack';
+                else if (acond === 'Stick Pack') targetId = 'vol-stickpack';
+            } else {
+                if (acond === 'A Granel') targetId = 'vol-granel-solid';
+                else if (acond === 'Bote') targetId = 'vol-bote-solid';
+                else if (acond === 'Blíster') targetId = 'vol-blister';
+            }
+            if (targetId) {
+                const el = document.getElementById(targetId);
+                if (el) el.style.display = 'block';
+            }
         }
 
         function renderStep(n) {
@@ -1018,6 +1181,7 @@
             const target = document.querySelector('.survey-step[data-step="' + n + '"]');
             if (target) target.classList.add('active');
             if (n === 2) showAcondSubgrid();
+            if (n === 4) showVolumenSubform();
             stepCurrent.textContent = n;
             progressBar.style.width = (n / TOTAL_STEPS * 100) + '%';
             btnBack.style.display   = n > 1 ? 'inline-flex' : 'none';
@@ -1029,7 +1193,22 @@
             if (n === 1) return !!document.querySelector('input[name="galenica"]:checked');
             if (n === 2) return !!document.querySelector('input[name="acondicionamiento"]:checked');
             if (n === 3) return !!document.querySelector('input[name="aplicacion"]:checked');
-            if (n === 4) return !!document.querySelector('input[name="volumen"]:checked');
+            if (n === 4) {
+                const acond    = (document.querySelector('input[name="acondicionamiento"]:checked') || {}).value || '';
+                const galenica = (document.querySelector('input[name="galenica"]:checked') || {}).value || '';
+                const isPolvo  = galenica === 'Polvo / Shake';
+                if (isPolvo) {
+                    if (acond === 'A Granel')   return !!(document.getElementById('vol-kg-granel') || {}).value;
+                    if (acond === 'Bote')       return !!document.querySelector('input[name="vol_capacidad_bote_polvo"]:checked') && !!(document.getElementById('vol-unidades-bote-polvo') || {}).value;
+                    if (acond === 'Doypack')    return !!document.querySelector('input[name="vol_capacidad_doypack"]:checked') && !!(document.getElementById('vol-unidades-doypack') || {}).value;
+                    if (acond === 'Stick Pack') return !!document.querySelector('input[name="vol_sticks_paquete"]:checked') && !!(document.getElementById('vol-unidades-stickpack') || {}).value;
+                    return true;
+                }
+                if (acond === 'A Granel') return !!document.querySelector('input[name="vol_cantidad"]:checked');
+                if (acond === 'Bote')    return !!document.querySelector('input[name="vol_caps_bote"]:checked') && !!(document.getElementById('vol-unidades-bote') || {}).value;
+                if (acond === 'Blíster') return !!document.querySelector('input[name="vol_caps_blister"]:checked') && !!(document.getElementById('vol-unidades-blister') || {}).value;
+                return true;
+            }
             if (n === 5) return !!document.querySelector('input[name="formula_estado"]:checked');
             if (n === 6) return !!document.querySelector('input[name="empresa_constituida"]:checked');
             if (n === 7) {
@@ -1049,8 +1228,17 @@
                 galenica:            (document.querySelector('input[name="galenica"]:checked') || {}).value || '',
                 acondicionamiento:   (document.querySelector('input[name="acondicionamiento"]:checked') || {}).value || '',
                 aplicacion:          [...document.querySelectorAll('input[name="aplicacion"]:checked')].map(i => i.value).join(', '),
-                volumen:             (document.querySelector('input[name="volumen"]:checked') || {}).value || '',
-                volumen_anual:       (document.querySelector('input[name="volumen_anual"]:checked') || {}).value || '',
+                vol_cantidad:           (document.querySelector('input[name="vol_cantidad"]:checked') || {}).value || '',
+                vol_caps_bote:          (document.querySelector('input[name="vol_caps_bote"]:checked') || {}).value || '',
+                vol_caps_blister:       (document.querySelector('input[name="vol_caps_blister"]:checked') || {}).value || '',
+                vol_unidades_final:     ((document.getElementById('vol-unidades-bote') || {}).value || (document.getElementById('vol-unidades-blister') || {}).value || ''),
+                vol_kg_granel:              (document.getElementById('vol-kg-granel') || {}).value || '',
+                vol_capacidad_bote_polvo:   (document.querySelector('input[name="vol_capacidad_bote_polvo"]:checked') || {}).value || '',
+                vol_unidades_bote_polvo:    (document.getElementById('vol-unidades-bote-polvo') || {}).value || '',
+                vol_capacidad_doypack:      (document.querySelector('input[name="vol_capacidad_doypack"]:checked') || {}).value || '',
+                vol_unidades_doypack:   (document.getElementById('vol-unidades-doypack') || {}).value || '',
+                vol_sticks_paquete:     (document.querySelector('input[name="vol_sticks_paquete"]:checked') || {}).value || '',
+                vol_unidades_stickpack: (document.getElementById('vol-unidades-stickpack') || {}).value || '',
                 formula_estado:      (document.querySelector('input[name="formula_estado"]:checked') || {}).value || '',
                 fórmula:             (document.getElementById('sq-fórmula') || {}).value || '',
                 empresa_constituida: (document.querySelector('input[name="empresa_constituida"]:checked') || {}).value || '',
@@ -1171,17 +1359,7 @@
         }
 
         function wireGalenica() {
-            document.querySelectorAll('input[name="galenica"]').forEach(function (radio) {
-                radio.addEventListener('change', function () {
-                    if (currentStep === 1) {
-                        setTimeout(function () {
-                            currentStep++;
-                            renderStep(currentStep);
-                            scrollToSurvey();
-                        }, 350);
-                    }
-                });
-            });
+            /* no auto-advance — user clicks Siguiente manually */
         }
 
         // ── Carga dinámica desde Directus ─────────────────────────────────────

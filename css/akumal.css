@@ -828,6 +828,124 @@ body .section-selected-work .slick-nav .slick-current ~ .slick-slide:last-child 
   align-items: flex-start;
 }
 
+/* ── Footer — desktop (≥768px) ──────────────────────────────────── */
+@media (min-width: 768px) {
+  /* Más aire vertical */
+  .tf-footer .footer-inner {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  /* Columna logo: separador derecho + padding generoso */
+  .tf-footer .footer-inner .col-md-3 {
+    padding-right: 56px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* Columnas nav: padding izquierdo simétrico */
+  .tf-footer .footer-inner .col-md-4,
+  .tf-footer .footer-inner .col-md-5 {
+    padding-left: 56px;
+  }
+
+  /* Logo más grande en desktop */
+  .tf-footer .footer-logo img { max-width: 210px !important; }
+
+  /* Tagline: más espaciado */
+  .tf-footer .footer-inner .col-md-3 .title {
+    font-size: 10px !important;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.40) !important;
+    margin-top: 32px !important;
+  }
+
+  /* Descripción: texto completo, color suave */
+  .tf-footer .footer-inner .col-md-3 .text-body-2 {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.48);
+    margin-top: 14px !important;
+  }
+}
+
+/* Heading de sección: acento verde debajo (todas las pantallas) */
+.tf-footer .footer-heading {
+  position: relative;
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+}
+.tf-footer .footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: #607561;
+  border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+  /* Links: gap ajustado y tamaño más legible */
+  .tf-footer .footer-menu-list { gap: 6px; }
+
+  .tf-footer .footer-menu-list a.h5 {
+    font-size: 1.15rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+  }
+  .tf-footer .footer-menu-list a.h5:hover {
+    color: #607561 !important;
+    transform: translateX(5px);
+  }
+
+  /* Email y teléfono: sin letter-spacing excesivo para que quepan */
+  .tf-footer .footer-menu-list a.d-flex {
+    letter-spacing: 0.02em !important;
+    font-size: 0.92rem;
+  }
+
+  /* Iconos sociales: un poco más grandes */
+  .tf-footer .social-icon-circle {
+    width: 40px;
+    height: 40px;
+  }
+  .tf-footer .social-icon-circle svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Footer bottom: barra limpia */
+  .tf-footer .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .tf-footer .footer-bottom .bottom {
+    padding-top: 28px;
+    padding-bottom: 40px;
+    align-items: center;
+  }
+
+  /* Copyright: peso visual correcto */
+  .tf-footer .text-nocopy {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.30) !important;
+  }
+
+  /* Links legales: discretos pero legibles, con hover verde */
+  .footer-bottom .bottom > div a {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.35) !important;
+    transition: color 0.2s ease;
+  }
+  .footer-bottom .bottom > div a:hover,
+  .tf-footer .action-go-top:hover {
+    color: #607561 !important;
+  }
+}
+
 /* ── Header sticky on scroll ────────────────────────────── */
 .tf-header.header-sticky {
   background: rgba(255, 255, 255, 0.96);
@@ -1107,4 +1225,144 @@ body .section-selected-work .slick-nav .slick-current ~ .slick-slide:last-child 
    para que el texto sea legible al rellenar el botón.          */
 body .section-selected-work .content-wrap-2 a.tf-btn:hover {
   color: #0d100d !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   MOBILE FIXES — sesión de diseño responsive
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── HERO — Móvil (≤767px) ──────────────────────────────────────── */
+@media (max-width: 767px) {
+  body .section-hero-v1 {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+  body .section-hero-v1 .col-left {
+    min-height: 48svh;
+    height: unset;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body .section-hero-v1 .hero-badges { display: none !important; }
+  body .section-hero-v1 .davies-large { text-align: center; }
+  body .section-hero-v1 .davies-large img.hero-logo {
+    width: clamp(220px, 78vw, 360px);
+  }
+  body .section-hero-v1 .col-right { padding-bottom: 28px; }
+  .header-login-btn span { display: none; }
+  .header-login-btn {
+    padding: 0; width: 34px; height: 34px;
+    border-radius: 50%; justify-content: center; flex-shrink: 0;
+  }
+  .header-login-btn svg { width: 16px; height: 16px; }
+  body .section-hero-v1 .col-right .top > span { display: none; }
+  body .section-hero-v1 .col-right .top { margin-bottom: 12px; }
+  body .section-hero-v1 .bot .desc {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  body .section-hero-v1 .col-right .bot .tf-btn {
+    width: 100%; justify-content: center;
+  }
+  .hero-contact-strip { display: none; }
+
+  /* Vídeo: encuadre y overlay */
+  .section-hero-v1 .bg-video video { object-position: center 20%; }
+  .section-hero-v1 .bg-video .video-overlay-2:last-child {
+    background: linear-gradient(to top, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.20) 55%, transparent 100%);
+  }
+
+  /* "Por qué elegirnos" — centrar título + botón */
+  .section-feature-hero .s-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 28px;
+    gap: 20px;
+  }
+}
+
+/* ── FORMATOS — Móvil (≤767px) ───────────────────────────────────── */
+@media (max-width: 767px) {
+  body .section-selected-work {
+    background: linear-gradient(180deg, #0d100d 0%, #1a2a1a 50%, #263326 100%);
+  }
+  .section-selected-work .bg-img { display: none; }
+  /* Tortuga: decorativa solo en desktop, en móvil estorba */
+  .section-selected-work .image-award { display: none; }
+  .section-selected-work .slick-for .image { height: 360px; padding-top: 16px; }
+  .section-selected-work .slick-for .image img { max-height: 280px; margin-bottom: 20px; }
+  .section-selected-work .content-wrap-2 { margin-top: 0; padding-bottom: 28px; }
+  .envase-zoom-btn { top: auto; bottom: 48px; right: 16px; }
+}
+
+/* ── OUR SPECIALTIES — Móvil (≤767px) ───────────────────────────── */
+@media (max-width: 767px) {
+  .wg-tech:not(.active) > .tech_text {
+    opacity: 1; visibility: visible;
+    color: var(--white);
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .wg-tech:not(.active) > .tech_text p.h1 {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  .wg-tech:not(.active) > .tech_text h6 {
+    font-size: 11px; text-align: right;
+    color: var(--primary); flex-shrink: 0;
+    margin-bottom: 0; line-height: 1.4;
+  }
+  .wg-tech .infiniteSlide_tech .tech_text p.h1 {
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+    margin-bottom: 0; white-space: nowrap;
+  }
+  .wg-tech .infiniteSlide_tech .tech_text .process { font-size: 10px; }
+  .wg-tech .app_icon img { width: 90px; height: 46px; }
+}
+
+/* ── GARANTÍAS — Móvil (≤767px) ─────────────────────────────────── */
+@media (max-width: 767px) {
+  .section-award { padding-top: 48px !important; padding-bottom: 48px !important; }
+  .section-award .award-img-wrap img { height: 220px; }
+  .section-award .col-right { padding-bottom: 16px; }
+}
+
+
+/* ── FOOTER — Móvil (≤575px) ─────────────────────────────────────── */
+@media (max-width: 575px) {
+  .tf-footer .footer-inner { padding-top: 40px; padding-bottom: 40px; }
+
+  /* Headings col-6 y listas col-6 → full width, apilados */
+  .tf-footer .footer-inner .col-6 { width: 100%; }
+
+  /* Separación visual entre bloques */
+  .tf-footer .footer-heading { margin-bottom: 10px; margin-top: 28px; }
+
+  /* Logo más compacto */
+  .tf-footer .footer-logo img { max-width: 160px !important; }
+
+  /* Descripción: fuente ligeramente menor */
+  .tf-footer .footer-inner .text-body-2 { font-size: 13px; }
+
+  /* Footer bottom: copyright y links apilados y centrados */
+  .footer-bottom .bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+  .footer-bottom .bottom > div {
+    justify-content: center !important;
+    gap: 12px !important;
+  }
 }
