@@ -1,0 +1,142 @@
+/* ================================================================
+   css/pages/blog-light.css — Tema claro para pages/blog.html
+   Paleta:
+     Fondo base   #f5f4f0
+     Texto        #1a1a1a
+     Texto muted  rgba(26,26,26,0.55)
+     Primario     #607561  (sin cambios)
+================================================================ */
+
+/* ══════════════════════════════════════════════════════════════════
+   1. BASE
+   ══════════════════════════════════════════════════════════════════ */
+
+body {
+  background-color: #f5f4f0;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   2. HEADER — sticky sobre fondo claro
+   ══════════════════════════════════════════════════════════════════ */
+
+.tf-header.header-sticky {
+  background: rgba(245, 244, 240, 0.96) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(26, 26, 26, 0.08);
+}
+
+.tf-header.header-sticky .link,
+.tf-header.header-sticky .item-link,
+.tf-header.header-sticky .item-link span,
+.tf-header.header-sticky .text-caption,
+.tf-header.header-sticky a,
+.tf-header.header-sticky p,
+.tf-header.header-sticky .btn-mobile-menu {
+  color: #1a1a1a !important;
+}
+
+.tf-header.header-sticky .item-link span {
+  color: rgba(26, 26, 26, 0.55) !important;
+}
+
+.tf-header.header-sticky .br-line {
+  background-color: rgba(26, 26, 26, 0.12) !important;
+}
+
+.tf-header.header-sticky .logo-site img {
+  filter: none !important;
+  content: url('../../assets/images/akumal/logoAkumalVerde.png');
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   3. BLOG HERO — fondo oscuro con vídeo, texto blanco original
+   ══════════════════════════════════════════════════════════════════ */
+
+.blog-hero {
+  position: relative;
+  /* mantiene el fondo oscuro del vídeo — no se sobreescribe */
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   4. FILTROS DE CATEGORÍA
+   ══════════════════════════════════════════════════════════════════ */
+
+.blog-filters-wrap {
+  background: #f5f4f0 !important;
+  border-bottom-color: rgba(96, 117, 97, 0.18) !important;
+}
+
+.blog-filter {
+  color: rgba(26, 26, 26, 0.38) !important;
+}
+
+.blog-filter:hover {
+  color: rgba(26, 26, 26, 0.70) !important;
+}
+
+.blog-filter.active {
+  color: #1a1a1a !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   5. GRID DE ARTÍCULOS
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-blog {
+  background: #f5f4f0 !important;
+}
+
+.blog-card {
+  background: #ffffff !important;
+  border-color: rgba(96, 117, 97, 0.14) !important;
+  box-shadow: 0 2px 12px rgba(26, 26, 26, 0.04);
+}
+
+.blog-card:hover {
+  box-shadow: 0 16px 48px rgba(96, 117, 97, 0.16) !important;
+}
+
+/* El título y excerpt ya son oscuros en blog.css — OK */
+
+/* ══════════════════════════════════════════════════════════════════
+   6. CTA SECTION
+   ══════════════════════════════════════════════════════════════════ */
+
+.blog-cta {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(96, 117, 97, 0.14);
+}
+
+.blog-cta h3,
+.blog-cta .text-display-3 {
+  color: #1a1a1a !important;
+}
+
+.blog-cta h3 em {
+  color: #607561 !important;
+}
+
+.blog-cta .text-white-64,
+.blog-cta .text-caption,
+.blog-cta .mini-title {
+  color: rgba(26, 26, 26, 0.48) !important;
+}
+
+/* Botón CTA: invertido — oscuro sobre fondo blanco */
+.blog-cta-btn {
+  background: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+.blog-cta-btn:hover {
+  background: #607561 !important;
+  color: #ffffff !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   7. SCROLLBAR
+   ══════════════════════════════════════════════════════════════════ */
+
+body::-webkit-scrollbar-track { background: #f5f4f0; }
+body::-webkit-scrollbar-thumb { background: rgba(96, 117, 97, 0.35); }

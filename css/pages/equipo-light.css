@@ -1,0 +1,326 @@
+/* ================================================================
+   equipo-light.css — Tema claro para pages/join-the-team.html
+   Paleta: fondo #f5f4f0 · texto #1a1a1a · primario #607561
+================================================================ */
+
+/* ══════════════════════════════════════════════════════════════════
+   1. BASE
+   ══════════════════════════════════════════════════════════════════ */
+
+body { background-color: #f5f4f0; }
+
+/* ══════════════════════════════════════════════════════════════════
+   TIPOGRAFÍA — Inter en lugar de Syne (igual que nosotros)
+   ══════════════════════════════════════════════════════════════════ */
+
+h1, h2, h3, h4, h5,
+.equipo-hero h1,
+.vacantes-header h2,
+.job-card-title,
+.equipo-blurb h3,
+.adn-header h2,
+.historia-header h2,
+.historia-title,
+.adn-value-title,
+.equipo-cta h3 {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* Números decorativos → Inter regular, sin negrita agresiva */
+.equipo-blurb-num {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.04em !important;
+}
+
+.adn-value-num,
+.historia-year {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+.equipo-hero-label {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   2. HEADER STICKY
+   ══════════════════════════════════════════════════════════════════ */
+
+.tf-header.header-sticky {
+  background: rgba(245, 244, 240, 0.96) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(26, 26, 26, 0.08);
+}
+
+.tf-header.header-sticky .link,
+.tf-header.header-sticky .item-link,
+.tf-header.header-sticky .item-link span,
+.tf-header.header-sticky .text-caption,
+.tf-header.header-sticky a,
+.tf-header.header-sticky p,
+.tf-header.header-sticky .btn-mobile-menu {
+  color: #1a1a1a !important;
+}
+
+.tf-header.header-sticky .item-link span {
+  color: rgba(26, 26, 26, 0.55) !important;
+}
+
+.tf-header.header-sticky .br-line {
+  background-color: rgba(26, 26, 26, 0.12) !important;
+}
+
+.tf-header.header-sticky .logo-site img {
+  filter: none !important;
+  content: url('../../assets/images/akumal/logoAkumalVerde.png');
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   3. HERO — video oscuro propio, texto blanco (no se toca)
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Hero keeps its own dark video bg */
+
+/* ══════════════════════════════════════════════════════════════════
+   4. SECTION VACANTES
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-vacantes {
+  background: #f5f4f0 !important;
+}
+
+.vacantes-header h2 {
+  color: #1a1a1a !important;
+}
+
+.vacantes-header h2 em {
+  color: #607561 !important;
+}
+
+.vacantes-header .vacantes-sub,
+.vacantes-filter-label {
+  color: rgba(26, 26, 26, 0.42) !important;
+}
+
+/* Filter pills */
+.filter-pill {
+  border-color: rgba(26, 26, 26, 0.15) !important;
+  color: rgba(26, 26, 26, 0.50) !important;
+}
+
+.filter-pill:hover,
+.filter-pill.active {
+  border-color: #607561 !important;
+  color: #607561 !important;
+  background: rgba(96, 117, 97, 0.07) !important;
+}
+
+/* Job cards */
+.job-card {
+  background: #ffffff !important;
+  border-color: rgba(26, 26, 26, 0.08) !important;
+  box-shadow: 0 1px 4px rgba(26, 26, 26, 0.05);
+}
+
+.job-card:hover {
+  background: #ffffff !important;
+  border-color: rgba(96, 117, 97, 0.30) !important;
+  box-shadow: 0 8px 28px rgba(96, 117, 97, 0.12) !important;
+}
+
+.job-card-title {
+  color: #1a1a1a !important;
+}
+
+.job-card-desc {
+  color: rgba(26, 26, 26, 0.52) !important;
+}
+
+.job-meta-item {
+  color: rgba(26, 26, 26, 0.40) !important;
+}
+
+.job-meta-item svg {
+  stroke: rgba(26, 26, 26, 0.40);
+}
+
+/* Team blurb sidebar */
+.equipo-blurb {
+  background: rgba(96, 117, 97, 0.06) !important;
+  border-color: rgba(96, 117, 97, 0.18) !important;
+}
+
+.equipo-blurb h3 {
+  color: #1a1a1a !important;
+}
+
+.equipo-blurb p {
+  color: rgba(26, 26, 26, 0.55) !important;
+}
+
+.equipo-blurb-num-label {
+  color: rgba(26, 26, 26, 0.42) !important;
+}
+
+/* Social icons */
+.section-vacantes .social-icon-circle {
+  border-color: rgba(26, 26, 26, 0.12) !important;
+  color: rgba(26, 26, 26, 0.50) !important;
+}
+
+.section-vacantes .social-icon-circle:hover {
+  background: #1a1a1a !important;
+  border-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   5. SECTION STATS
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-equipo-stats {
+  background: rgba(96, 117, 97, 0.04) !important;
+  border-top-color: rgba(96, 117, 97, 0.18) !important;
+  border-bottom-color: rgba(96, 117, 97, 0.18) !important;
+}
+
+.stat-fw-col {
+  border-color: rgba(26, 26, 26, 0.08) !important;
+}
+
+.stat-fw-label {
+  color: rgba(26, 26, 26, 0.50) !important;
+}
+
+.stat-fw-sub {
+  color: rgba(26, 26, 26, 0.38) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   6. SECTION ADN (var(--black) = #fff → ya claro, solo texto)
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-adn {
+  background: #ffffff !important;
+}
+
+.adn-header h2 {
+  color: #1a1a1a !important;
+}
+
+.adn-header h2 em {
+  color: #607561 !important;
+}
+
+.adn-header .adn-intro {
+  color: rgba(26, 26, 26, 0.55) !important;
+}
+
+.adn-value {
+  border-top-color: rgba(26, 26, 26, 0.08) !important;
+}
+
+.adn-value-title {
+  color: #1a1a1a !important;
+}
+
+.adn-value-desc {
+  color: rgba(26, 26, 26, 0.52) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   7. SECTION HISTORIA TIMELINE
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-historia {
+  background: #f5f4f0 !important;
+}
+
+.historia-header h2 {
+  color: #1a1a1a !important;
+}
+
+.historia-header h2 em {
+  color: #607561 !important;
+}
+
+.historia-timeline::before {
+  background: rgba(96, 117, 97, 0.25) !important;
+}
+
+.historia-dot {
+  background: #f5f4f0 !important;
+  border-color: rgba(96, 117, 97, 0.35) !important;
+}
+
+.historia-item:hover .historia-dot {
+  background: rgba(96, 117, 97, 0.08) !important;
+}
+
+.historia-title {
+  color: #1a1a1a !important;
+}
+
+.historia-desc {
+  color: rgba(26, 26, 26, 0.52) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   8. EQUIPO CTA (var(--black) = #fff → ya claro)
+   ══════════════════════════════════════════════════════════════════ */
+
+.equipo-cta {
+  background: #ffffff !important;
+  border-top-color: rgba(96, 117, 97, 0.14) !important;
+}
+
+.equipo-cta h3 {
+  color: #1a1a1a !important;
+}
+
+.equipo-cta h3 em {
+  color: #607561 !important;
+}
+
+.equipo-cta .text-white-64,
+.equipo-cta .text-caption {
+  color: rgba(26, 26, 26, 0.48) !important;
+}
+
+/* Odoo badge */
+.odoo-badge {
+  color: rgba(26, 26, 26, 0.28) !important;
+}
+
+.odoo-badge::before {
+  background: rgba(26, 26, 26, 0.15) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   9. BOTONES GLOBALES
+   ══════════════════════════════════════════════════════════════════ */
+
+.tf-btn {
+  color: #1a1a1a !important;
+  border-color: rgba(26, 26, 26, 0.30) !important;
+}
+
+.tf-btn::before {
+  background-color: #1a1a1a !important;
+}
+
+.tf-btn:hover {
+  color: #ffffff !important;
+  border-color: #1a1a1a !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   10. SCROLLBAR
+   ══════════════════════════════════════════════════════════════════ */
+
+body::-webkit-scrollbar-track { background: #f5f4f0; }
+body::-webkit-scrollbar-thumb { background: rgba(96, 117, 97, 0.35); }

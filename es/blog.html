@@ -30,12 +30,13 @@
     <!-- Custom CSS -->
     <link rel="shortcut icon" href="../assets/images/akumal/LOGO TORTUGA.png">
     <link rel="stylesheet" href="../css/base.css?v=2">
-    <link rel="stylesheet" href="../css/components.css?v=1">
+    <link rel="stylesheet" href="../css/components.css?v=2">
     <link rel="stylesheet" href="../css/sections.css?v=5">
-    <link rel="stylesheet" href="../css/akumal.css?v=37">
+    <link rel="stylesheet" href="../css/akumal.css?v=49">
     <link rel="stylesheet" href="../css/pages/blog.css?v=4">
+    <link rel="stylesheet" href="../css/pages/blog-light.css?v=2">
 </head>
-<body class="counter-scroll">
+<body class="counter-scroll light-page">
 
     <!-- Scroll Top -->
     <button id="goTop">
@@ -48,24 +49,6 @@
     </button>
     <!-- /Scroll Top -->
 
-    <!-- Preload -->
-    <div class="preloader overflow-hidden">
-        <div class="site-name">
-            <img src="../assets/images/akumal/LOGO AKUMAL.png" alt="Akumal Sport Nutrition" class="preloader-logo">
-        </div>
-        <div class="preloader-gutters">
-            <div class="bar"><div class="inner-bar"></div></div>
-            <div class="bar"><div class="inner-bar"></div></div>
-            <div class="bar"><div class="inner-bar"></div></div>
-            <div class="bar"><div class="inner-bar"></div></div>
-            <div class="bar"><div class="inner-bar"></div></div>
-            <div class="bar"><div class="inner-bar"></div></div>
-            <div class="bar"><div class="inner-bar"></div></div>
-            <div class="bar"><div class="inner-bar"></div></div>
-        </div>
-    </div>
-    <!-- /Preload -->
-
     <main id="wrapper">
         <!-- Header -->
         <header class="tf-header">
@@ -74,7 +57,7 @@
                     <div class="row align-items-center">
                         <div class="col-6 col-md-1">
                             <a href="index.html" class="logo-site">
-                                <img src="../assets/images/akumal/logoAkumalBlanco.png" alt="Akumal" style="max-height: 40px; object-fit: contain;">
+                                <img src="../assets/images/akumal/logos/LOGO AKUMAL NUTRITION-10.png" alt="Akumal" style="max-height: 40px; object-fit: contain;">
                             </a>
                         </div>
                         <div class="col-md-8 d-none d-md-block ps-4">
@@ -86,7 +69,7 @@
                                     </li>
                                     <li class="menu-item">
                                         <a href="nosotros.html" class="item-link link text-caption">
-                                            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>SOBRE NOSOTROS</a>
+                                            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>NOSOTROS</a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="contacto.html" class="item-link link text-caption">
@@ -94,11 +77,7 @@
                                     </li>
                                     <li class="menu-item">
                                         <a href="blog.html" class="item-link link text-caption active">
-                                            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M2 15h10"/><path d="M2 11h6"/><path d="M2 19h10"/></svg></span>NOTICIAS</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="equipo.html" class="item-link link text-caption">
-                                            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>ÚNETE AL EQUIPO</a>
+                                            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M2 15h10"/><path d="M2 11h6"/><path d="M2 19h10"/></svg></span>BLOG</a>
                                     </li>
                                 </ul>
                             </div>
@@ -121,9 +100,14 @@
                                 </div>
                             </div>
                             <!-- Login Button (empleados) -->
-                            <a href="login.html" class="header-login-btn link text-caption d-flex" title="Acceso empleados">
+                            <a href="login.html" class="header-login-btn login-icon-only link text-caption d-flex" title="Acceso empleados">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
                                 <span>INICIAR SESIÓN</span>
+                            </a>
+                            <!-- Únete al Equipo -->
+                            <a href="equipo.html" class="header-login-btn link text-caption d-flex" title="Únete al Equipo">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>ÚNETE AL EQUIPO</span>
                             </a>
                             <button type="button" class="btn-mobile-menu btn-menu-styled open-mb-menu text-caption text-white link">
                                 MENÚ
@@ -137,10 +121,17 @@
 
         <!-- Page Hero -->
         <section class="blog-hero flat-spacing">
-            <div class="container">
+            <!-- Background video -->
+            <div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+                <video muted autoplay loop playsinline style="width:100%;height:100%;object-fit:cover;filter:brightness(0.35) grayscale(0.3);">
+                    <source src="../assets/videos/videopolvo.mp4" type="video/mp4">
+                </video>
+                <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,16,13,0.7) 0%,rgba(13,16,13,0.9) 100%);"></div>
+            </div>
+            <div class="container" style="position:relative;z-index:1;">
                 <div class="row">
                     <div class="col-lg-8">
-                        <h6 class="mini-title text-caption text-white-64 effectFade fadeUp">NOTICIAS</h6>
+                        <h6 class="mini-title text-caption text-white-64 effectFade fadeUp">BLOG</h6>
                         <h1 class="text-display-2 letter-space--3 fw-bold effectFade fadeUp" style="line-height:1.05;">
                             Blog &amp; <br><em>Noticias.</em>
                         </h1>

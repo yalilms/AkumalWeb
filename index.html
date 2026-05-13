@@ -29,15 +29,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <!-- Custom CSS -->
-    <link rel="shortcut icon" href="assets/images/akumal/LOGO TORTUGA.png">
+    <link rel="shortcut icon" href="assets/images/akumal/logos/LOGO TORTUGA.png">
     <link rel="stylesheet" href="css/base.css?v=2">
-    <link rel="stylesheet" href="css/components.css?v=1">
+    <link rel="stylesheet" href="css/components.css?v=2">
     <link rel="stylesheet" href="css/sections.css?v=5">
-    <link rel="stylesheet" href="css/akumal.css?v=41">
+    <link rel="stylesheet" href="css/akumal.css?v=49">
+    <link rel="stylesheet" href="css/pages/index.css?v=19">
     <script src="js/config.js"></script>
 </head>
 
-<body class="counter-scroll">
+<body class="counter-scroll light-page">
 
     <!-- Scroll Top -->
     <button id="goTop">
@@ -51,47 +52,6 @@
         </span>
     </button>
     <!-- /Scroll Top -->
-    <!-- Preload -->
-    <div class="preloader overflow-hidden">
-        <div class="site-name">
-            <img src="assets/images/akumal/LOGO AKUMAL.png" alt="Akumal Sport Nutrition" class="preloader-logo">
-        </div>
-        <div class="preloader-gutters">
-            <div class="bar">
-                <div class="inner-bar">
-                </div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar">
-                </div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar">
-                </div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar">
-                </div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar">
-                </div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar">
-                </div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar">
-                </div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Preload -->
     <main id="wrapper">
         <!-- Header -->
         <header class="tf-header">
@@ -100,7 +60,7 @@
                     <div class="row align-items-center">
                         <div class="col-6 col-md-1">
                             <a href="index.html" class="logo-site">
-                                <img src="assets/images/akumal/logoAkumalBlanco.png" alt="Akumal"
+                                <img src="assets/images/akumal/logos/LOGO AKUMAL NUTRITION-10.png" alt="Akumal"
                                     style="max-height: 40px; object-fit: contain;">
                             </a>
                         </div>
@@ -149,17 +109,6 @@
                                                     <path d="M2 19h10" />
                                                 </svg></span>NEWS</a>
                                     </li>
-                                    <li class="menu-item">
-                                        <a href="pages/join-the-team.html" class="item-link link text-caption">
-                                            <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13"
-                                                    height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                                                    <circle cx="9" cy="7" r="4" />
-                                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                                </svg></span>JOIN THE TEAM</a>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -186,7 +135,7 @@
                                 </div>
                             </div>
                             <!-- Login Button (empleados) -->
-                            <a href="pages/login.html" class="header-login-btn link text-caption d-flex"
+                            <a href="pages/login.html" class="header-login-btn login-icon-only link text-caption d-flex"
                                 title="Employee Access">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -196,6 +145,11 @@
                                     <line x1="15" y1="12" x2="3" y2="12" />
                                 </svg>
                                 <span>LOGIN</span>
+                            </a>
+                            <!-- Join the Team -->
+                            <a href="pages/join-the-team.html" class="header-login-btn link text-caption d-flex" title="Join the Team">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                <span>JOIN THE TEAM</span>
                             </a>
                             <button type="button"
                                 class="btn-mobile-menu btn-menu-styled open-mb-menu text-caption text-white link">
@@ -209,124 +163,26 @@
         <!-- /Header -->
         <!-- Hero Banner -->
         <div class="section-hero-v1">
-            <div class="overlay">
-            </div>
+            <div class="overlay"></div>
             <div class="bg-video">
-                <video class="" muted="" autoplay="" loop="" playsinline="">
-                    <source src="assets/videos/videopolvo.mp4" type="video/mp4">
+                <video muted autoplay loop playsinline>
+                    <source src="assets/videos/promo akumal web.mp4" type="video/mp4">
                 </video>
-                <div class="video-overlay">
-                </div>
-                <div class="video-overlay-2">
-                </div>
-                <div class="video-overlay-2">
-                </div>
+                <!-- <div class="hero-overlay-gradient"></div> -->
             </div>
             <div class="content-wrap">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-12 col-md-8 col-lg-6">
                             <div class="col-left">
-                                <div class="hero-badges effectFade fadeUp">
-                                    <a href="#formatosScroll" class="hero-badge link">
-                                        <span class="hero-badge-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M9 3H5a2 2 0 0 0-2 2v4" />
-                                                <path d="M9 3h10a2 2 0 0 1 2 2v4" />
-                                                <path d="M3 9v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9" />
-                                                <path d="M8 13h8" />
-                                                <path d="M8 17h5" />
-                                            </svg>
-                                        </span>
-                                        <span class="hero-badge-text">
-                                            <strong>In-House Lab</strong>
-                                            <small>Certified facilities</small>
-                                        </span>
+                                <div class="hero-headline-wrap effectFade fadeUp">
+                                    <h1 class="text-display-2 letter-space--3 fw-bold hero-headline" style="line-height:1.05;">
+                                        Where brands that<br><em>make a difference are born.</em>
+                                    </h1>
+                                    <p class="hero-tagline">GMP-Certified Sport Supplement Manufacturer · Spain</p>
+                                    <a href="pages/contact.html" class="tf-btn hero-cta-btn">
+                                        COTIZA ONLINE
                                     </a>
-                                    <a href="#serviceScroll" class="hero-badge link">
-                                        <span class="hero-badge-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                                <polyline points="9 12 11 14 15 10" />
-                                            </svg>
-                                        </span>
-                                        <span class="hero-badge-text">
-                                            <strong>GMP Certified</strong>
-                                            <small>Guaranteed quality</small>
-                                        </span>
-                                    </a>
-                                    <a href="pages/contact.html" class="hero-badge link">
-                                        <span class="hero-badge-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <circle cx="12" cy="12" r="10" />
-                                                <path
-                                                    d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
-                                            </svg>
-                                        </span>
-                                        <span class="hero-badge-text">
-                                            <strong>Private Label</strong>
-                                            <small>Your identity, your product</small>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="davies-large">
-                                    <div class="effectFade fadeRotateX">
-                                        <img src="assets/images/akumal/LOGO AKUMAL.png" alt="Akumal Sport Nutrition"
-                                            class="hero-logo">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="col-right">
-                                <div
-                                    class="top text-caption fw-medium d-flex justify-content-between align-items-center effectFade">
-                                    <p class="title text-has-dot ">
-                                        <span class="br-dot">
-                                        </span>
-                                        BUILD YOUR BRAND HERE
-                                    </p>
-                                    <span>
-                                        © 2026
-                                    </span>
-                                </div>
-                                <div class="bot">
-                                    <p class="desc text-white-64 effectFade fadeRight view-visible">
-                                        Akumal Sport Nutrition is a leading B2B laboratory for manufacturing your own line of sport supplements. 
-                                        We partner with emerging brands and established distributors worldwide seeking GMP-certified production. 
-                                        Over 60 brands successfully launched.
-                                    </p>
-                                    <div class="effectFade fadeRight view-visible">
-                                        <a href="pages/contact.html" class="tf-btn">
-                                            START YOUR PROJECT
-                                        </a>
-                                    </div>
-                                    <div class="hero-contact-strip effectFade fadeRight view-visible">
-                                        <a href="mailto:info@akumalnutrition.com">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <rect x="2" y="4" width="20" height="16" rx="2" />
-                                                <path d="M2 7l10 7 10-7" />
-                                            </svg>
-                                            INFO@AKUMALNUTRITION.COM
-                                        </a>
-                                        <p>
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <path
-                                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                                            </svg>
-                                            +34 633 82 51 32
-                                        </p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -422,7 +278,7 @@
                                     </div>
                                     <div class="image-award">
                                         <img loading="lazy" width="80" height="80"
-                                            src="assets/images/akumal/LOGO TORTUGA.png" alt="Image">
+                                            src="assets/images/akumal/logos/LOGO TORTUGA.png" alt="Image">
                                     </div>
                                 </div>
                             </div>

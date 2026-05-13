@@ -1,0 +1,524 @@
+/* ================================================================
+   css/pages/index.css — Tema claro (light theme) para index.html
+   Carga al final de la cascada, máxima prioridad en esta página.
+   Paleta:
+     Fondo base     #f5f4f0  (blanco cálido)
+     Fondo blanco   #ffffff
+     Texto          #1a1a1a
+     Texto muted    rgba(26,26,26,0.55)
+     Primario       #607561  (verde salvia — sin cambios)
+================================================================ */
+
+/* ══════════════════════════════════════════════════════════════════
+   1. BASE
+   ══════════════════════════════════════════════════════════════════ */
+
+body {
+  background-color: #f5f4f0;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   2. HEADER — estado sticky sobre secciones claras
+   ══════════════════════════════════════════════════════════════════ */
+
+/* No-sticky: header flota sobre el vídeo oscuro → texto blanco OK */
+
+/* Sticky: aparece sobre fondo claro → necesita bg + texto oscuro */
+.tf-header.header-sticky {
+  background: rgba(245, 244, 240, 0.96) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(26, 26, 26, 0.08);
+}
+
+.tf-header.header-sticky .link,
+.tf-header.header-sticky .item-link,
+.tf-header.header-sticky .item-link span,
+.tf-header.header-sticky .text-caption,
+.tf-header.header-sticky a,
+.tf-header.header-sticky p,
+.tf-header.header-sticky .btn-mobile-menu {
+  color: #1a1a1a !important;
+}
+
+.tf-header.header-sticky .item-link span {
+  color: rgba(26, 26, 26, 0.55) !important;
+}
+
+.tf-header.header-sticky .br-line {
+  background-color: rgba(26, 26, 26, 0.12) !important;
+}
+
+/* Logo oscuro en sticky */
+.tf-header.header-sticky .logo-site img {
+  filter: none !important;
+  content: url('../../assets/images/akumal/logos/LOGO%20AKUMAL%20NUTRITION-08.png');
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   3. HERO — overlay inferior: transición al fondo claro
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-hero-v1 .overlay {
+  background: linear-gradient(180deg, rgba(245, 244, 240, 0) 0%, #f5f4f0 100%);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   4. SECTION FEATURE HERO — "Why Choose Us"
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-feature,
+.section-feature-hero {
+  background: #f5f4f0 !important;
+}
+
+/* Encabezado de sección */
+.section-feature-hero .s-header h2,
+.section-feature-hero .text-display-2,
+.section-feature-hero .text-display-3,
+.section-feature-hero .text-white {
+  color: #1a1a1a !important;
+}
+
+/* Texto muted / captions / párrafos que usan text-white-64 */
+.section-feature-hero .text-white-64,
+.section-feature-hero .text-body-1,
+.section-feature-hero .text-caption {
+  color: rgba(26, 26, 26, 0.65) !important;
+}
+
+/* Link interno dentro del caption */
+.section-feature-hero .text-caption .link {
+  color: #607561 !important;
+}
+
+/* btn-23 "TALK TO US" — oscuro sobre claro */
+.btn-23 {
+  background-color: #1a1a1a !important;
+  border-color: rgba(26, 26, 26, 0.18) !important;
+  color: #ffffff !important;
+}
+
+.btn-23 .text,
+.btn-23 .marquee {
+  color: #ffffff !important;
+}
+
+/* El texto marquee y text-shadow del btn-23 */
+.btn-23 .marquee {
+  text-shadow: #1a1a1a var(--spacing) 0,
+               #1a1a1a calc(var(--spacing) * -1) 0,
+               #1a1a1a calc(var(--spacing) * -2) 0;
+}
+
+/* Cards de feature: tienen overlay oscuro propio → texto blanco OK */
+body .section-feature-hero .wg-feature-v01 .feature-content .tag,
+body .section-feature-hero .wg-feature-v01 .feature-content .name,
+body .section-feature-hero .wg-feature-v01 .feature-content .name a,
+body .section-feature-hero .wg-feature-v01 .feature-content .price {
+  color: #ffffff !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   5. SECTION SELECTED WORK — Formatos
+   ══════════════════════════════════════════════════════════════════ */
+
+body .section-selected-work {
+  background: linear-gradient(
+    180deg,
+    #f5f4f0   0%,
+    #ebf0eb  22%,
+    #d6e6d6  52%,
+    #ebf0eb  78%,
+    #f5f4f0 100%
+  ) !important;
+}
+
+/* Línea decorativa superior */
+.section-selected-work::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(96, 117, 97, 0.28) 50%,
+    transparent 100%
+  ) !important;
+}
+
+/* "AVAILABLE FORMATS" label */
+.section-selected-work .mini-title {
+  color: rgba(26, 26, 26, 0.48) !important;
+}
+
+/* Nombres de formato (Bottles / Sticks / Doypack) */
+body .section-selected-work .text-slide.text-display-2 {
+  color: #1a1a1a !important;
+}
+
+/* Slides inactivos: más tenues */
+body .section-selected-work .slick-nav .slick-slide:not(.slick-current) {
+  opacity: 0.22 !important;
+}
+
+/* Tortuga: visible como sello oscuro sobre fondo claro */
+body .section-selected-work .image-award img {
+  filter: brightness(0) opacity(0.22) !important;
+}
+
+/* Overlay del content-wrap-2 */
+.section-selected-work .content-wrap-2::before {
+  background: linear-gradient(
+    180deg,
+    rgba(245, 244, 240, 0) 0%,
+    rgba(245, 244, 240, 0.55) 100%
+  ) !important;
+}
+
+/* content-wrap-2 está encima de la montaña oscura → todo blanco */
+.section-selected-work .content-wrap-2 .btn-nav-swiper {
+  color: #ffffff !important;
+}
+
+.section-selected-work .content-wrap-2 a:not(.tf-btn) {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Pills de categoría (PROTEINS, PRE-WORKOUTS, etc.) */
+.section-selected-work .tf-btn.style-2 {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  background: transparent !important;
+}
+
+.section-selected-work .tf-btn.style-2:hover {
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+  border-color: #ffffff !important;
+}
+
+/* "2026" */
+.section-selected-work .content-wrap-2 .text-display-2 span {
+  color: #ffffff !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   6. TRANSICIÓN — ocultar el div dark-to-light (no hace falta)
+   ══════════════════════════════════════════════════════════════════ */
+
+.transition-light-to-dark {
+  display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   7. SECTION SERVICE — "Our Services"
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-service-2 {
+  background-color: #ffffff;
+}
+
+/* El service-2 ya usa color:#212529 para texto — OK */
+body .section-service-2 .s-header h2,
+body .section-service-2 .wg-service-2 .title {
+  color: #1a1a1a !important;
+}
+
+body .section-service-2 .wg-service-2 .desc,
+body .section-service-2 .wg-service-2 .tf-list li {
+  color: rgba(26, 26, 26, 0.60) !important;
+}
+
+body .section-service-2 .wg-service-2 .tf-btn {
+  color: #1a1a1a !important;
+  border-color: rgba(26, 26, 26, 0.30) !important;
+}
+
+body .section-service-2 .wg-service-2 .tf-btn::before {
+  background-color: #1a1a1a !important;
+}
+
+body .section-service-2 .wg-service-2 .tf-btn:hover {
+  color: #ffffff !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   8. SECTION PROCESS — "Nuestro Proceso / Our Process"
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-process {
+  background: #f5f4f0 !important;
+}
+
+/* Textura de puntos: más visible sobre claro */
+.section-process::before {
+  background-image: radial-gradient(
+    rgba(96, 117, 97, 0.14) 1px,
+    transparent 1px
+  ) !important;
+}
+
+/* Destello verde derecha */
+.section-process::after {
+  background: radial-gradient(
+    ellipse at right,
+    rgba(96, 117, 97, 0.16) 0%,
+    transparent 65%
+  ) !important;
+}
+
+/* Encabezado */
+.proc-eyebrow       { color: #607561 !important; }
+.proc-eyebrow::before { background: #607561 !important; }
+.proc-title         { color: #1a1a1a !important; }
+.proc-lead          { color: rgba(26, 26, 26, 0.55) !important; }
+
+/* Lista de pasos: bordes */
+.proc-steps { border-top-color: rgba(26, 26, 26, 0.10) !important; }
+.proc-step  { border-bottom-color: rgba(26, 26, 26, 0.10) !important; }
+
+.proc-step:hover {
+  background: rgba(96, 117, 97, 0.05) !important;
+  border-left-color: #607561 !important;
+}
+
+/* Línea timeline vertical */
+.proc-step-inner::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(96, 117, 97, 0.04),
+    rgba(96, 117, 97, 0.18) 25%,
+    rgba(96, 117, 97, 0.18) 75%,
+    rgba(96, 117, 97, 0.04)
+  ) !important;
+}
+
+.proc-step:hover .proc-step-inner::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(96, 117, 97, 0.0),
+    rgba(96, 117, 97, 0.45) 25%,
+    rgba(96, 117, 97, 0.45) 75%,
+    rgba(96, 117, 97, 0.0)
+  ) !important;
+}
+
+/* Número grande */
+.proc-n {
+  -webkit-text-stroke: 2px rgba(96, 117, 97, 0.22) !important;
+  color: rgba(96, 117, 97, 0.06) !important;
+}
+
+.proc-step:hover .proc-n {
+  -webkit-text-stroke-color: rgba(96, 117, 97, 0.60) !important;
+  color: rgba(96, 117, 97, 0.16) !important;
+}
+
+/* Textos de paso */
+.proc-step-title       { color: #1a1a1a !important; }
+.proc-step:hover .proc-step-title { color: #1a1a1a !important; }
+.proc-step-desc        { color: rgba(26, 26, 26, 0.55) !important; }
+
+/* Flecha */
+.proc-arrow-wrap svg   { stroke: rgba(26, 26, 26, 0.28) !important; }
+.proc-step:hover .proc-arrow-wrap svg { stroke: #607561 !important; }
+
+/* Imagen decorativa del bote */
+.proc-bg-deco { opacity: 0.22 !important; }
+
+/* ══════════════════════════════════════════════════════════════════
+   9. SECTION TECH STACK — "Our Specialties"
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-tech-stack {
+  background-color: #ffffff;
+}
+
+.section-tech-stack .s-header h2,
+.section-tech-stack h2,
+.section-tech-stack h3 {
+  color: #1a1a1a !important;
+}
+
+/* Filas wg-tech */
+.wg-tech {
+  border-bottom-color: rgba(26, 26, 26, 0.10) !important;
+}
+
+.wg-tech .tech_text {
+  color: rgba(26, 26, 26, 0.35) !important;
+}
+
+.wg-tech .infiniteSlide_tech .tech_text .text {
+  color: #1a1a1a !important;
+}
+
+.wg-tech .infiniteSlide_tech .tech_text .process {
+  color: #607561 !important;
+}
+
+/* Fondo hover de la fila */
+.wg-tech .infiniteSlide_tech_main {
+  background: rgba(96, 117, 97, 0.06) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   10. SECTION AWARD — "Garantías / Guarantees"
+   ══════════════════════════════════════════════════════════════════ */
+
+body .section-award,
+.section-award {
+  background: #f5f4f0 !important;
+  color: #1a1a1a !important;
+}
+
+.section-award h2,
+.section-award h3,
+.section-award h4,
+.section-award h5 {
+  color: #1a1a1a !important;
+}
+
+
+.section-award .text-white-64,
+.section-award .mini-title {
+  color: rgba(26, 26, 26, 0.50) !important;
+}
+
+.section-award .award-item {
+  color: rgba(26, 26, 26, 0.28) !important;
+}
+
+.section-award .tf-swiper .swiper-slide.swiper-slide-active .award-item {
+  color: #1a1a1a !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   11. SECTION FAQ
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-faq {
+  background-color: #ffffff !important;
+}
+
+.section-faq h2,
+.section-faq h3,
+.section-faq .title,
+.section-faq p,
+.section-faq span {
+  color: #1a1a1a !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   12. ELEMENTOS GLOBALES SOBRE FONDO CLARO
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Separadores br-line */
+.br-line {
+  background-color: rgba(26, 26, 26, 0.12) !important;
+}
+
+/* tf-btn genérico fuera del hero */
+.section-feature-hero .tf-btn,
+.section-service-2 .tf-btn,
+.section-process .tf-btn,
+.section-tech-stack .tf-btn,
+.section-award .tf-btn,
+.section-faq .tf-btn {
+  color: #1a1a1a;
+  border-color: rgba(26, 26, 26, 0.32);
+}
+
+.section-feature-hero .tf-btn::before,
+.section-service-2 .tf-btn::before,
+.section-process .tf-btn::before,
+.section-tech-stack .tf-btn::before,
+.section-award .tf-btn::before,
+.section-faq .tf-btn::before {
+  background-color: #1a1a1a;
+}
+
+.section-feature-hero .tf-btn:hover,
+.section-service-2 .tf-btn:hover,
+.section-process .tf-btn:hover,
+.section-tech-stack .tf-btn:hover,
+.section-award .tf-btn:hover,
+.section-faq .tf-btn:hover {
+  color: #ffffff;
+}
+
+/* Hero CTA: sigue siendo blanco (sobre vídeo oscuro) */
+.section-hero-v1 .hero-cta-btn {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.section-hero-v1 .hero-cta-btn::before {
+  background-color: #ffffff !important;
+}
+
+.section-hero-v1 .hero-cta-btn:hover {
+  color: #1a1a1a !important;
+}
+
+/* Contadores / odometer */
+.wg-counter .odometer,
+.stat-number,
+.wg-counter h3,
+.wg-counter .h3 {
+  color: #1a1a1a !important;
+}
+
+/* s-header encabezados de sección genéricos */
+.section-tech-stack .s-header h2,
+.section-award .s-header h2,
+.section-faq .s-header h2,
+.section-process .s-header h2 {
+  color: #1a1a1a !important;
+}
+
+/* mini-title (etiquetas pequeñas tipo "AVAILABLE FORMATS") */
+.section-service-2 .mini-title,
+.section-process .mini-title,
+.section-tech-stack .mini-title,
+.section-award .mini-title,
+.section-faq .mini-title {
+  color: rgba(26, 26, 26, 0.48) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   13. SCROLLBAR
+   ══════════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: #f5f4f0; }
+::-webkit-scrollbar-thumb  { background: rgba(96, 117, 97, 0.40); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(96, 117, 97, 0.65); }
+
+/* ══════════════════════════════════════════════════════════════════
+   14. HEADER — siempre visible al scrollear
+   ══════════════════════════════════════════════════════════════════ */
+
+header {
+  position: sticky;
+  top: 0;
+}
+
+.tf-header .nav-menu-main .nav-icon {
+  display: none;
+}
+
+/* Logo triple de grande */
+body .tf-header .logo-site img {
+  max-height: 180px !important;
+}
+
+/* Nav centrado dentro del contenedor */
+.tf-header .header-inner .row {
+  position: relative;
+}
+
+.tf-header .header-inner .box-navigation {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}

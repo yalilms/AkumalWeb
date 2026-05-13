@@ -1,0 +1,108 @@
+/* ================================================================
+   legal-light.css — Tema claro para páginas legales
+   (privacy-policy, legal-notice, cookies-policy + equivalentes ES)
+   Paleta: fondo #f5f4f0 · texto #1a1a1a · primario #607561
+================================================================ */
+
+/* ══════════════════════════════════════════════════════════════════
+   1. BASE
+   ══════════════════════════════════════════════════════════════════ */
+
+body {
+  background-color: #f5f4f0;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   2. HEADER STICKY
+   ══════════════════════════════════════════════════════════════════ */
+
+.tf-header.header-sticky {
+  background: rgba(245, 244, 240, 0.96) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(26, 26, 26, 0.08);
+}
+
+.tf-header.header-sticky .link,
+.tf-header.header-sticky .item-link,
+.tf-header.header-sticky .item-link span,
+.tf-header.header-sticky .text-caption,
+.tf-header.header-sticky a,
+.tf-header.header-sticky p,
+.tf-header.header-sticky .btn-mobile-menu {
+  color: #1a1a1a !important;
+}
+
+.tf-header.header-sticky .item-link span {
+  color: rgba(26, 26, 26, 0.55) !important;
+}
+
+.tf-header.header-sticky .br-line {
+  background-color: rgba(26, 26, 26, 0.12) !important;
+}
+
+.tf-header.header-sticky .logo-site img {
+  filter: none !important;
+  content: url('../../assets/images/akumal/logoAkumalVerde.png');
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   3. HERO LEGAL — fondo oscuro propio (var(--surface)), no se toca
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════════════════════
+   4. SECCIÓN CONTENIDO LEGAL
+   ══════════════════════════════════════════════════════════════════ */
+
+.legal-content {
+  color: rgba(26, 26, 26, 0.70) !important;
+}
+
+.legal-content h2,
+.legal-content h3,
+.legal-content h4 {
+  color: #1a1a1a !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.legal-content p,
+.legal-content li,
+.legal-content ul,
+.legal-content ol {
+  color: rgba(26, 26, 26, 0.68) !important;
+}
+
+.legal-content a {
+  color: #607561 !important;
+}
+
+.legal-content a:hover {
+  color: #1a1a1a !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   5. BOTONES GLOBALES
+   ══════════════════════════════════════════════════════════════════ */
+
+.tf-btn {
+  color: #1a1a1a !important;
+  border-color: rgba(26, 26, 26, 0.30) !important;
+}
+
+.tf-btn::before {
+  background-color: #1a1a1a !important;
+}
+
+.tf-btn:hover {
+  color: #ffffff !important;
+  border-color: #1a1a1a !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   6. SCROLLBAR
+   ══════════════════════════════════════════════════════════════════ */
+
+body::-webkit-scrollbar-track { background: #f5f4f0; }
+body::-webkit-scrollbar-thumb { background: rgba(96, 117, 97, 0.35); }

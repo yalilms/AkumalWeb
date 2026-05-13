@@ -1,0 +1,348 @@
+/* ================================================================
+   css/pages/about-us.css — Tema claro para pages/about-us.html
+   Paleta:
+     Fondo base   #f5f4f0
+     Texto        #1a1a1a
+     Texto muted  rgba(26,26,26,0.55)
+     Primario     #607561  (verde salvia — sin cambios)
+================================================================ */
+
+/* ══════════════════════════════════════════════════════════════════
+   1. BASE
+   ══════════════════════════════════════════════════════════════════ */
+
+body {
+  background-color: #f5f4f0;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   2. HEADER — sticky sobre fondo claro
+   ══════════════════════════════════════════════════════════════════ */
+
+.tf-header.header-sticky {
+  background: rgba(245, 244, 240, 0.96) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(26, 26, 26, 0.08);
+}
+
+.tf-header.header-sticky .link,
+.tf-header.header-sticky .item-link,
+.tf-header.header-sticky .item-link span,
+.tf-header.header-sticky .text-caption,
+.tf-header.header-sticky a,
+.tf-header.header-sticky p,
+.tf-header.header-sticky .btn-mobile-menu {
+  color: #1a1a1a !important;
+}
+
+.tf-header.header-sticky .item-link span {
+  color: rgba(26, 26, 26, 0.55) !important;
+}
+
+.tf-header.header-sticky .br-line {
+  background-color: rgba(26, 26, 26, 0.12) !important;
+}
+
+.tf-header.header-sticky .logo-site img {
+  filter: none !important;
+  content: url('../../assets/images/akumal/logoAkumalVerde.png');
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   3. PAGE HERO — .nosotros-hero
+   ══════════════════════════════════════════════════════════════════ */
+
+.nosotros-hero {
+  background-color: #f5f4f0 !important;
+}
+
+/* Overlay inferior: transición al fondo claro */
+.nosotros-hero::before {
+  background: linear-gradient(
+    180deg,
+    rgba(245, 244, 240, 0) 0%,
+    #f5f4f0 100%
+  ) !important;
+}
+
+/* Hero sobre imagen oscura → texto blanco (original) — no se toca */
+
+/* ══════════════════════════════════════════════════════════════════
+   4. SECTION ABOUT ME — video + texto
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-about-me {
+  background-color: #f5f4f0 !important;
+}
+
+/* Fundidos del vídeo: izq+der y arriba+abajo → fondo claro */
+.section-about-me .davies-video .overlay.mark-1 {
+  background: linear-gradient(
+    270deg,
+    #f5f4f0 0%,
+    rgba(245, 244, 240, 0) 20%,
+    rgba(245, 244, 240, 0) 80%,
+    #f5f4f0 100%
+  ) !important;
+}
+
+.section-about-me .davies-video .overlay.mark-2 {
+  background: linear-gradient(
+    180deg,
+    #f5f4f0 0%,
+    rgba(245, 244, 240, 0) 15%,
+    rgba(245, 244, 240, 0) 80%,
+    #f5f4f0 100%
+  ) !important;
+}
+
+/* Badge circular: adaptar al fondo claro */
+.section-about-me .col-left .badget {
+  box-shadow:
+    0px 0.25px 0.25px 0px rgba(26, 26, 26, 0.12) inset,
+    0px 4px 16px 0px rgba(96, 117, 97, 0.15) inset,
+    0px 0px 0px 0.75px rgba(26, 26, 26, 0.18),
+    0px 10px 10px 0px rgba(0, 0, 0, 0.04) !important;
+}
+
+.section-about-me .col-left .badget .badge-circle-text {
+  fill: rgba(26, 26, 26, 0.55) !important;
+}
+
+/* Firma/logo: ya apunta a logoAkumalVerde.png directo en HTML */
+
+/* Texto encima del vídeo */
+.section-about-me .text-display-2,
+.section-about-me .text-display-3,
+.section-about-me h2,
+.section-about-me h3,
+.section-about-me h4,
+.section-about-me h5 {
+  color: #1a1a1a !important;
+}
+
+.section-about-me .text-white-64,
+.section-about-me .text-body-1,
+.section-about-me .text-caption,
+.section-about-me .mini-title {
+  color: rgba(26, 26, 26, 0.60) !important;
+}
+
+/* GSAP text-color-change — colores oscuros (body.light-page lo controla en JS) */
+.section-about-me .char-wrapper,
+.section-about-me .word-wrapper {
+  /* JS manejará los colores via light-page class */
+}
+
+/* Experience list */
+.section-about-me .exp_name,
+.section-about-me .exp_year {
+  color: rgba(26, 26, 26, 0.60) !important;
+}
+
+.section-about-me .experience-list li {
+  border-color: rgba(26, 26, 26, 0.10) !important;
+}
+
+/* Línea divisoria */
+.section-about-me .br-line {
+  background-color: rgba(26, 26, 26, 0.12) !important;
+}
+
+/* Badge circular */
+.section-about-me .badget {
+  border-color: rgba(26, 26, 26, 0.20) !important;
+  color: rgba(26, 26, 26, 0.55) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   5. SECTION STATS — .section-nosotros-stats
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-nosotros-stats {
+  background: rgba(96, 117, 97, 0.04) !important;
+  border-top: 1px solid rgba(96, 117, 97, 0.18) !important;
+  border-bottom: 1px solid rgba(96, 117, 97, 0.18) !important;
+}
+
+.section-nosotros-stats .stat-fw-col {
+  border-color: rgba(26, 26, 26, 0.10) !important;
+}
+
+.section-nosotros-stats .stat-fw-col:hover {
+  background: rgba(96, 117, 97, 0.07) !important;
+}
+
+/* El número ya es verde (#607561) — OK */
+
+.section-nosotros-stats .stat-fw-label {
+  color: rgba(26, 26, 26, 0.50) !important;
+}
+
+.section-nosotros-stats .stat-fw-sub {
+  color: rgba(26, 26, 26, 0.38) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   6. SECTION NACIMOS — "Born for sport"
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-nacimos {
+  background-color: #ffffff !important;
+}
+
+.section-nacimos h2,
+.section-nacimos h3,
+.section-nacimos .text-display-2,
+.section-nacimos .text-display-3 {
+  color: #1a1a1a !important;
+}
+
+.section-nacimos .text-white-64,
+.section-nacimos .text-body-1 {
+  color: rgba(26, 26, 26, 0.60) !important;
+}
+
+.section-nacimos .mini-title,
+.section-nacimos .text-caption {
+  color: rgba(26, 26, 26, 0.48) !important;
+}
+
+/* Blockquote */
+.section-nacimos .nacimos-quote {
+  border-left-color: #607561 !important;
+  color: rgba(26, 26, 26, 0.70) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   7. WHAT WE DO SECTION
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-what-we-do,
+body > main section.flat-spacing:not([class*="section-"]) {
+  background-color: #f5f4f0;
+}
+
+/* Cobertura genérica para secciones sin clase específica — excluye el hero */
+body .flat-spacing:not(.nosotros-hero) h2,
+body .flat-spacing:not(.nosotros-hero) h3,
+body .flat-spacing:not(.nosotros-hero) h1,
+body .flat-spacing:not(.nosotros-hero) .text-display-2,
+body .flat-spacing:not(.nosotros-hero) .text-display-3 {
+  color: #1a1a1a !important;
+}
+
+body .flat-spacing:not(.nosotros-hero) .text-white-64,
+body .flat-spacing:not(.nosotros-hero) .text-body-1 {
+  color: rgba(26, 26, 26, 0.60) !important;
+}
+
+body .flat-spacing:not(.nosotros-hero) .mini-title,
+body .flat-spacing:not(.nosotros-hero) .text-caption {
+  color: rgba(26, 26, 26, 0.48) !important;
+}
+
+/* Hero: texto siempre blanco — sobre imagen oscura */
+.nosotros-hero h1,
+.nosotros-hero h2,
+.nosotros-hero h6,
+.nosotros-hero .text-display-2,
+.nosotros-hero .text-white-64,
+.nosotros-hero .mini-title,
+.nosotros-hero .text-caption,
+.nosotros-hero .text-body-1 {
+  color: inherit !important;
+}
+
+/* Lista de servicios */
+body .tf-list.vertical li {
+  border-top-color: rgba(26, 26, 26, 0.10) !important;
+  color: #1a1a1a !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   8. CTA — .section-cta-nosotros
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-cta-nosotros {
+  background-color: #f5f4f0 !important;
+}
+
+.section-cta-nosotros h3,
+.section-cta-nosotros .text-display-3 {
+  color: #1a1a1a !important;
+}
+
+.section-cta-nosotros h3 em {
+  color: #607561 !important;
+}
+
+.section-cta-nosotros .text-white-64,
+.section-cta-nosotros .text-caption,
+.section-cta-nosotros .mini-title {
+  color: rgba(26, 26, 26, 0.48) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   9. SEPARADOR entre secciones
+   ══════════════════════════════════════════════════════════════════ */
+
+.about-separator {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 var(--container-padding, 80px);
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.about-separator-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(96, 117, 97, 0.30) 50%,
+    transparent 100%
+  );
+}
+
+.about-separator-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #607561;
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   10. BOTONES GLOBALES — tf-btn sobre fondo claro
+   ══════════════════════════════════════════════════════════════════ */
+
+.tf-btn {
+  color: #1a1a1a !important;
+  border-color: rgba(26, 26, 26, 0.30) !important;
+}
+
+.tf-btn::before {
+  background-color: #1a1a1a !important;
+}
+
+.tf-btn:hover {
+  color: #ffffff !important;
+  border-color: #1a1a1a !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   10. SCROLLBAR
+   ══════════════════════════════════════════════════════════════════ */
+
+body::-webkit-scrollbar-track {
+  background: #f5f4f0;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(96, 117, 97, 0.35);
+}

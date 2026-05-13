@@ -13,10 +13,16 @@
                 $el.wordSplit = new SplitText($el, { type: "words", wordsClass: "word-wrapper" });
                 $el.charSplit = new SplitText($el.wordSplit.words, { type: "chars", charsClass: "char-wrapper" });
 
-                gsap.set($el.charSplit.chars, { color: "#FFFFFF52" });
+                const isLightPage = document.body.classList.contains('light-page');
+                const inDarkHero  = !!$el.closest('.nosotros-hero, .section-hero-v1, .dark-section');
+                const isLight     = isLightPage && !inDarkHero;
+                const colorFrom   = isLight ? "rgba(26,26,26,0.15)" : "#FFFFFF52";
+                const colorTo     = isLight ? "#1a1a1a" : "#ffffff";
+
+                gsap.set($el.charSplit.chars, { color: colorFrom });
 
                 gsap.to($el.charSplit.chars, {
-                    color: "#ffffff",
+                    color: colorTo,
                     stagger: { each: 0.03, from: "start" },
                     ease: "power2.out",
                     scrollTrigger: {

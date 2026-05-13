@@ -323,11 +323,16 @@ body .section-feature-hero .wg-feature-v01 .feature-content .price {
 }
 
 /* ── Header ──────────────────────────────────────────────────── */
+.tf-header .header-inner .row {
+  position: relative;
+}
+.tf-header .header-inner .box-navigation {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .tf-header .nav-menu-main .nav-icon {
-  display: inline-flex;
-  align-items: center;
-  opacity: 0.6;
-  flex-shrink: 0;
+  display: none;
 }
 
 body .tf-header .logo-site img {
@@ -518,6 +523,17 @@ body .tf-header .btn-mobile-menu {
 }
 
 /* ── Header Login Button ─────────────────────────────────────── */
+.header-login-btn.login-icon-only {
+  padding: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.header-login-btn.login-icon-only span { display: none; }
+.header-login-btn.login-icon-only svg { width: 16px; height: 16px; }
+
 .header-login-btn {
   display: inline-flex;
   align-items: center;
@@ -1238,17 +1254,12 @@ body .section-selected-work .content-wrap-2 a.tf-btn:hover {
     min-height: 100svh;
   }
   body .section-hero-v1 .col-left {
-    min-height: 48svh;
     height: unset;
     margin-bottom: 0;
+    padding-bottom: 36px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  body .section-hero-v1 .hero-badges { display: none !important; }
-  body .section-hero-v1 .davies-large { text-align: center; }
-  body .section-hero-v1 .davies-large img.hero-logo {
-    width: clamp(220px, 78vw, 360px);
+    align-items: flex-end;
+    justify-content: flex-start;
   }
   body .section-hero-v1 .col-right { padding-bottom: 28px; }
   .header-login-btn span { display: none; }
@@ -1275,8 +1286,8 @@ body .section-selected-work .content-wrap-2 a.tf-btn:hover {
 
   /* Vídeo: encuadre y overlay */
   .section-hero-v1 .bg-video video { object-position: center 20%; }
-  .section-hero-v1 .bg-video .video-overlay-2:last-child {
-    background: linear-gradient(to top, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.20) 55%, transparent 100%);
+  .section-hero-v1 .bg-video .hero-overlay-gradient {
+    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.10) 100%);
   }
 
   /* "Por qué elegirnos" — centrar título + botón */
@@ -1365,4 +1376,99 @@ body .section-selected-work .content-wrap-2 a.tf-btn:hover {
     justify-content: center !important;
     gap: 12px !important;
   }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   HERO — Rediseño estilo Alma (tipografía grande, overlay limpio)
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Pantalla completa en todos los dispositivos */
+body .section-hero-v1 {
+  height: 100svh;
+  min-height: 600px;
+}
+
+/* Gradiente lateral: texto legible a la izquierda, vídeo visible a la derecha */
+.section-hero-v1 .bg-video .hero-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.50) 38%,
+    rgba(0, 0, 0, 0.20) 65%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+  pointer-events: none;
+}
+
+/* Titular hero grande — tipografía via text-display-2 + fw-bold + letter-space--3 */
+.hero-headline {
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.40);
+}
+
+.hero-headline em {
+  font-style: italic;
+}
+
+/* Tagline bajo el titular */
+.hero-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0 0 36px 0;
+}
+
+/* col-left: ancla todo el bloque al fondo del hero */
+body .section-hero-v1 .col-left {
+  justify-content: flex-end;
+  padding-bottom: 64px;
+  height: 100%;
+}
+
+/* Botón CTA dentro del hero */
+.hero-cta-btn {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
+}
+.hero-cta-btn::before {
+  background-color: #ffffff !important;
+}
+.hero-cta-btn:hover {
+  color: #212529 !important;
+}
+
+@media (max-width: 991px) {
+  .hero-headline {
+    font-size: clamp(38px, 8vw, 62px);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   FORMATOS — pantalla completa en todos los dispositivos
+   ══════════════════════════════════════════════════════════════════ */
+
+body .section-selected-work {
+  height: 100svh;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* content-wrap-1 ocupa el espacio disponible y empuja el contenido hacia abajo */
+body .section-selected-work .content-wrap-1 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Imagen del carrusel: más corta para que el producto quede en el valle */
+body .section-selected-work .slick-for .image {
+  height: clamp(260px, calc(100svh - 420px), 580px);
 }
