@@ -22,6 +22,9 @@ body {
    ══════════════════════════════════════════════════════════════════ */
 
 /* No-sticky: header flota sobre el vídeo oscuro → texto blanco OK */
+.tf-header {
+  margin-bottom: -135px;
+}
 
 /* Sticky: aparece sobre fondo claro → necesita bg + texto oscuro */
 .tf-header.header-sticky {
@@ -49,11 +52,7 @@ body {
   background-color: rgba(26, 26, 26, 0.12) !important;
 }
 
-/* Logo oscuro en sticky */
-.tf-header.header-sticky .logo-site img {
-  filter: none !important;
-  content: url('../../assets/images/akumal/logos/LOGO%20AKUMAL%20NUTRITION-08.png');
-}
+/* Logo oscuro en sticky: swap vía JS en main.js */
 
 /* ══════════════════════════════════════════════════════════════════
    3. HERO — overlay inferior: transición al fondo claro

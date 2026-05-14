@@ -295,54 +295,78 @@ body .section-feature-hero .wg-feature-v01 .feature-content .price {
 }
 
 /* ── Botón MENÚ ──────────────────────────────────────────────── */
-/* .btn-menu-styled convive con .btn-mobile-menu del template;
-   combinamos ambas clases para mayor especificidad */
-.btn-mobile-menu.btn-menu-styled {
-  background-color: var(--primary);
+/* ── Hamburger button ─────────────────────────────────────────── */
+.btn-mobile-menu.hamburger-btn {
+  background: none;
   border: none;
-  border-radius: 8px;
-  padding: 9px 16px;
-  letter-spacing: 0.12em;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #ffffff;
-  gap: 10px;
-  transition: background-color 0.25s ease, transform 0.2s ease;
-  white-space: nowrap;
+  padding: 6px;
+  cursor: pointer;
   display: inline-flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(96, 117, 97, 0.4);
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
 }
 
-.btn-mobile-menu.btn-menu-styled:hover {
-  background-color: #4a6b4a;
-  color: #ffffff;
-  transform: translateY(-1px);
+.ham-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+              opacity 0.25s ease,
+              width 0.35s ease;
+  transform-origin: center;
+}
+
+.hamburger-btn:hover .ham-line:nth-child(1) { width: 18px; }
+.hamburger-btn:hover .ham-line:nth-child(3) { width: 18px; }
+
+.hamburger-btn.is-open .ham-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger-btn.is-open .ham-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger-btn.is-open .ham-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  width: 24px;
 }
 
 /* ── Header ──────────────────────────────────────────────────── */
 .tf-header .header-inner .row {
   position: relative;
+  align-items: center;
+}
+.tf-header .header-inner .header-nav-col {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 .tf-header .header-inner .box-navigation {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  position: static;
+  display: flex;
+  align-items: center;
 }
 .tf-header .nav-menu-main .nav-icon {
   display: none;
 }
 
 body .tf-header .logo-site img {
-  max-height: 58px;
+  height: 35px;
+  width: auto;
 }
 
 body .tf-header .nav-menu-main .item-link {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  font-weight: 800;
+  align-items: center;
 }
 
 body .tf-header .nav-menu-main .item-link span {
@@ -375,8 +399,9 @@ body .tf-header .btn-mobile-menu {
   background: none;
   border: none;
   color: #ffffff;
-  font-size: 13px;
-  letter-spacing: 0.05em;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
   cursor: pointer;
   padding: 4px 0;
   opacity: 0.85;
@@ -532,7 +557,7 @@ body .tf-header .btn-mobile-menu {
   flex-shrink: 0;
 }
 .header-login-btn.login-icon-only span { display: none; }
-.header-login-btn.login-icon-only svg { width: 16px; height: 16px; }
+.header-login-btn.login-icon-only svg { width: 20px; height: 20px; }
 
 .header-login-btn {
   display: inline-flex;
@@ -542,9 +567,9 @@ body .tf-header .btn-mobile-menu {
   background: rgba(96,117,97,0.18);
   border: 1px solid rgba(96,117,97,0.5);
   border-radius: 99px;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  font-weight: 800;
   color: #fff;
   text-decoration: none;
   transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
@@ -968,9 +993,57 @@ body .section-selected-work .slick-nav .slick-current ~ .slick-slide:last-child 
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 1px 24px rgba(0, 0, 0, 0.07);
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-top: 22px;
+  padding-bottom: 22px;
   margin-bottom: 0;
+}
+
+/* Logo y elementos del header siempre visibles sobre fondo blanco sticky */
+.tf-header.header-sticky .logo-site img {
+  filter: brightness(0);
+}
+
+.tf-header.header-sticky .lang-toggle {
+  color: #212529;
+}
+
+.tf-header.header-sticky .lang-dropdown {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(26, 26, 26, 0.10);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+}
+
+.tf-header.header-sticky .lang-option {
+  color: rgba(26, 26, 26, 0.65);
+}
+
+.tf-header.header-sticky .lang-option:hover,
+.tf-header.header-sticky .lang-option.active {
+  background: rgba(96, 117, 97, 0.12);
+  color: #212529;
+}
+
+.tf-header.header-sticky .header-login-btn {
+  color: #212529;
+  border-color: rgba(96, 117, 97, 0.45);
+  background: rgba(96, 117, 97, 0.1);
+}
+
+.tf-header.header-sticky .header-login-btn:hover {
+  color: #ffffff;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.tf-header.header-sticky .ham-line {
+  background-color: #212529;
+}
+
+.tf-header.header-sticky .nav-menu-main .item-link,
+.tf-header.header-sticky .nav-menu-main .item-link span,
+.tf-header.header-sticky .nav-menu-main .item-link svg {
+  color: #212529;
+  stroke: #212529;
 }
 
 /* ── Strip CTA "Personalizar envase" (sección formatos) ─────────── */

@@ -42,8 +42,17 @@
 
             if (scrollTop > 80) {
                 $header.addClass("header-sticky");
+                var $logo = $header.find('.logo-site img');
+                if (!$logo.data('orig-src')) {
+                    $logo.data('orig-src', $logo.attr('src'));
+                }
+                $logo.attr('src', $logo.attr('src').replace(/LOGO AKUMAL NUTRITION-\d+\.png/i, 'LOGO AKUMAL NUTRITION-08.png'));
             } else {
                 $header.removeClass("header-sticky");
+                var $logo = $header.find('.logo-site img');
+                if ($logo.data('orig-src')) {
+                    $logo.attr('src', $logo.data('orig-src'));
+                }
             }
         });
 
@@ -214,11 +223,13 @@
         $(".open-mb-menu").on("click", function () {
             $(".offcanvas-menu").addClass("show");
             $("body").toggleClass("overflow-hidden");
+            $(this).addClass("is-open");
         });
 
         $(".close-mb-menu").on("click", function () {
             $(".offcanvas-menu").removeClass("show");
             $("body").toggleClass("overflow-hidden");
+            $(".open-mb-menu").removeClass("is-open");
         });
     };
     /* Click Active

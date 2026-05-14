@@ -7,7 +7,7 @@
    1. BASE
    ══════════════════════════════════════════════════════════════════ */
 
-body { background-color: #f5f4f0; }
+body { background-color: #f5f4f0 !important; }
 
 /* ══════════════════════════════════════════════════════════════════
    TIPOGRAFÍA — Inter en lugar de Syne (igual que nosotros)
@@ -74,10 +74,6 @@ h1, h2, h3, h4, h5,
   background-color: rgba(26, 26, 26, 0.12) !important;
 }
 
-.tf-header.header-sticky .logo-site img {
-  filter: none !important;
-  content: url('../../assets/images/akumal/logoAkumalVerde.png');
-}
 
 /* ══════════════════════════════════════════════════════════════════
    3. HERO — video oscuro propio, texto blanco (no se toca)

@@ -41,8 +41,6 @@ body {
   background-color: rgba(26, 26, 26, 0.12) !important;
 }
 
-.tf-header.header-sticky .logo-site img {
-  filter: none !important;
   content: url('../../assets/images/akumal/logoAkumalVerde.png');
 }
 
