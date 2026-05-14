@@ -840,8 +840,8 @@ body .section-selected-work .image-award img {
 /* ── Formatos Disponibles: tamaño reducido ───────────────────── */
 /* Nombre del formato (Doypack / Stick / Botes) — más pequeño */
 body .section-selected-work .text-slide.text-display-2 {
-  font-size: clamp(22px, 3.5vw, 48px);
-  line-height: clamp(28px, 4vw, 56px);
+  font-size: clamp(36px, 5.5vw, 82px);
+  line-height: clamp(42px, 6vw, 90px);
 }
 
 /* Contenedor de imagen — menos alto */
@@ -850,10 +850,10 @@ body .section-selected-work .slick-for .image {
   padding-top: 28px;
 }
 
-/* Imagen del producto — más pequeña */
+/* Imagen del producto — tamaño ajustado */
 body .section-selected-work .slick-for .image img {
-  max-height: 360px;
-  margin-bottom: 80px;
+  max-height: 480px;
+  margin-bottom: 24px;
 }
 
 /* Ajuste proporcional del efecto 3D del slider de nombres */
@@ -1531,17 +1531,33 @@ body .section-selected-work {
   min-height: 700px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-/* content-wrap-1 ocupa el espacio disponible y empuja el contenido hacia abajo */
+/* content-wrap-1: contenido centrado-alto, no pegado al fondo */
 body .section-selected-work .content-wrap-1 {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  padding-top: clamp(40px, 8vh, 80px);
 }
 
-/* Imagen del carrusel: más corta para que el producto quede en el valle */
+/* Imagen del carrusel: más alta */
 body .section-selected-work .slick-for .image {
-  height: clamp(260px, calc(100svh - 420px), 580px);
+  height: clamp(320px, calc(100svh - 280px), 720px);
+}
+
+/* Montaña: imagen extendida hacia arriba para que picos lleguen a los botes */
+body .section-selected-work .bg-img {
+  inset: 0;
+  align-items: flex-end;
+  overflow: hidden;
+}
+body .section-selected-work .bg-img img {
+  width: 100%;
+  height: 115%;
+  object-fit: cover;
+  object-position: top center;
+  flex-shrink: 0;
 }

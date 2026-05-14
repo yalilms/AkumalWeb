@@ -293,6 +293,12 @@
                         trigger: el,
                         start: startPush,
                         toggleActions: "play none none none",
+                        onRefresh(self) {
+                            // On reload with scroll position already past trigger, show immediately
+                            if (self.progress === 1) {
+                                gsap.set(el, { autoAlpha: 1, y: 0, x: 0, scale: 1, rotationX: 0, yPercent: 0 });
+                            }
+                        }
                     },
                 });
             });
@@ -596,6 +602,16 @@
                 scrub: false,
                 markers: false,
                 anticipatePin: 1,
+                onRefresh: (self) => {
+                    // On page load/reload, sync timeline to correct step immediately
+                    if (self.progress > 0 && !isAnimating) {
+                        const targetStep = Math.round(self.progress * totalSteps);
+                        if (targetStep !== currentStep) {
+                            currentStep = targetStep;
+                            tl.progress(targetStep * stepLength);
+                        }
+                    }
+                },
                 onUpdate: (self) => {
                     if (isNavigating) {
                         return;

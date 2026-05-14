@@ -33,8 +33,8 @@
     <link rel="stylesheet" href="css/base.css?v=2">
     <link rel="stylesheet" href="css/components.css?v=5">
     <link rel="stylesheet" href="css/sections.css?v=5">
-    <link rel="stylesheet" href="css/akumal.css?v=67">
-    <link rel="stylesheet" href="css/pages/index.css?v=23">
+    <link rel="stylesheet" href="css/akumal.css?v=68">
+    <link rel="stylesheet" href="css/pages/index.css?v=34">
     <script src="js/config.js"></script>
 </head>
 
@@ -242,6 +242,48 @@
             </div>
         </section>
         <!-- /Feature -->
+
+        <!-- ══ PRODUCT FEATURE + PREPARATION STEPS (misma unidad de scroll) ══ -->
+        <div class="pf-scroll-wrapper">
+            <!-- Sección 1: sticky fija debajo -->
+            <section class="section-product-feature">
+                <div class="container">
+                    <div class="product-feature-grid">
+                        <div class="product-feature-text">
+                            <h2 class="product-feature-heading">Where performance meets precision manufacturing.</h2>
+                        </div>
+                        <div class="product-feature-image">
+                            <img src="assets/images/akumal/ShakeAkumal.png" alt="Akumal supplement product" class="product-bottle-img">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Sección 2: sube por encima desde abajo -->
+            <section class="section-prep-steps">
+                <div class="container">
+                    <p class="prep-label anim-item" style="transition-delay: 0s;">HOW IT WORKS</p>
+                    <div class="prep-text">
+                        <p class="prep-step anim-item" style="transition-delay: 0.14s;">
+                            <span class="prep-num">1.</span> Mix your dose with cold water or
+                            <span class="prep-img-wrap"><img src="assets/images/akumal/v3-feature-gmp.png" alt="" class="prep-inline-img"></span>
+                            your favourite drink
+                        </p>
+                        <p class="prep-step anim-item" style="transition-delay: 0.28s;">
+                            <span class="prep-num">2.</span> Shake or stir — it dissolves
+                            <span class="prep-img-wrap"><img src="assets/images/akumal/v2-service-2.png" alt="" class="prep-inline-img"></span>
+                            easily
+                        </p>
+                        <p class="prep-step anim-item" style="transition-delay: 0.42s;">
+                            <span class="prep-num">3.</span> Take it every day
+                            <span class="prep-img-wrap"><img src="assets/images/akumal/v4-feature-gmp.png" alt="" class="prep-inline-img"></span>
+                            at the same time, morning or whenever suits you best
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- /PRODUCT FEATURE + PREPARATION STEPS -->
+
         <!-- Select Work -->
         <div class="section-selected-work flat-spacing pb-0" id="formatosScroll">
             <div class="bg-img effectFade fadeUp">
@@ -1575,6 +1617,43 @@
     <script src="js/vendor/infinityslide.js"></script>
     <script src="js/gsap-animations.js"></script>
     <script src="js/main.js"></script>
+    <script>
+    (function () {
+        /* ── Fase 1: imagen (top 90% → top 5%) ── */
+        gsap.fromTo('.product-feature-image',
+            { opacity: 0, y: 60 },
+            { scrollTrigger: { trigger: '.pf-scroll-wrapper', start: 'top 90%', end: 'top 5%', scrub: 0.8 },
+              opacity: 1, y: 0 }
+        );
+
+        /* ── Fase 2: texto (20% → 45% del wrapper) ── */
+        gsap.fromTo('.product-feature-text',
+            { opacity: 0, y: 90 },
+            { scrollTrigger: { trigger: '.pf-scroll-wrapper', start: '20% top', end: '45% top', scrub: 0.8 },
+              opacity: 1, y: 0 }
+        );
+
+        /* ── Fase 3: sección 2 sube desde abajo (55% → 85% del wrapper 280dvh) ── */
+        gsap.to('.section-prep-steps',
+            { y: 0,
+              scrollTrigger: { trigger: '.pf-scroll-wrapper', start: '48% top', end: '95% top', scrub: 2 }
+            }
+        );
+
+        /* ── Stagger interno de sección 2 cuando ya es visible ── */
+        const io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.10 });
+
+        document.querySelectorAll('.section-prep-steps .anim-item')
+            .forEach(function (el) { io.observe(el); });
+    })();
+    </script>
     <script>
         (function () {
             const modal = document.getElementById('envaseModal');

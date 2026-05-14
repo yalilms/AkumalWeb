@@ -521,3 +521,188 @@ body .tf-header .logo-site img {
   left: 50%;
   transform: translateX(-50%);
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   SECTION PRODUCT FEATURE HERO
+   ══════════════════════════════════════════════════════════════════ */
+
+/*
+  wrapper = 100dvh (sección 1 visible)
+           + 80dvh (texto se anima)
+           + 100dvh (sección 2 sube desde abajo)
+           = 280dvh total
+*/
+.pf-scroll-wrapper {
+  height: 280dvh;
+  position: relative;
+}
+
+.section-product-feature {
+  background: #f5f4f0;
+  overflow: hidden;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.product-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.product-feature-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.product-feature-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-bottle-img {
+  width: 100%;
+  max-width: 100%;
+  height: 90dvh;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.18));
+  transition: transform 0.6s ease;
+}
+
+.product-bottle-img:hover {
+  transform: scale(1.03);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SECTION PREPARATION STEPS
+   ══════════════════════════════════════════════════════════════════ */
+
+.section-prep-steps {
+  background: #ffffff;
+  text-align: center;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  position: sticky;          /* sticky igual que section 1 */
+  top: 0;
+  z-index: 2;                /* encima de section 1 */
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -8px 48px rgba(0,0,0,0.12);
+  padding-top: 80px;
+  padding-bottom: 80px;
+  transform: translateY(100vh); /* empieza debajo del viewport */
+  will-change: transform;
+}
+
+.section-prep-steps .container {
+  width: 100%;
+}
+
+.prep-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: rgba(26,26,26,0.40);
+  text-transform: uppercase;
+  margin-bottom: 56px;
+}
+
+.prep-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.prep-step {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2rem, 5.5vw, 5.2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0.15em 0;
+}
+
+.prep-num {
+  color: #607561;
+  font-variant-numeric: tabular-nums;
+}
+
+.prep-img-wrap {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.18em;
+  line-height: 1;
+}
+
+.prep-inline-img {
+  display: block;
+  width: clamp(52px, 7.5vw, 100px);
+  height: clamp(52px, 7.5vw, 100px);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  border: 2px solid rgba(255,255,255,0.8);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ANIMACIONES — Intersection Observer
+   ══════════════════════════════════════════════════════════════════ */
+
+.anim-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.anim-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Texto del hero: empieza oculto, sube con GSAP */
+.product-feature-text {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+/* Imagen del hero: empieza oculta también */
+.product-feature-image {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Prep-steps: sin animación de entrada, visibles directamente */
+.section-prep-steps .anim-item {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .product-feature-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .product-feature-image { order: -1; }
+  .product-bottle-img { max-width: 260px; }
+  .prep-step { font-size: clamp(1.6rem, 8vw, 2.8rem); }
+}
