@@ -44,9 +44,6 @@ body {
   background-color: rgba(26, 26, 26, 0.12) !important;
 }
 
-  content: url('../../assets/images/akumal/logoAkumalVerde.png');
-}
-
 /* ══════════════════════════════════════════════════════════════════
    3. PAGE HERO — .nosotros-hero
    ══════════════════════════════════════════════════════════════════ */
@@ -74,38 +71,29 @@ body {
   background-color: #f5f4f0 !important;
 }
 
-/* Fundidos del vídeo: izq+der y arriba+abajo → fondo claro */
-.section-about-me .davies-video .overlay.mark-1 {
-  background: linear-gradient(
-    270deg,
-    #f5f4f0 0%,
-    rgba(245, 244, 240, 0) 20%,
-    rgba(245, 244, 240, 0) 80%,
-    #f5f4f0 100%
-  ) !important;
+/* Vídeo: color real, sin vignette — look minimalista */
+.section-about-me .davies-video .video {
+  filter: none !important;
+  border-radius: 32px;
+  overflow: hidden;
 }
 
+.section-about-me .davies-video .overlay.mark-1,
 .section-about-me .davies-video .overlay.mark-2 {
-  background: linear-gradient(
-    180deg,
-    #f5f4f0 0%,
-    rgba(245, 244, 240, 0) 15%,
-    rgba(245, 244, 240, 0) 80%,
-    #f5f4f0 100%
-  ) !important;
+  display: none !important;
 }
 
 /* Badge circular: adaptar al fondo claro */
 .section-about-me .col-left .badget {
-  box-shadow:
-    0px 0.25px 0.25px 0px rgba(26, 26, 26, 0.12) inset,
-    0px 4px 16px 0px rgba(96, 117, 97, 0.15) inset,
-    0px 0px 0px 0.75px rgba(26, 26, 26, 0.18),
-    0px 10px 10px 0px rgba(0, 0, 0, 0.04) !important;
+  box-shadow: 0px 10px 30px rgba(96, 117, 97, 0.35) !important;
 }
 
 .section-about-me .col-left .badget .badge-circle-text {
-  fill: rgba(26, 26, 26, 0.55) !important;
+  fill: #ffffff !important;
+}
+
+.section-about-me .badget svg image {
+  filter: brightness(0) invert(1);
 }
 
 /* Firma/logo: ya apunta a logoAkumalVerde.png directo en HTML */

@@ -1351,10 +1351,10 @@ width: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255,255,255,0.16);
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
 .tf-btn-2 .icon {
@@ -1371,6 +1371,7 @@ content: "";
   background-repeat: no-repeat;
   background-position: center;
 }
+
 
 @media (min-width: 1200px) {
 .tf-btn-2 {
