@@ -28,8 +28,9 @@
     <link rel="stylesheet" href="../css/base.css?v=2">
     <link rel="stylesheet" href="../css/components.css?v=5">
     <link rel="stylesheet" href="../css/sections.css?v=5">
-    <link rel="stylesheet" href="../css/akumal.css?v=69">
-    <link rel="stylesheet" href="../css/pages/contacto.css?v=7">
+    <link rel="stylesheet" href="../css/akumal.css?v=74">
+    <link rel="stylesheet" href="../css/pages/contacto.css?v=8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/css/intlTelInput.min.css">
     <style>
         /* ── Survey image zoom button ── */
         .survey-img-card-photo { position: relative; overflow: hidden; cursor: zoom-in; }
@@ -99,6 +100,22 @@
             letter-spacing: .08em;
             text-transform: uppercase;
         }
+        /* ── intl-tel-input overrides ── */
+        .scf-field .iti { display:block!important; width:100%!important; }
+        .scf-field .iti input { width:100%!important; }
+        /* ── Success summary ── */
+        .survey-success-summary { text-align:left; width:100%; max-width:520px; margin:20px auto 0; }
+        .ss-section { margin-bottom:16px; }
+        .ss-section-title { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#607561; margin-bottom:6px; padding-bottom:5px; border-bottom:1px solid rgba(96,117,97,.18); }
+        .ss-row { display:flex; gap:8px; padding:4px 0; font-size:13px; line-height:1.4; }
+        .ss-label { color:rgba(0,0,0,.5); min-width:140px; flex-shrink:0; }
+        .ss-value { color:#1a2218; font-weight:500; word-break:break-word; }
+        /* ── Success actions ── */
+        .survey-success-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:24px; }
+        .survey-btn-download { background:transparent; color:#607561; border:1.5px solid #607561; display:inline-flex; align-items:center; gap:8px; padding:11px 22px; border-radius:4px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; text-decoration:none; transition:background .2s,color .2s; }
+        .survey-btn-download:hover { background:#607561; color:#fff; }
+        .survey-btn-home { background:#1a2218; color:#fff; display:inline-flex; align-items:center; gap:8px; padding:12px 26px; border-radius:4px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; transition:background .2s; }
+        .survey-btn-home:hover { background:#2c3a29; color:#fff; }
     </style>
     <script src="../js/config.js"></script>
 </head>
@@ -227,13 +244,14 @@
                         <div class="survey-progress-bar" id="surveyProgressBar"></div>
                     </div>
                     <div class="survey-step-indicator">
-                        <span id="surveyStepCurrent">1</span> / <span id="surveyStepTotal">7</span>
+                        <span id="surveyStepCurrent">1</span> / <span id="surveyStepTotal">8</span>
+
                     </div>
 
                     <!-- PASO 1: Formato Galénico -->
                     <div class="survey-step active" data-step="1">
                         <div class="survey-step-header">
-                            <span class="survey-eyebrow">Paso 1 de 6</span>
+                            <span class="survey-eyebrow">Paso 1 de 8</span>
                             <h2>¿Qué tipo de producto quieres fabricar?</h2>
                             <p>¡Elige el formato galénico que más se adapte a tus necesidades!</p>
                         </div>
@@ -296,7 +314,7 @@
                     <!-- PASO 2: Acondicionamiento -->
                     <div class="survey-step" data-step="2">
                         <div class="survey-step-header">
-                            <span class="survey-eyebrow">Paso 2 de 6</span>
+                            <span class="survey-eyebrow">Paso 2 de 8</span>
                             <h2>¿Cómo quieres acondicionar tu producto?</h2>
                             <p>Elige el formato de acondicionamiento.</p>
                         </div>
@@ -323,7 +341,7 @@
                                         <span class="survey-img-card-indicator"></span>
                                     </div>
                                     <div class="survey-img-card-photo">
-                                        <img src="../assets/formulario/bote.webp" alt="Bote" loading="lazy">
+                                        <img src="../assets/formulario/bote.png" alt="Bote" loading="lazy">
                                     </div>
                                     <span class="survey-img-card-desc">Envase rígido con tapa</span>
                                 </div>
@@ -365,7 +383,7 @@
                                         <span class="survey-img-card-indicator"></span>
                                     </div>
                                     <div class="survey-img-card-photo">
-                                        <img src="../assets/formulario/bote.webp" alt="Bote" loading="lazy">
+                                        <img src="../assets/formulario/bote.png" alt="Bote" loading="lazy">
                                     </div>
                                     <span class="survey-img-card-desc">Envase rígido con tapa</span>
                                 </div>
@@ -402,7 +420,7 @@
                     <!-- PASO 3: Volumen / Unidades (dinámico según acondicionamiento) -->
                     <div class="survey-step" data-step="3">
                         <div class="survey-step-header">
-                            <span class="survey-eyebrow">Paso 3 de 6</span>
+                            <span class="survey-eyebrow">Paso 3 de 8</span>
                             <h2>Unidades</h2>
                             <p>Indícanos las cantidades que necesitas.</p>
                         </div>
@@ -565,84 +583,114 @@
                         </div>
                     </div>
 
-                    <!-- PASO 4: Fórmula -->
+                    <!-- PASO 4: Cantidad exacta (solo A Granel sólido — se omite en otros flujos) -->
                     <div class="survey-step" data-step="4">
                         <div class="survey-step-header">
-                            <span class="survey-eyebrow">Paso 4 de 6</span>
+                            <span class="survey-eyebrow">Paso 4 de 8</span>
+                            <h2>Unidades</h2>
+                            <p>¿Qué cantidad de unidades necesitas de producto final?</p>
+                        </div>
+                        <p class="survey-sub-label">Cantidad exacta <span class="survey-req">*</span></p>
+                        <input type="number" id="vol-unidades-granel" name="vol_unidades_final" class="survey-number-input" placeholder="Ej: 5.000" min="1">
+                    </div>
+
+                    <!-- PASO 5: Fórmula y Detalles -->
+                    <div class="survey-step" data-step="5">
+                        <div class="survey-step-header">
+                            <span class="survey-eyebrow">Paso 5 de 8</span>
                             <h2>Fórmula</h2>
-                            <p>¿Tienes la fórmula definida? No te preocupes si aún no la tienes.</p>
+                            <p>Cuéntanos sobre la fórmula de tu producto y su mercado objetivo.</p>
                         </div>
-                        <div class="survey-img-grid">
-                            <label class="survey-img-card">
-                                <input type="radio" name="formula_estado" value="Sí, tengo fórmula definida">
-                                <div class="survey-img-card-inner">
-                                    <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">Sí, la tengo</span>
-                                        <span class="survey-img-card-indicator"></span>
-                                    </div>
-                                    <div class="survey-img-card-photo">
-                                        <img src="https://images.unsplash.com/photo-1532094349884-32b43cc2c2e3?w=220&h=130&fit=crop&q=80" alt="Fórmula definida" loading="lazy">
-                                    </div>
-                                    <span class="survey-img-card-desc">Tengo ingredientes y dosis</span>
-                                </div>
-                            </label>
-                            <label class="survey-img-card">
-                                <input type="radio" name="formula_estado" value="Tengo idea general, necesito ayuda técnica">
-                                <div class="survey-img-card-inner">
-                                    <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">Idea general</span>
-                                        <span class="survey-img-card-indicator"></span>
-                                    </div>
-                                    <div class="survey-img-card-photo">
-                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=220&h=130&fit=crop&q=80" alt="Idea general" loading="lazy">
-                                    </div>
-                                    <span class="survey-img-card-desc">Necesito asesoramiento técnico</span>
-                                </div>
-                            </label>
-                            <label class="survey-img-card">
-                                <input type="radio" name="formula_estado" value="Quiero fórmula estándar de catálogo">
-                                <div class="survey-img-card-inner">
-                                    <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">Catálogo estándar</span>
-                                        <span class="survey-img-card-indicator"></span>
-                                    </div>
-                                    <div class="survey-img-card-photo">
-                                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=220&h=130&fit=crop&q=80" alt="Catálogo estándar" loading="lazy">
-                                    </div>
-                                    <span class="survey-img-card-desc">Uso una de vuestras fórmulas</span>
-                                </div>
-                            </label>
-                            <label class="survey-img-card">
-                                <input type="radio" name="formula_estado" value="No lo sé, necesito asesoramiento">
-                                <div class="survey-img-card-inner">
-                                    <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">Me asesoran</span>
-                                        <span class="survey-img-card-indicator"></span>
-                                    </div>
-                                    <div class="survey-img-card-photo">
-                                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=220&h=130&fit=crop&q=80" alt="Asesoramiento" loading="lazy">
-                                    </div>
-                                    <span class="survey-img-card-desc">Decidiré con vuestro equipo</span>
-                                </div>
-                            </label>
+                        <p class="survey-sub-label">Ingredientes &amp; Dosis <span class="survey-req">*</span></p>
+                        <p class="survey-helper-text">Indica cada ingrediente con su dosis</p>
+                        <textarea id="sq-fórmula" name="fórmula" rows="5" class="survey-textarea-field" placeholder="Ej: Creatina monohidrato 3g, L-Glutamina 2g, Vitamina B6 1.4mg…"></textarea>
+                        <div class="survey-sub-section mt-32">
+                            <p class="survey-sub-label">¿Cuál es tu volumen anual esperado? <span class="survey-req">*</span></p>
+                            <p class="survey-helper-text">Volumen de unidades que esperas adquirir anualmente</p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="volumen_anual" value="Menos de 10.000">
+                                    <span class="survey-option-row-label">Menos de 10.000</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="volumen_anual" value="Entre 10.000 y 100.000">
+                                    <span class="survey-option-row-label">Entre 10.000 y 100.000</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="volumen_anual" value="Más de 100.000">
+                                    <span class="survey-option-row-label">Más de 100.000</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="survey-fórmula-textarea" id="formulaTextareaBlock" style="display:none;">
-                            <div class="survey-secondary">
-                                <p class="survey-secondary-label">Ingredientes &amp; Dosis <span class="survey-optional">(opcional)</span></p>
-                                <textarea id="sq-fórmula" name="fórmula" rows="4" placeholder="Ej: Creatina monohidrato 3g, L-Glutamina 2g, Vitamina B6 1.4mg…"></textarea>
+                        <div class="survey-sub-section mt-32">
+                            <p class="survey-sub-label">¿A qué aplicación va dirigida tu producto? <span class="survey-req">*</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Salud femenina">
+                                    <span class="survey-option-row-label">Salud femenina</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Deportivo">
+                                    <span class="survey-option-row-label">Deportivo</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Inmunitario">
+                                    <span class="survey-option-row-label">Inmunitario</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Sueño">
+                                    <span class="survey-option-row-label">Sueño</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Antioxidante">
+                                    <span class="survey-option-row-label">Antioxidante</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Detox">
+                                    <span class="survey-option-row-label">Detox</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Articular">
+                                    <span class="survey-option-row-label">Articular</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Cognitivo">
+                                    <span class="survey-option-row-label">Cognitivo</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Hormonal">
+                                    <span class="survey-option-row-label">Hormonal</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Otro">
+                                    <span class="survey-option-row-label">Otro</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- PASO 5: Tu empresa -->
-                    <div class="survey-step" data-step="5">
+                    <!-- PASO 6: Tu empresa -->
+                    <div class="survey-step" data-step="6">
                         <div class="survey-step-header">
-                            <span class="survey-eyebrow">Paso 5 de 6</span>
+                            <span class="survey-eyebrow">Paso 6 de 8</span>
                             <h2>Empresa</h2>
                             <p>Nos adaptamos a tu situación actual, seas startup o empresa consolidada.</p>
                         </div>
                         <div class="survey-sub-section">
-                            <p class="survey-sub-label">¿Tu empresa está ya constituida y funcionando?</p>
+                            <p class="survey-sub-label">¿Tu empresa está ya constituida y funcionando? <span class="survey-req">*</span></p>
                             <div class="survey-option-list">
                                 <label class="survey-option-row">
                                     <input type="radio" name="empresa_constituida" value="Sí">
@@ -655,6 +703,28 @@
                                     <span class="survey-option-radio"></span>
                                 </label>
                             </div>
+                        </div>
+                        <!-- Condicional: Sí → registro sanitario -->
+                        <div class="survey-secondary" id="empresa-si-block" style="display:none;">
+                            <p class="survey-secondary-label">¿Dispones de un Registro Sanitario activo? <span class="survey-req">*</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="registro_sanitario" value="Sí">
+                                    <span class="survey-option-row-label">Sí</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="registro_sanitario" value="No">
+                                    <span class="survey-option-row-label">No</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Condicional: No → fecha de constitución -->
+                        <div class="survey-secondary" id="empresa-no-block" style="display:none;">
+                            <p class="survey-secondary-label">¿Tienes una fecha para la constitución de tu empresa?</p>
+                            <p class="survey-helper-text">Si no tienes fecha no lo pongas</p>
+                            <input type="date" id="sq-fecha-constitucion" name="fecha_constitucion" class="survey-date-input">
                         </div>
                         <div class="survey-secondary">
                             <p class="survey-secondary-label">¿Tienes una fecha prevista para el lanzamiento de tu proyecto? <span class="survey-optional">(opcional)</span></p>
@@ -687,10 +757,22 @@
                         </div>
                     </div>
 
-                    <!-- PASO 6: Datos de contacto -->
-                    <div class="survey-step" data-step="6">
+                    <!-- PASO 7: Información adicional -->
+                    <div class="survey-step" data-step="7">
                         <div class="survey-step-header">
-                            <span class="survey-eyebrow">Paso 6 de 6</span>
+                            <span class="survey-eyebrow">Paso 7 de 8</span>
+                            <h2>Información</h2>
+                            <p>Si es necesario, comparte detalles adicionales sobre tu proyecto.</p>
+                        </div>
+                        <p class="survey-sub-label">¿Necesitamos más detalles? <span class="survey-optional">(opcional)</span></p>
+                        <p class="survey-helper-text">Déjanos información más específica sobre tu idea de producto o cualquier comentario adicional</p>
+                        <textarea id="sq-notas" name="notas" rows="6" class="survey-textarea-field" placeholder="Ej: Quiero una proteína sabor chocolate, tengo ideas específicas de packaging…"></textarea>
+                    </div>
+
+                    <!-- PASO 8: Datos de contacto -->
+                    <div class="survey-step" data-step="8">
+                        <div class="survey-step-header">
+                            <span class="survey-eyebrow">Paso 8 de 8</span>
                             <h2>Datos de contacto</h2>
                             <p>Te respondemos en menos de 24 horas con una propuesta personalizada.</p>
                         </div>
@@ -698,35 +780,40 @@
                             <div class="scf-row">
                                 <div class="scf-field">
                                     <label for="sq-nombre">Nombre *</label>
-                                    <input type="text" id="sq-nombre" name="nombre" placeholder="Tu nombre" required>
+                                    <input type="text" id="sq-nombre" name="nombre" placeholder="Tu nombre">
                                 </div>
                                 <div class="scf-field">
-                                    <label for="sq-apellidos">Apellido(s)</label>
+                                    <label for="sq-apellidos">Apellido(s) *</label>
                                     <input type="text" id="sq-apellidos" name="apellidos" placeholder="Tus apellidos">
                                 </div>
                             </div>
                             <div class="scf-row">
                                 <div class="scf-field">
-                                    <label for="sq-empresa">Empresa / Marca</label>
+                                    <label for="sq-empresa">Empresa / Marca *</label>
                                     <input type="text" id="sq-empresa" name="empresa" placeholder="Nombre de tu empresa">
                                 </div>
                                 <div class="scf-field">
-                                    <label for="sq-telefono">Número de teléfono</label>
-                                    <input type="tel" id="sq-telefono" name="telefono" placeholder="+34 600 000 000">
+                                    <label for="sq-telefono">Número de teléfono *</label>
+                                    <input type="tel" id="sq-telefono" name="telefono" placeholder="600 000 000">
                                 </div>
                             </div>
                             <div class="scf-full scf-field">
                                 <label for="sq-email">Correo electrónico *</label>
-                                <input type="email" id="sq-email" name="email" placeholder="tu@email.com" required>
+                                <input type="email" id="sq-email" name="email" placeholder="tu@email.com">
                             </div>
-                            <div class="scf-full scf-field">
-                                <label for="sq-notas">¿Necesitamos más detalles? <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(0,0,0,0.3)">(opcional)</span></label>
-                                <textarea id="sq-notas" name="notas" placeholder="Si es necesario, déjanos información más específica sobre tu idea de producto o algún comentario adicional."></textarea>
-                            </div>
-                            <div class="scf-legal">
-                                <label class="scf-check">
-                                    <input type="checkbox" id="sq-privacidad" required>
-                                    <span>He leído y entendido la <a href="politica-privacidad.html">Política de privacidad</a> y los Avisos Legales. Doy mi consentimiento para que este sitio web almacene mi información enviada.</span>
+                        </div>
+                        <div class="survey-sub-section mt-32">
+                            <p class="survey-sub-label">He leído y entendido la <a href="politica-privacidad.html" style="color:#607561;text-decoration:underline;">Política de privacidad</a> y los Avisos Legales. Doy mi consentimiento para que este sitio web almacene mi información enviada. <span class="survey-req">*</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="privacidad" value="Acepto">
+                                    <span class="survey-option-row-label">Aceptar</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="privacidad" value="No acepto">
+                                    <span class="survey-option-row-label">No acepto</span>
+                                    <span class="survey-option-radio"></span>
                                 </label>
                             </div>
                         </div>
@@ -755,8 +842,17 @@
                         </div>
                         <h2>¡Solicitud recibida!</h2>
                         <p>Nuestro equipo revisará tu proyecto y te contactará en menos de 24 horas con una propuesta personalizada.</p>
-                        <div class="survey-success-data" id="surveySuccessData"></div>
-                        <a href="index.html" class="tf-btn mt-4">Volver al inicio</a>
+                        <div class="survey-success-summary" id="surveySuccessData"></div>
+                        <div class="survey-success-actions">
+                            <button class="survey-btn-download" id="surveyDownloadBtn" type="button">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                Descargar resumen
+                            </button>
+                            <a href="index.html" class="survey-btn-home">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                Volver al inicio
+                            </a>
+                        </div>
                     </div>
 
                 </div>
@@ -1027,7 +1123,7 @@
     (function () {
         'use strict';
 
-        const TOTAL_STEPS = 6;
+        const TOTAL_STEPS = 8;
         let currentStep = 1;
 
         const steps       = document.querySelectorAll('.survey-step');
@@ -1079,11 +1175,24 @@
             if (target) target.classList.add('active');
             if (n === 2) showAcondSubgrid();
             if (n === 3) showVolumenSubform();
+            if (n === 8 && window.intlTelInput && !window.itiPhone) {
+                window.itiPhone = window.intlTelInput(document.getElementById('sq-telefono'), {
+                    initialCountry: 'es',
+                    separateDialCode: true,
+                    utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/utils.js'
+                });
+            }
             stepCurrent.textContent = n;
             progressBar.style.width = (n / TOTAL_STEPS * 100) + '%';
             btnBack.style.display   = n > 1 ? 'inline-flex' : 'none';
             btnNext.style.display   = n < TOTAL_STEPS ? 'inline-flex' : 'none';
             btnSubmit.style.display = n === TOTAL_STEPS ? 'inline-flex' : 'none';
+        }
+
+        function isBulkSolid() {
+            const acond    = (document.querySelector('input[name="acondicionamiento"]:checked') || {}).value || '';
+            const galenica = (document.querySelector('input[name="galenica"]:checked') || {}).value || '';
+            return acond === 'A Granel' && galenica !== 'Polvo / Shake';
         }
 
         function validateStep(n) {
@@ -1105,15 +1214,33 @@
                 if (acond === 'Blíster') return !!document.querySelector('input[name="vol_caps_blister"]:checked') && !!(document.getElementById('vol-unidades-blister') || {}).value;
                 return true;
             }
-            if (n === 4) return !!document.querySelector('input[name="formula_estado"]:checked');
-            if (n === 5) return !!document.querySelector('input[name="empresa_constituida"]:checked');
+            if (n === 4) return !!(document.getElementById('vol-unidades-granel') || {}).value;
+            if (n === 5) {
+                if (!((document.getElementById('sq-fórmula') || {}).value || '').trim()) return false;
+                if (!document.querySelector('input[name="volumen_anual"]:checked')) return false;
+                if (!document.querySelector('input[name="aplicacion"]:checked')) return false;
+                return true;
+            }
             if (n === 6) {
-                const nombre     = document.getElementById('sq-nombre');
-                const email      = document.getElementById('sq-email');
-                const privacidad = document.getElementById('sq-privacidad');
-                if (!nombre.value.trim()) { nombre.focus(); return false; }
+                if (!document.querySelector('input[name="empresa_constituida"]:checked')) return false;
+                const empVal = document.querySelector('input[name="empresa_constituida"]:checked').value;
+                if (empVal === 'Sí' && !document.querySelector('input[name="registro_sanitario"]:checked')) return false;
+                return true;
+            }
+            if (n === 7) return true;
+            if (n === 8) {
+                const nombre    = document.getElementById('sq-nombre');
+                const apellidos = document.getElementById('sq-apellidos');
+                const empresa   = document.getElementById('sq-empresa');
+                const telefono  = document.getElementById('sq-telefono');
+                const email     = document.getElementById('sq-email');
+                if (!nombre.value.trim())    { nombre.focus(); return false; }
+                if (!apellidos.value.trim()) { apellidos.focus(); return false; }
+                if (!empresa.value.trim())   { empresa.focus(); return false; }
+                if (!telefono.value.trim())  { telefono.focus(); return false; }
                 if (!email.value.trim() || !email.validity.valid) { email.focus(); return false; }
-                if (!privacidad.checked) { alert('Por favor acepta la política de privacidad.'); return false; }
+                const privCheck = document.querySelector('input[name="privacidad"]:checked');
+                if (!privCheck || privCheck.value !== 'Acepto') { alert('Por favor acepta la política de privacidad.'); return false; }
                 return true;
             }
             return true;
@@ -1126,7 +1253,7 @@
                 vol_cantidad:           (document.querySelector('input[name="vol_cantidad"]:checked') || {}).value || '',
                 vol_caps_bote:          (document.querySelector('input[name="vol_caps_bote"]:checked') || {}).value || '',
                 vol_caps_blister:       (document.querySelector('input[name="vol_caps_blister"]:checked') || {}).value || '',
-                vol_unidades_final:     ((document.getElementById('vol-unidades-bote') || {}).value || (document.getElementById('vol-unidades-blister') || {}).value || ''),
+                vol_unidades_final:     ((document.getElementById('vol-unidades-granel') || {}).value || (document.getElementById('vol-unidades-bote') || {}).value || (document.getElementById('vol-unidades-blister') || {}).value || ''),
                 vol_kg_granel:              (document.getElementById('vol-kg-granel') || {}).value || '',
                 vol_capacidad_bote_polvo:   (document.querySelector('input[name="vol_capacidad_bote_polvo"]:checked') || {}).value || '',
                 vol_unidades_bote_polvo:    (document.getElementById('vol-unidades-bote-polvo') || {}).value || '',
@@ -1134,15 +1261,19 @@
                 vol_unidades_doypack:   (document.getElementById('vol-unidades-doypack') || {}).value || '',
                 vol_sticks_paquete:     (document.querySelector('input[name="vol_sticks_paquete"]:checked') || {}).value || '',
                 vol_unidades_stickpack: (document.getElementById('vol-unidades-stickpack') || {}).value || '',
-                formula_estado:      (document.querySelector('input[name="formula_estado"]:checked') || {}).value || '',
-                fórmula:             (document.getElementById('sq-fórmula') || {}).value || '',
-                empresa_constituida: (document.querySelector('input[name="empresa_constituida"]:checked') || {}).value || '',
+                fórmula:        (document.getElementById('sq-fórmula') || {}).value || '',
+                volumen_anual:  (document.querySelector('input[name="volumen_anual"]:checked') || {}).value || '',
+                aplicacion:     [...document.querySelectorAll('input[name="aplicacion"]:checked')].map(i => i.value).join(', '),
+                empresa_constituida:  (document.querySelector('input[name="empresa_constituida"]:checked') || {}).value || '',
+                registro_sanitario:  (document.querySelector('input[name="registro_sanitario"]:checked') || {}).value || '',
+                fecha_constitucion:  (document.getElementById('sq-fecha-constitucion') || {}).value || '',
                 fecha_lanzamiento:   (document.getElementById('sq-fecha') || {}).value || '',
                 servicios:           [...document.querySelectorAll('input[name="servicios"]:checked')].map(i => i.value).join(', '),
-                nombre:   document.getElementById('sq-nombre').value.trim(),
-                empresa:  document.getElementById('sq-empresa').value.trim(),
+                nombre:    document.getElementById('sq-nombre').value.trim(),
+                apellidos: document.getElementById('sq-apellidos').value.trim(),
+                empresa:   document.getElementById('sq-empresa').value.trim(),
                 email:    document.getElementById('sq-email').value.trim(),
-                telefono: document.getElementById('sq-telefono').value.trim(),
+                telefono: window.itiPhone ? window.itiPhone.getNumber() : document.getElementById('sq-telefono').value.trim(),
                 notas:    document.getElementById('sq-notas').value.trim()
             };
         }
@@ -1166,10 +1297,89 @@
             steps.forEach(s => s.style.display = 'none');
             document.querySelector('.survey-nav').style.display = 'none';
             successDiv.style.display = 'block';
-            const tags = [data.galenica, data.acondicionamiento, data.volumen].filter(Boolean);
-            successData.innerHTML = tags.map(t =>
-                '<span class="survey-success-tag">' + t + '</span>'
-            ).join('');
+
+            function row(label, value) {
+                if (!value) return '';
+                return '<div class="ss-row"><span class="ss-label">' + label + '</span><span class="ss-value">' + value + '</span></div>';
+            }
+
+            var volParts = [];
+            if (data.vol_kg_granel)            volParts.push(data.vol_kg_granel + ' kg a granel');
+            if (data.vol_capacidad_bote_polvo)  volParts.push(data.vol_capacidad_bote_polvo + ' · ' + (data.vol_unidades_bote_polvo || '') + ' uds');
+            if (data.vol_capacidad_doypack)     volParts.push(data.vol_capacidad_doypack + ' · ' + (data.vol_unidades_doypack || '') + ' uds');
+            if (data.vol_sticks_paquete)        volParts.push(data.vol_sticks_paquete + ' · ' + (data.vol_unidades_stickpack || '') + ' uds');
+            if (data.vol_cantidad)              volParts.push(data.vol_cantidad + ' · ' + (data.vol_unidades_final || '') + ' uds');
+            if (data.vol_caps_bote)             volParts.push(data.vol_caps_bote + ' · ' + (data.vol_unidades_final || '') + ' uds');
+            if (data.vol_caps_blister)          volParts.push(data.vol_caps_blister + ' · ' + (data.vol_unidades_final || '') + ' uds');
+
+            var html = '';
+
+            html += '<div class="ss-section"><div class="ss-section-title">Producto</div>';
+            html += row('Forma', data.galenica);
+            html += row('Acondicionamiento', data.acondicionamiento);
+            if (volParts.length) html += row('Volumen / Cantidad', volParts.join(', '));
+            html += '</div>';
+
+            html += '<div class="ss-section"><div class="ss-section-title">Fórmula y Mercado</div>';
+            html += row('Fórmula', data['fórmula']);
+            html += row('Volumen Anual', data.volumen_anual);
+            html += row('Aplicaciones', data.aplicacion);
+            html += '</div>';
+
+            html += '<div class="ss-section"><div class="ss-section-title">Empresa</div>';
+            html += row('¿Empresa constituida?', data.empresa_constituida);
+            if (data.empresa_constituida === 'Sí') html += row('Registro Sanitario', data.registro_sanitario);
+            if (data.empresa_constituida === 'No' && data.fecha_constitucion) html += row('Fecha de constitución', data.fecha_constitucion);
+            if (data.fecha_lanzamiento) html += row('Fecha de lanzamiento', data.fecha_lanzamiento);
+            if (data.servicios) html += row('Servicios', data.servicios);
+            html += '</div>';
+
+            if (data.notas) {
+                html += '<div class="ss-section"><div class="ss-section-title">Notas adicionales</div>';
+                html += '<div class="ss-row"><span class="ss-value" style="white-space:pre-wrap;">' + data.notas + '</span></div>';
+                html += '</div>';
+            }
+
+            html += '<div class="ss-section"><div class="ss-section-title">Contacto</div>';
+            html += row('Nombre', data.nombre + (data.apellidos ? ' ' + data.apellidos : ''));
+            html += row('Empresa', data.empresa);
+            html += row('Email', data.email);
+            html += row('Teléfono', data.telefono);
+            html += '</div>';
+
+            successData.innerHTML = html;
+
+            document.getElementById('surveyDownloadBtn').addEventListener('click', function () {
+                var lines = ['AKUMAL SPORT NUTRITION — RESUMEN DE SOLICITUD', '==================================================', ''];
+                lines.push('PRODUCTO');
+                if (data.galenica)          lines.push('  Forma:             ' + data.galenica);
+                if (data.acondicionamiento) lines.push('  Acondicionamiento: ' + data.acondicionamiento);
+                if (volParts.length)        lines.push('  Volumen/Cantidad:  ' + volParts.join(', '));
+                lines.push('');
+                lines.push('FÓRMULA Y MERCADO');
+                if (data['fórmula'])    lines.push('  Fórmula:     ' + data['fórmula']);
+                if (data.volumen_anual) lines.push('  Vol. Anual:  ' + data.volumen_anual);
+                if (data.aplicacion)    lines.push('  Aplicaciones: ' + data.aplicacion);
+                lines.push('');
+                lines.push('EMPRESA');
+                if (data.empresa_constituida) lines.push('  Constituida:       ' + data.empresa_constituida);
+                if (data.registro_sanitario)  lines.push('  Registro San.:    ' + data.registro_sanitario);
+                if (data.fecha_constitucion)  lines.push('  Fecha constit.:   ' + data.fecha_constitucion);
+                if (data.fecha_lanzamiento)   lines.push('  Fecha lanzamiento: ' + data.fecha_lanzamiento);
+                if (data.servicios)           lines.push('  Servicios:         ' + data.servicios);
+                lines.push('');
+                lines.push('CONTACTO');
+                lines.push('  Nombre:  ' + data.nombre + (data.apellidos ? ' ' + data.apellidos : ''));
+                lines.push('  Empresa: ' + data.empresa);
+                lines.push('  Email:   ' + data.email);
+                lines.push('  Teléfono: ' + data.telefono);
+                if (data.notas) { lines.push(''); lines.push('NOTAS ADICIONALES'); lines.push(data.notas); }
+                var blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+                var url  = URL.createObjectURL(blob);
+                var a    = document.createElement('a');
+                a.href = url; a.download = 'akumal-solicitud-resumen.txt'; a.click();
+                URL.revokeObjectURL(url);
+            });
         }
 
         function scrollToSurvey() {
@@ -1182,12 +1392,14 @@
         btnNext.addEventListener('click', function () {
             if (!validateStep(currentStep)) { shakeNav(); return; }
             currentStep++;
+            if (currentStep === 4 && !isBulkSolid()) currentStep = 5;
             renderStep(currentStep);
             scrollToSurvey();
         });
 
         btnBack.addEventListener('click', function () {
             currentStep--;
+            if (currentStep === 4 && !isBulkSolid()) currentStep = 3;
             renderStep(currentStep);
             scrollToSurvey();
         });
@@ -1243,24 +1455,23 @@
 
         // ── Listeners reutilizables ────────────────────────────────────────────
 
-        function wireFormulaEstado() {
-            document.querySelectorAll('input[name="formula_estado"]').forEach(function (radio) {
+
+        function wireEmpresaConstituida() {
+            document.querySelectorAll('input[name="empresa_constituida"]').forEach(function (radio) {
                 radio.addEventListener('change', function () {
-                    const block = document.getElementById('formulaTextareaBlock');
-                    const show = this.value === 'Sí, tengo fórmula definida' || this.value === 'Tengo idea general, necesito ayuda técnica';
-                    block.style.display = show ? 'block' : 'none';
+                    const siBlock = document.getElementById('empresa-si-block');
+                    const noBlock = document.getElementById('empresa-no-block');
+                    const isSi   = this.value === 'Sí';
+                    if (siBlock) siBlock.style.display = isSi ? 'block' : 'none';
+                    if (noBlock) noBlock.style.display = isSi ? 'none' : 'block';
+                    document.querySelectorAll('input[name="registro_sanitario"]').forEach(r => { r.checked = false; });
+                    const fc = document.getElementById('sq-fecha-constitucion');
+                    if (fc) fc.value = '';
                 });
             });
         }
 
-        function wireGalenica() {
-            /* no auto-advance — user clicks Siguiente manually */
-        }
-
-
-        // Wire form listeners
-        wireFormulaEstado();
-        wireGalenica();
+        wireEmpresaConstituida();
 
         function shakeNav() {
             const nav = document.querySelector('.survey-nav');
@@ -1276,6 +1487,8 @@
         renderStep(1);
     })();
     </script>
+    <!-- intl-tel-input -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/intlTelInput.min.js"></script>
     <!-- Survey image lightbox -->
     <script>
     (function () {

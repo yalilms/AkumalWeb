@@ -281,11 +281,46 @@ body .section-feature-hero .wg-feature-v01 .feature-content .price {
   position: relative;
   align-items: center;
 }
+/* Nav: solo visible en desktop (≥992px) */
 .tf-header .header-inner .header-nav-col {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
+  display: none !important;
 }
+@media (min-width: 992px) {
+  .tf-header .header-inner .header-nav-col {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Hamburger: solo en <992px */
+@media (min-width: 992px) {
+  .tf-header .btn-mobile-menu {
+    display: none !important;
+  }
+}
+
+/* JOIN THE TEAM: solo en desktop */
+@media (max-width: 991px) {
+  .tf-header .header-login-btn:not(.login-icon-only) {
+    display: none !important;
+  }
+}
+
+/* Tablet (768–991px): logo expands, controls al extremo derecho */
+@media (min-width: 768px) and (max-width: 991px) {
+  .tf-header .header-inner .row > [class*="col-md-3"]:first-child {
+    flex: 1 1 auto;
+    max-width: none;
+    width: auto;
+  }
+  .tf-header .header-inner .row > [class*="col-md-3"]:last-child {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+  }
+}
+
 .tf-header .header-inner .box-navigation {
   position: static;
   display: flex;
@@ -1160,15 +1195,23 @@ body .section-hero-v1 {
   font-style: italic;
 }
 
-/* Tagline bajo el titular */
+/* Tagline bajo el titular — pill glassmorphism */
 .hero-tagline {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.90);
   margin: 0 0 36px 0;
+  display: block;
+  width: fit-content;
+  padding: 6px 14px;
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 /* col-left: ancla todo el bloque al fondo del hero */
@@ -1182,6 +1225,9 @@ body .section-hero-v1 .col-left {
 .hero-cta-btn {
   color: #ffffff !important;
   border-color: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
 }
 .hero-cta-btn::before {
   background-color: #ffffff !important;

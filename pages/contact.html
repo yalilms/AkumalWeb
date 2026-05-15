@@ -28,8 +28,9 @@
     <link rel="stylesheet" href="../css/base.css?v=2">
     <link rel="stylesheet" href="../css/components.css?v=5">
     <link rel="stylesheet" href="../css/sections.css?v=5">
-    <link rel="stylesheet" href="../css/akumal.css?v=69">
-    <link rel="stylesheet" href="../css/pages/contacto.css?v=7">
+    <link rel="stylesheet" href="../css/akumal.css?v=74">
+    <link rel="stylesheet" href="../css/pages/contacto.css?v=8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/css/intlTelInput.min.css">
     <style>
         /* ── Survey image zoom button ── */
         .survey-img-card-photo { position: relative; overflow: hidden; cursor: zoom-in; }
@@ -99,6 +100,22 @@
             letter-spacing: .08em;
             text-transform: uppercase;
         }
+        /* ── intl-tel-input overrides ── */
+        .scf-field .iti { display:block!important; width:100%!important; }
+        .scf-field .iti input { width:100%!important; }
+        /* ── Success summary ── */
+        .survey-success-summary { text-align:left; width:100%; max-width:520px; margin:20px auto 0; }
+        .ss-section { margin-bottom:16px; }
+        .ss-section-title { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#607561; margin-bottom:6px; padding-bottom:5px; border-bottom:1px solid rgba(96,117,97,.18); }
+        .ss-row { display:flex; gap:8px; padding:4px 0; font-size:13px; line-height:1.4; }
+        .ss-label { color:rgba(0,0,0,.5); min-width:140px; flex-shrink:0; }
+        .ss-value { color:#1a2218; font-weight:500; word-break:break-word; }
+        /* ── Success actions ── */
+        .survey-success-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:24px; }
+        .survey-btn-download { background:transparent; color:#607561; border:1.5px solid #607561; display:inline-flex; align-items:center; gap:8px; padding:11px 22px; border-radius:4px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; text-decoration:none; transition:background .2s,color .2s; }
+        .survey-btn-download:hover { background:#607561; color:#fff; }
+        .survey-btn-home { background:#1a2218; color:#fff; display:inline-flex; align-items:center; gap:8px; padding:12px 26px; border-radius:4px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; transition:background .2s; }
+        .survey-btn-home:hover { background:#2c3a29; color:#fff; }
     </style>
     <script src="../js/config.js"></script>
 </head>
@@ -227,13 +244,13 @@
                         <div class="survey-progress-bar" id="surveyProgressBar"></div>
                     </div>
                     <div class="survey-step-indicator">
-                        <span id="surveyStepCurrent">1</span> / <span id="surveyStepTotal">6</span>
+                        <span id="surveyStepCurrent">1</span> / <span id="surveyStepTotal">8</span>
                     </div>
 
                     <!-- STEP 1: Galenic Format -->
                     <div class="survey-step active" data-step="1">
                         <div class="survey-step-header">
-                            <span class="survey-eyebrow">Step 1 of 6</span>
+                            <span class="survey-eyebrow">Step 1 of 8</span>
                             <h2>What type of product do you want to manufacture?</h2>
                             <p>Choose the galenic format that best fits your needs!</p>
                         </div>
@@ -296,7 +313,7 @@
                     <!-- STEP 2: Packaging -->
                     <div class="survey-step" data-step="2">
                         <div class="survey-step-header">
-                            <span class="survey-eyebrow">Step 2 of 6</span>
+                            <span class="survey-eyebrow">Step 2 of 8</span>
                             <h2>How do you want to package your product?</h2>
                             <p>Choose the packaging format.</p>
                         </div>
@@ -316,14 +333,14 @@
                                 </div>
                             </label>
                             <label class="survey-img-card">
-                                <input type="radio" name="acondicionamiento" value="Jar">
+                                <input type="radio" name="acondicionamiento" value="Bottle">
                                 <div class="survey-img-card-inner">
                                     <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">Jar</span>
+                                        <span class="survey-img-card-label">Bottle</span>
                                         <span class="survey-img-card-indicator"></span>
                                     </div>
                                     <div class="survey-img-card-photo">
-                                        <img src="../assets/formulario/bote.webp" alt="Jar" loading="lazy">
+                                        <img src="../assets/formulario/bote.png" alt="Bottle" loading="lazy">
                                     </div>
                                     <span class="survey-img-card-desc">Rigid container with lid</span>
                                 </div>
@@ -358,14 +375,14 @@
                                 </div>
                             </label>
                             <label class="survey-img-card">
-                                <input type="radio" name="acondicionamiento" value="Jar">
+                                <input type="radio" name="acondicionamiento" value="Bottle">
                                 <div class="survey-img-card-inner">
                                     <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">Jar</span>
+                                        <span class="survey-img-card-label">Bottle</span>
                                         <span class="survey-img-card-indicator"></span>
                                     </div>
                                     <div class="survey-img-card-photo">
-                                        <img src="../assets/formulario/bote.webp" alt="Jar" loading="lazy">
+                                        <img src="../assets/formulario/bote.png" alt="Bottle" loading="lazy">
                                     </div>
                                     <span class="survey-img-card-desc">Rigid container with lid</span>
                                 </div>
@@ -402,7 +419,7 @@
                     <!-- STEP 3: Units / Volume (dynamic based on packaging) -->
                     <div class="survey-step" data-step="3">
                         <div class="survey-step-header">
-                            <span class="survey-eyebrow">Step 3 of 6</span>
+                            <span class="survey-eyebrow">Step 3 of 8</span>
                             <h2>Units</h2>
                             <p>Tell us the quantities you need.</p>
                         </div>
@@ -429,7 +446,7 @@
                             </div>
                         </div>
 
-                        <!-- Jar — solids -->
+                        <!-- Bottle — solids -->
                         <div id="vol-bote-solid" class="vol-sub" style="display:none;">
                             <p class="survey-sub-label">How many capsules per jar do you need? <span class="survey-req">*</span></p>
                             <div class="survey-option-list">
@@ -492,9 +509,9 @@
                             <input type="number" id="vol-kg-granel" name="vol_kg_granel" class="survey-number-input" placeholder="e.g. 1,000" min="1">
                         </div>
 
-                        <!-- Powder: Jar -->
+                        <!-- Powder: Bottle -->
                         <div id="vol-bote-polvo" class="vol-sub" style="display:none;">
-                            <p class="survey-sub-label">What capacity do you need for your Jar? <span class="survey-req">*</span></p>
+                            <p class="survey-sub-label">What capacity do you need for your Bottle? <span class="survey-req">*</span></p>
                             <div class="survey-option-list">
                                 <label class="survey-option-row">
                                     <input type="radio" name="vol_capacidad_bote_polvo" value="Under 500g">
@@ -565,84 +582,114 @@
                         </div>
                     </div>
 
-                    <!-- STEP 4: Formula -->
+                    <!-- STEP 4: Units quantity (Bulk solid only — skipped for other flows) -->
                     <div class="survey-step" data-step="4">
                         <div class="survey-step-header">
-                            <span class="survey-eyebrow">Step 4 of 6</span>
+                            <span class="survey-eyebrow">Step 4 of 8</span>
+                            <h2>Units</h2>
+                            <p>How many final product units do you need?</p>
+                        </div>
+                        <p class="survey-sub-label">Exact quantity <span class="survey-req">*</span></p>
+                        <input type="number" id="vol-unidades-granel" name="vol_unidades_final" class="survey-number-input" placeholder="e.g. 5,000" min="1">
+                    </div>
+
+                    <!-- STEP 5: Formula & Details -->
+                    <div class="survey-step" data-step="5">
+                        <div class="survey-step-header">
+                            <span class="survey-eyebrow">Step 5 of 8</span>
                             <h2>Formula</h2>
-                            <p>Do you have the formula defined? Don't worry if you don't have it yet.</p>
+                            <p>Tell us about your product formula and target market.</p>
                         </div>
-                        <div class="survey-img-grid">
-                            <label class="survey-img-card">
-                                <input type="radio" name="formula_estado" value="Yes, I have a defined formula">
-                                <div class="survey-img-card-inner">
-                                    <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">Yes, I have it</span>
-                                        <span class="survey-img-card-indicator"></span>
-                                    </div>
-                                    <div class="survey-img-card-photo">
-                                        <img src="https://images.unsplash.com/photo-1532094349884-32b43cc2c2e3?w=220&h=130&fit=crop&q=80" alt="Defined formula" loading="lazy">
-                                    </div>
-                                    <span class="survey-img-card-desc">I have ingredients and dosages</span>
-                                </div>
-                            </label>
-                            <label class="survey-img-card">
-                                <input type="radio" name="formula_estado" value="General idea, need technical help">
-                                <div class="survey-img-card-inner">
-                                    <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">General idea</span>
-                                        <span class="survey-img-card-indicator"></span>
-                                    </div>
-                                    <div class="survey-img-card-photo">
-                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=220&h=130&fit=crop&q=80" alt="General idea" loading="lazy">
-                                    </div>
-                                    <span class="survey-img-card-desc">Need technical advice</span>
-                                </div>
-                            </label>
-                            <label class="survey-img-card">
-                                <input type="radio" name="formula_estado" value="Standard catalog formula">
-                                <div class="survey-img-card-inner">
-                                    <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">Standard catalog</span>
-                                        <span class="survey-img-card-indicator"></span>
-                                    </div>
-                                    <div class="survey-img-card-photo">
-                                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=220&h=130&fit=crop&q=80" alt="Standard catalog" loading="lazy">
-                                    </div>
-                                    <span class="survey-img-card-desc">Use one of your formulas</span>
-                                </div>
-                            </label>
-                            <label class="survey-img-card">
-                                <input type="radio" name="formula_estado" value="I don't know, need advice">
-                                <div class="survey-img-card-inner">
-                                    <div class="survey-img-card-top">
-                                        <span class="survey-img-card-label">I need advice</span>
-                                        <span class="survey-img-card-indicator"></span>
-                                    </div>
-                                    <div class="survey-img-card-photo">
-                                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=220&h=130&fit=crop&q=80" alt="Advice" loading="lazy">
-                                    </div>
-                                    <span class="survey-img-card-desc">Decide with your team</span>
-                                </div>
-                            </label>
+                        <p class="survey-sub-label">Ingredients & Dosages <span class="survey-req">*</span></p>
+                        <p class="survey-helper-text">List each ingredient with its dosage</p>
+                        <textarea id="sq-fórmula" name="fórmula" rows="5" class="survey-textarea-field" placeholder="e.g.: Creatine monohydrate 3g, L-Glutamine 2g, Vitamin B6 1.4mg…"></textarea>
+                        <div class="survey-sub-section mt-32">
+                            <p class="survey-sub-label">What is your expected annual volume? <span class="survey-req">*</span></p>
+                            <p class="survey-helper-text">Volume of units you expect to purchase annually</p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="volumen_anual" value="Under 10,000">
+                                    <span class="survey-option-row-label">Under 10,000</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="volumen_anual" value="10,000 to 100,000">
+                                    <span class="survey-option-row-label">10,000 to 100,000</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="volumen_anual" value="Over 100,000">
+                                    <span class="survey-option-row-label">Over 100,000</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="survey-fórmula-textarea" id="formulaTextareaBlock" style="display:none;">
-                            <div class="survey-secondary">
-                                <p class="survey-secondary-label">Ingredients & Dosages <span class="survey-optional">(optional)</span></p>
-                                <textarea id="sq-fórmula" name="fórmula" rows="4" placeholder="e.g.: Creatine monohydrate 3g, L-Glutamine 2g, Vitamin B6 1.4mg…"></textarea>
+                        <div class="survey-sub-section mt-32">
+                            <p class="survey-sub-label">What application is your product aimed at? <span class="survey-req">*</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Women's Health">
+                                    <span class="survey-option-row-label">Women's Health</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Sports">
+                                    <span class="survey-option-row-label">Sports</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Immune">
+                                    <span class="survey-option-row-label">Immune</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Sleep">
+                                    <span class="survey-option-row-label">Sleep</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Antioxidant">
+                                    <span class="survey-option-row-label">Antioxidant</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Detox">
+                                    <span class="survey-option-row-label">Detox</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Joint">
+                                    <span class="survey-option-row-label">Joint</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Cognitive">
+                                    <span class="survey-option-row-label">Cognitive</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Hormonal">
+                                    <span class="survey-option-row-label">Hormonal</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="checkbox" name="aplicacion" value="Other">
+                                    <span class="survey-option-row-label">Other</span>
+                                    <span class="survey-option-checkbox"></span>
+                                </label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- STEP 5: Your Company -->
-                    <div class="survey-step" data-step="5">
+                    <!-- STEP 6: Your Company -->
+                    <div class="survey-step" data-step="6">
                         <div class="survey-step-header">
-                            <span class="survey-eyebrow">Step 5 of 6</span>
+                            <span class="survey-eyebrow">Step 6 of 8</span>
                             <h2>Company</h2>
                             <p>We adapt to your current situation, whether you're a startup or a consolidated company.</p>
                         </div>
                         <div class="survey-sub-section">
-                            <p class="survey-sub-label">Is your company already established and operating?</p>
+                            <p class="survey-sub-label">Is your company already established and operating? <span class="survey-req">*</span></p>
                             <div class="survey-option-list">
                                 <label class="survey-option-row">
                                     <input type="radio" name="empresa_constituida" value="Yes">
@@ -655,6 +702,28 @@
                                     <span class="survey-option-radio"></span>
                                 </label>
                             </div>
+                        </div>
+                        <!-- Conditional: Yes → health registration -->
+                        <div class="survey-secondary" id="empresa-si-block" style="display:none;">
+                            <p class="survey-secondary-label">Do you have an active Health Registration? <span class="survey-req">*</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="registro_sanitario" value="Yes">
+                                    <span class="survey-option-row-label">Yes</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="registro_sanitario" value="No">
+                                    <span class="survey-option-row-label">No</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Conditional: No → incorporation date -->
+                        <div class="survey-secondary" id="empresa-no-block" style="display:none;">
+                            <p class="survey-secondary-label">Do you have a date for your company incorporation?</p>
+                            <p class="survey-helper-text">If you don't have a date, leave it blank</p>
+                            <input type="date" id="sq-fecha-constitucion" name="fecha_constitucion" class="survey-date-input">
                         </div>
                         <div class="survey-secondary">
                             <p class="survey-secondary-label">Do you have a target date for your project launch? <span class="survey-optional">(optional)</span></p>
@@ -687,10 +756,22 @@
                         </div>
                     </div>
 
-                    <!-- STEP 6: Contact Data -->
-                    <div class="survey-step" data-step="6">
+                    <!-- STEP 7: Additional Information -->
+                    <div class="survey-step" data-step="7">
                         <div class="survey-step-header">
-                            <span class="survey-eyebrow">Step 6 of 6</span>
+                            <span class="survey-eyebrow">Step 7 of 8</span>
+                            <h2>Information</h2>
+                            <p>If necessary, share any additional details about your project.</p>
+                        </div>
+                        <p class="survey-sub-label">Do you need to add more details? <span class="survey-optional">(optional)</span></p>
+                        <p class="survey-helper-text">Leave us more specific information about your product idea or any additional comments</p>
+                        <textarea id="sq-notas" name="notas" rows="6" class="survey-textarea-field" placeholder="e.g.: I want a chocolate flavored protein, I have specific packaging ideas…"></textarea>
+                    </div>
+
+                    <!-- STEP 8: Contact Data -->
+                    <div class="survey-step" data-step="8">
+                        <div class="survey-step-header">
+                            <span class="survey-eyebrow">Step 8 of 8</span>
                             <h2>Contact Details</h2>
                             <p>We'll respond in less than 24 hours with a personalized proposal.</p>
                         </div>
@@ -698,35 +779,40 @@
                             <div class="scf-row">
                                 <div class="scf-field">
                                     <label for="sq-nombre">First Name *</label>
-                                    <input type="text" id="sq-nombre" name="nombre" placeholder="Your name" required>
+                                    <input type="text" id="sq-nombre" name="nombre" placeholder="Your name">
                                 </div>
                                 <div class="scf-field">
-                                    <label for="sq-apellidos">Last Name(s)</label>
+                                    <label for="sq-apellidos">Last Name(s) *</label>
                                     <input type="text" id="sq-apellidos" name="apellidos" placeholder="Your last name">
                                 </div>
                             </div>
                             <div class="scf-row">
                                 <div class="scf-field">
-                                    <label for="sq-empresa">Company / Brand</label>
+                                    <label for="sq-empresa">Company / Brand *</label>
                                     <input type="text" id="sq-empresa" name="empresa" placeholder="Your company name">
                                 </div>
                                 <div class="scf-field">
-                                    <label for="sq-telefono">Phone Number</label>
-                                    <input type="tel" id="sq-telefono" name="telefono" placeholder="+1 000 000 000">
+                                    <label for="sq-telefono">Phone Number *</label>
+                                    <input type="tel" id="sq-telefono" name="telefono" placeholder="600 000 000">
                                 </div>
                             </div>
                             <div class="scf-full scf-field">
                                 <label for="sq-email">Email Address *</label>
-                                <input type="email" id="sq-email" name="email" placeholder="you@email.com" required>
+                                <input type="email" id="sq-email" name="email" placeholder="you@email.com">
                             </div>
-                            <div class="scf-full scf-field">
-                                <label for="sq-notas">Need more details? <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(0,0,0,0.3)">(optional)</span></label>
-                                <textarea id="sq-notas" name="notas" placeholder="If necessary, let us know more specific information about your product idea or any additional comments."></textarea>
-                            </div>
-                            <div class="scf-legal">
-                                <label class="scf-check">
-                                    <input type="checkbox" id="sq-privacidad" required>
-                                    <span>I have read and understood the <a href="privacy-policy.html">Privacy Policy</a> and Legal Notices. I consent to this website storing my submitted information.</span>
+                        </div>
+                        <div class="survey-sub-section mt-32">
+                            <p class="survey-sub-label">I have read and understood the <a href="privacy-policy.html" style="color:#607561;text-decoration:underline;">Privacy Policy</a> and Legal Notices. I consent to this website storing my submitted information. <span class="survey-req">*</span></p>
+                            <div class="survey-option-list">
+                                <label class="survey-option-row">
+                                    <input type="radio" name="privacidad" value="Accept">
+                                    <span class="survey-option-row-label">Accept</span>
+                                    <span class="survey-option-radio"></span>
+                                </label>
+                                <label class="survey-option-row">
+                                    <input type="radio" name="privacidad" value="Do not accept">
+                                    <span class="survey-option-row-label">Do not accept</span>
+                                    <span class="survey-option-radio"></span>
                                 </label>
                             </div>
                         </div>
@@ -755,8 +841,17 @@
                         </div>
                         <h2>Request Received!</h2>
                         <p>Our team will review your project and contact you in less than 24 hours with a personalized proposal.</p>
-                        <div class="survey-success-data" id="surveySuccessData"></div>
-                        <a href="../index.html" class="tf-btn mt-4">Back to Home</a>
+                        <div class="survey-success-summary" id="surveySuccessData"></div>
+                        <div class="survey-success-actions">
+                            <button class="survey-btn-download" id="surveyDownloadBtn" type="button">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                Download Summary
+                            </button>
+                            <a href="../index.html" class="survey-btn-home">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                Back to Home
+                            </a>
+                        </div>
                     </div>
 
                 </div>
@@ -1014,7 +1109,7 @@
     (function () {
         'use strict';
 
-        const TOTAL_STEPS = 6;
+        const TOTAL_STEPS = 8;
         let currentStep = 1;
 
         const steps       = document.querySelectorAll('.survey-step');
@@ -1046,12 +1141,12 @@
             var targetId = null;
             if (isPolvo) {
                 if (acond === 'Bulk')       targetId = 'vol-granel-polvo';
-                else if (acond === 'Jar')        targetId = 'vol-bote-polvo';
+                else if (acond === 'Bottle')        targetId = 'vol-bote-polvo';
                 else if (acond === 'Doypack')    targetId = 'vol-doypack';
                 else if (acond === 'Stick Pack') targetId = 'vol-stickpack';
             } else {
                 if (acond === 'Bulk')    targetId = 'vol-granel-solid';
-                else if (acond === 'Jar')     targetId = 'vol-bote-solid';
+                else if (acond === 'Bottle')     targetId = 'vol-bote-solid';
                 else if (acond === 'Blister') targetId = 'vol-blister';
             }
             if (targetId) {
@@ -1066,11 +1161,24 @@
             if (target) target.classList.add('active');
             if (n === 2) showAcondSubgrid();
             if (n === 3) showVolumenSubform();
+            if (n === 8 && window.intlTelInput && !window.itiPhone) {
+                window.itiPhone = window.intlTelInput(document.getElementById('sq-telefono'), {
+                    initialCountry: 'es',
+                    separateDialCode: true,
+                    utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/utils.js'
+                });
+            }
             stepCurrent.textContent = n;
             progressBar.style.width = (n / TOTAL_STEPS * 100) + '%';
             btnBack.style.display   = n > 1 ? 'inline-flex' : 'none';
             btnNext.style.display   = n < TOTAL_STEPS ? 'inline-flex' : 'none';
             btnSubmit.style.display = n === TOTAL_STEPS ? 'inline-flex' : 'none';
+        }
+
+        function isBulkSolid() {
+            var acond    = (document.querySelector('input[name="acondicionamiento"]:checked') || {}).value || '';
+            var galenica = (document.querySelector('input[name="galenica"]:checked') || {}).value || '';
+            return acond === 'Bulk' && galenica !== 'Powder / Shake';
         }
 
         function validateStep(n) {
@@ -1082,25 +1190,43 @@
                 var isPolvo  = galenica === 'Powder / Shake';
                 if (isPolvo) {
                     if (acond === 'Bulk')       return !!(document.getElementById('vol-kg-granel') || {}).value;
-                    if (acond === 'Jar')        return !!document.querySelector('input[name="vol_capacidad_bote_polvo"]:checked') && !!(document.getElementById('vol-unidades-bote-polvo') || {}).value;
+                    if (acond === 'Bottle')        return !!document.querySelector('input[name="vol_capacidad_bote_polvo"]:checked') && !!(document.getElementById('vol-unidades-bote-polvo') || {}).value;
                     if (acond === 'Doypack')    return !!document.querySelector('input[name="vol_capacidad_doypack"]:checked') && !!(document.getElementById('vol-unidades-doypack') || {}).value;
                     if (acond === 'Stick Pack') return !!document.querySelector('input[name="vol_sticks_paquete"]:checked') && !!(document.getElementById('vol-unidades-stickpack') || {}).value;
                     return true;
                 }
                 if (acond === 'Bulk')    return !!document.querySelector('input[name="vol_cantidad"]:checked');
-                if (acond === 'Jar')     return !!document.querySelector('input[name="vol_caps_bote"]:checked') && !!(document.getElementById('vol-unidades-bote') || {}).value;
+                if (acond === 'Bottle')     return !!document.querySelector('input[name="vol_caps_bote"]:checked') && !!(document.getElementById('vol-unidades-bote') || {}).value;
                 if (acond === 'Blister') return !!document.querySelector('input[name="vol_caps_blister"]:checked') && !!(document.getElementById('vol-unidades-blister') || {}).value;
                 return true;
             }
-            if (n === 4) return !!document.querySelector('input[name="formula_estado"]:checked');
-            if (n === 5) return !!document.querySelector('input[name="empresa_constituida"]:checked');
+            if (n === 4) return !!(document.getElementById('vol-unidades-granel') || {}).value;
+            if (n === 5) {
+                if (!((document.getElementById('sq-fórmula') || {}).value || '').trim()) return false;
+                if (!document.querySelector('input[name="volumen_anual"]:checked')) return false;
+                if (!document.querySelector('input[name="aplicacion"]:checked')) return false;
+                return true;
+            }
             if (n === 6) {
-                var nombre     = document.getElementById('sq-nombre');
-                var email      = document.getElementById('sq-email');
-                var privacidad = document.getElementById('sq-privacidad');
-                if (!nombre.value.trim()) { nombre.focus(); return false; }
+                if (!document.querySelector('input[name="empresa_constituida"]:checked')) return false;
+                var empVal = document.querySelector('input[name="empresa_constituida"]:checked').value;
+                if (empVal === 'Yes' && !document.querySelector('input[name="registro_sanitario"]:checked')) return false;
+                return true;
+            }
+            if (n === 7) return true;
+            if (n === 8) {
+                var nombre    = document.getElementById('sq-nombre');
+                var apellidos = document.getElementById('sq-apellidos');
+                var empresa   = document.getElementById('sq-empresa');
+                var telefono  = document.getElementById('sq-telefono');
+                var email     = document.getElementById('sq-email');
+                if (!nombre.value.trim())    { nombre.focus(); return false; }
+                if (!apellidos.value.trim()) { apellidos.focus(); return false; }
+                if (!empresa.value.trim())   { empresa.focus(); return false; }
+                if (!telefono.value.trim())  { telefono.focus(); return false; }
                 if (!email.value.trim() || !email.validity.valid) { email.focus(); return false; }
-                if (!privacidad.checked) { alert('Please accept the privacy policy.'); return false; }
+                var privCheck = document.querySelector('input[name="privacidad"]:checked');
+                if (!privCheck || privCheck.value !== 'Accept') { alert('Please accept the privacy policy.'); return false; }
                 return true;
             }
             return true;
@@ -1113,26 +1239,30 @@
             var volData  = {};
             if (isPolvo) {
                 if (acond === 'Bulk')       volData.vol_kg_granel        = (document.getElementById('vol-kg-granel') || {}).value || '';
-                if (acond === 'Jar')        { volData.vol_capacidad_bote_polvo = (document.querySelector('input[name="vol_capacidad_bote_polvo"]:checked') || {}).value || ''; volData.vol_unidades_bote_polvo = (document.getElementById('vol-unidades-bote-polvo') || {}).value || ''; }
+                if (acond === 'Bottle')        { volData.vol_capacidad_bote_polvo = (document.querySelector('input[name="vol_capacidad_bote_polvo"]:checked') || {}).value || ''; volData.vol_unidades_bote_polvo = (document.getElementById('vol-unidades-bote-polvo') || {}).value || ''; }
                 if (acond === 'Doypack')    { volData.vol_capacidad_doypack = (document.querySelector('input[name="vol_capacidad_doypack"]:checked') || {}).value || ''; volData.vol_unidades_doypack = (document.getElementById('vol-unidades-doypack') || {}).value || ''; }
                 if (acond === 'Stick Pack') { volData.vol_sticks_paquete = (document.querySelector('input[name="vol_sticks_paquete"]:checked') || {}).value || ''; volData.vol_unidades_stickpack = (document.getElementById('vol-unidades-stickpack') || {}).value || ''; }
             } else {
-                if (acond === 'Bulk')    volData.vol_cantidad       = (document.querySelector('input[name="vol_cantidad"]:checked') || {}).value || '';
-                if (acond === 'Jar')     { volData.vol_caps_bote   = (document.querySelector('input[name="vol_caps_bote"]:checked') || {}).value || ''; volData.vol_unidades_bote   = (document.getElementById('vol-unidades-bote') || {}).value || ''; }
+                if (acond === 'Bulk')    { volData.vol_cantidad = (document.querySelector('input[name="vol_cantidad"]:checked') || {}).value || ''; volData.vol_unidades_granel = (document.getElementById('vol-unidades-granel') || {}).value || ''; }
+                if (acond === 'Bottle')     { volData.vol_caps_bote   = (document.querySelector('input[name="vol_caps_bote"]:checked') || {}).value || ''; volData.vol_unidades_bote   = (document.getElementById('vol-unidades-bote') || {}).value || ''; }
                 if (acond === 'Blister') { volData.vol_caps_blister = (document.querySelector('input[name="vol_caps_blister"]:checked') || {}).value || ''; volData.vol_unidades_blister = (document.getElementById('vol-unidades-blister') || {}).value || ''; }
             }
             return Object.assign({
                 galenica:            galenica,
                 acondicionamiento:   acond,
-                formula_estado:      (document.querySelector('input[name="formula_estado"]:checked') || {}).value || '',
-                fórmula:             (document.getElementById('sq-fórmula') || {}).value || '',
-                empresa_constituida: (document.querySelector('input[name="empresa_constituida"]:checked') || {}).value || '',
+                fórmula:        (document.getElementById('sq-fórmula') || {}).value || '',
+                volumen_anual:  (document.querySelector('input[name="volumen_anual"]:checked') || {}).value || '',
+                aplicacion:     [...document.querySelectorAll('input[name="aplicacion"]:checked')].map(function (i) { return i.value; }).join(', '),
+                empresa_constituida:  (document.querySelector('input[name="empresa_constituida"]:checked') || {}).value || '',
+                registro_sanitario:  (document.querySelector('input[name="registro_sanitario"]:checked') || {}).value || '',
+                fecha_constitucion:  (document.getElementById('sq-fecha-constitucion') || {}).value || '',
                 fecha_lanzamiento:   (document.getElementById('sq-fecha') || {}).value || '',
                 servicios:           [...document.querySelectorAll('input[name="servicios"]:checked')].map(function (i) { return i.value; }).join(', '),
-                nombre:   document.getElementById('sq-nombre').value.trim(),
-                empresa:  document.getElementById('sq-empresa').value.trim(),
+                nombre:    document.getElementById('sq-nombre').value.trim(),
+                apellidos: document.getElementById('sq-apellidos').value.trim(),
+                empresa:   document.getElementById('sq-empresa').value.trim(),
                 email:    document.getElementById('sq-email').value.trim(),
-                telefono: document.getElementById('sq-telefono').value.trim(),
+                telefono: window.itiPhone ? window.itiPhone.getNumber() : document.getElementById('sq-telefono').value.trim(),
                 notas:    document.getElementById('sq-notas').value.trim(),
                 lang: 'en'
             }, volData);
@@ -1157,10 +1287,89 @@
             steps.forEach(function (s) { s.style.display = 'none'; });
             document.querySelector('.survey-nav').style.display = 'none';
             successDiv.style.display = 'block';
-            var tags = [data.galenica, data.acondicionamiento].filter(Boolean);
-            successData.innerHTML = tags.map(function (t) {
-                return '<span class="survey-success-tag">' + t + '</span>';
-            }).join('');
+
+            function row(label, value) {
+                if (!value) return '';
+                return '<div class="ss-row"><span class="ss-label">' + label + '</span><span class="ss-value">' + value + '</span></div>';
+            }
+
+            var volParts = [];
+            if (data.vol_kg_granel)            volParts.push(data.vol_kg_granel + ' kg bulk');
+            if (data.vol_capacidad_bote_polvo)  volParts.push(data.vol_capacidad_bote_polvo + ' · ' + (data.vol_unidades_bote_polvo || '') + ' units');
+            if (data.vol_capacidad_doypack)     volParts.push(data.vol_capacidad_doypack + ' · ' + (data.vol_unidades_doypack || '') + ' units');
+            if (data.vol_sticks_paquete)        volParts.push(data.vol_sticks_paquete + ' · ' + (data.vol_unidades_stickpack || '') + ' units');
+            if (data.vol_cantidad)              volParts.push(data.vol_cantidad + ' · ' + (data.vol_unidades_granel || '') + ' units');
+            if (data.vol_caps_bote)             volParts.push(data.vol_caps_bote + ' · ' + (data.vol_unidades_bote || '') + ' units');
+            if (data.vol_caps_blister)          volParts.push(data.vol_caps_blister + ' · ' + (data.vol_unidades_blister || '') + ' units');
+
+            var html = '';
+
+            html += '<div class="ss-section"><div class="ss-section-title">Product</div>';
+            html += row('Form', data.galenica);
+            html += row('Packaging', data.acondicionamiento);
+            if (volParts.length) html += row('Volume / Qty', volParts.join(', '));
+            html += '</div>';
+
+            html += '<div class="ss-section"><div class="ss-section-title">Formula & Market</div>';
+            html += row('Formula', data['fórmula']);
+            html += row('Annual Volume', data.volumen_anual);
+            html += row('Applications', data.aplicacion);
+            html += '</div>';
+
+            html += '<div class="ss-section"><div class="ss-section-title">Company</div>';
+            html += row('Incorporated', data.empresa_constituida);
+            if (data.empresa_constituida === 'Yes') html += row('Health Registration', data.registro_sanitario);
+            if (data.empresa_constituida === 'No' && data.fecha_constitucion) html += row('Incorporation Date', data.fecha_constitucion);
+            if (data.fecha_lanzamiento) html += row('Launch Date', data.fecha_lanzamiento);
+            if (data.servicios) html += row('Services', data.servicios);
+            html += '</div>';
+
+            if (data.notas) {
+                html += '<div class="ss-section"><div class="ss-section-title">Additional Notes</div>';
+                html += '<div class="ss-row"><span class="ss-value" style="white-space:pre-wrap;">' + data.notas + '</span></div>';
+                html += '</div>';
+            }
+
+            html += '<div class="ss-section"><div class="ss-section-title">Contact</div>';
+            html += row('Name', data.nombre + (data.apellidos ? ' ' + data.apellidos : ''));
+            html += row('Company', data.empresa);
+            html += row('Email', data.email);
+            html += row('Phone', data.telefono);
+            html += '</div>';
+
+            successData.innerHTML = html;
+
+            document.getElementById('surveyDownloadBtn').addEventListener('click', function () {
+                var lines = ['AKUMAL SPORT NUTRITION — QUOTE REQUEST SUMMARY', '==================================================', ''];
+                lines.push('PRODUCT');
+                if (data.galenica)          lines.push('  Form:       ' + data.galenica);
+                if (data.acondicionamiento) lines.push('  Packaging:  ' + data.acondicionamiento);
+                if (volParts.length)        lines.push('  Volume/Qty: ' + volParts.join(', '));
+                lines.push('');
+                lines.push('FORMULA & MARKET');
+                if (data['fórmula'])    lines.push('  Formula:     ' + data['fórmula']);
+                if (data.volumen_anual) lines.push('  Annual Vol:  ' + data.volumen_anual);
+                if (data.aplicacion)    lines.push('  Applications: ' + data.aplicacion);
+                lines.push('');
+                lines.push('COMPANY');
+                if (data.empresa_constituida) lines.push('  Incorporated:    ' + data.empresa_constituida);
+                if (data.registro_sanitario)  lines.push('  Health Reg:      ' + data.registro_sanitario);
+                if (data.fecha_constitucion)  lines.push('  Incorp. Date:    ' + data.fecha_constitucion);
+                if (data.fecha_lanzamiento)   lines.push('  Launch Date:     ' + data.fecha_lanzamiento);
+                if (data.servicios)           lines.push('  Services:        ' + data.servicios);
+                lines.push('');
+                lines.push('CONTACT');
+                lines.push('  Name:    ' + data.nombre + (data.apellidos ? ' ' + data.apellidos : ''));
+                lines.push('  Company: ' + data.empresa);
+                lines.push('  Email:   ' + data.email);
+                lines.push('  Phone:   ' + data.telefono);
+                if (data.notas) { lines.push(''); lines.push('ADDITIONAL NOTES'); lines.push(data.notas); }
+                var blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+                var url  = URL.createObjectURL(blob);
+                var a    = document.createElement('a');
+                a.href = url; a.download = 'akumal-quote-summary.txt'; a.click();
+                URL.revokeObjectURL(url);
+            });
         }
 
         function scrollToSurvey() {
@@ -1173,12 +1382,14 @@
         btnNext.addEventListener('click', function () {
             if (!validateStep(currentStep)) { shakeNav(); return; }
             currentStep++;
+            if (currentStep === 4 && !isBulkSolid()) currentStep = 5;
             renderStep(currentStep);
             scrollToSurvey();
         });
 
         btnBack.addEventListener('click', function () {
             currentStep--;
+            if (currentStep === 4 && !isBulkSolid()) currentStep = 3;
             renderStep(currentStep);
             scrollToSurvey();
         });
@@ -1198,19 +1409,22 @@
             }
         });
 
-        function wireFormulaEstado() {
-            document.querySelectorAll('input[name="formula_estado"]').forEach(function (radio) {
+        function wireEmpresaConstituida() {
+            document.querySelectorAll('input[name="empresa_constituida"]').forEach(function (radio) {
                 radio.addEventListener('change', function () {
-                    var block = document.getElementById('formulaTextareaBlock');
-                    var show = this.value === 'Yes, I have a defined formula' || this.value === 'General idea, need technical help';
-                    block.style.display = show ? 'block' : 'none';
+                    var siBlock = document.getElementById('empresa-si-block');
+                    var noBlock = document.getElementById('empresa-no-block');
+                    var isSi   = this.value === 'Yes';
+                    if (siBlock) siBlock.style.display = isSi ? 'block' : 'none';
+                    if (noBlock) noBlock.style.display = isSi ? 'none' : 'block';
+                    document.querySelectorAll('input[name="registro_sanitario"]').forEach(function (r) { r.checked = false; });
+                    var fc = document.getElementById('sq-fecha-constitucion');
+                    if (fc) fc.value = '';
                 });
             });
         }
 
-        function wireGalenica() {
-            /* no auto-advance — user clicks Next manually */
-        }
+        wireEmpresaConstituida();
 
         function shakeNav() {
             var nav = document.querySelector('.survey-nav');
@@ -1223,11 +1437,11 @@
         shakeStyle.textContent = '@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }';
         document.head.appendChild(shakeStyle);
 
-        wireFormulaEstado();
-        wireGalenica();
         renderStep(1);
     })();
     </script>
+    <!-- intl-tel-input -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/intlTelInput.min.js"></script>
     <!-- Survey image lightbox -->
     <script>
     (function () {

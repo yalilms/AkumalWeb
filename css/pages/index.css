@@ -96,6 +96,9 @@ body {
   background-color: #1a1a1a !important;
   border-color: rgba(26, 26, 26, 0.18) !important;
   color: #ffffff !important;
+  /* Quitar la máscara radial del template que volvía transparente el centro del texto */
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
 }
 
 .btn-23 .text,
@@ -103,11 +106,11 @@ body {
   color: #ffffff !important;
 }
 
-/* El texto marquee y text-shadow del btn-23 */
+/* Sombras del marquee — deben ser del mismo color que el texto para el loop infinito */
 .btn-23 .marquee {
-  text-shadow: #1a1a1a var(--spacing) 0,
-               #1a1a1a calc(var(--spacing) * -1) 0,
-               #1a1a1a calc(var(--spacing) * -2) 0;
+  text-shadow: #ffffff var(--spacing) 0,
+               #ffffff calc(var(--spacing) * -1) 0,
+               #ffffff calc(var(--spacing) * -2) 0;
 }
 
 /* Cards de feature: tienen overlay oscuro propio → texto blanco OK */
