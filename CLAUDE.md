@@ -4,30 +4,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static marketing website for **Akumal Sport Nutrition** — a B2B sports supplement manufacturer based in Spain. No build system or package manager; all files are served directly.
+Static marketing website for **Akumal Sport Nutrition** — a B2B sports supplement manufacturer based in Spain. Pure HTML/CSS/JS served directly; no build system.
+
+Backend (out of repo) is **Odoo CRM**: contact-form leads, job postings, and user login all hit Odoo via the proxy in [api/](api/).
 
 ## Pages
 
-| File | Purpose |
-|---|---|
-| [index.html](index.html) | Home page |
-| [nosotros.html](nosotros.html) | About us |
-| [contacto.html](contacto.html) | Contact / online quote form |
-| [login.html](login.html) | Login page |
+EN pages live at the root and in [pages/](pages/), ES mirror under [es/](es/). Blog posts under [blog/](blog/) (EN) and [es/blog/](es/blog/) (ES). Legal pages: privacy/cookies/legal-notice in both languages.
 
 ## CSS Architecture
 
-Each page loads four stylesheets in cascade order:
+Each page loads this cascade (last wins):
 
 ```
-css/base.css        ← CSS variables, resets, typography
-css/components.css  ← header, footer, buttons, cards, shared UI
+css/base.css        ← variables, resets, typography
+css/components.css  ← header, footer, buttons, cards
 css/sections.css    ← page-section overrides (hero, etc.)
-css/akumal.css      ← brand overrides — loads last, highest priority
-css/pages/*.css     ← page-specific sheet (nosotros, contacto, login)
+css/akumal.css      ← brand overrides
+css/pages/*.css     ← page-specific
 ```
 
-**Cache busting:** All four sheets use `?v=N` query strings. **Increment the version** on any sheet you modify. `akumal.css` is the most frequently changed; its current version is the reference. Page-specific sheets live at `css/pages/nosotros.css`, `css/pages/contacto.css`, `css/pages/login.css`.
+**Cache busting:** All sheets use `?v=N`. **Increment the version on any sheet you modify.**
 
 ## CSS Color Variables — Inverted Naming
 
@@ -47,58 +44,67 @@ The color switcher writes `data-color-primary="color-primary-{1|2|3}"` on `<body
 
 - Primary: `#607561` (sage green dark)
 - Secondary: `#A2B3A3` (sage green light)
-- Surface/background: `#f0f3f5`
-- Logo files: `assets/images/akumal/logoAkumalBlanco.png` (white), `logoAkumalVerde.png` (green), `LOGO TORTUGA.png` (favicon)
+- Surface/background: `#f0f3f5` / `#f5f4f0` (light theme)
+- Logo files (all under `assets/images/akumal/logos/`):
+  - `logoAkumalBlanco.png` (white)
+  - `logoAkumalVerde.png` (green)
+  - `logo-tortuga.png` (favicon)
+  - `logo-akumal-nutrition-10.png` (header word-mark, default)
+  - `logo-akumal-nutrition-08.png` (header word-mark on sticky scroll)
 
 ## JS Architecture
 
-[js/main.js](js/main.js) bootstraps all page-wide utilities on DOM ready: scroll-to-top button, infinite text slider, live clock, scroll counters, color theme switcher (localStorage), mobile menu open/close, and language selector UI.
-
-[js/gsap-animations.js](js/gsap-animations.js) runs GSAP animations: scroll-driven text color reveal (`.text-color-change`), card flip sequences (`.gsap-anime-2`), and other ScrollTrigger effects.
-
-[js/hero-bottle.js](js/hero-bottle.js) renders an interactive 3D supplement bottle on `<canvas id="hero-bottle-canvas">` using Three.js. Requires Three.js loaded from CDN before this script. The bottle texture is `assets/images/akumal/bote.png`.
-
-[js/scrollsmoother.js](js/scrollsmoother.js) is a standalone smooth-scroll polyfill (not GSAP ScrollSmoother).
-
-[js/vendor/](js/vendor/) contains locally-served vendor scripts: `infinityslide.js` (infinite ticker) and `splittext.min.js` (GSAP text splitting).
+- [js/main.js](js/main.js) — page-wide utilities: scroll-top, infinite slider, clock, counters, color theme switcher, mobile menu, language selector. Also swaps the header logo to `logo-akumal-nutrition-08.png` on sticky scroll (regex match).
+- [js/gsap-animations.js](js/gsap-animations.js) — GSAP ScrollTrigger animations (`.text-color-change`, `.gsap-anime-2`, etc.).
+- [js/carousel.js](js/carousel.js) — Swiper + Slick carousels (`.tf-swiper`, `.slick-for`, `.slick-nav`).
+- [js/scrollsmoother.js](js/scrollsmoother.js) — standalone smooth-scroll polyfill.
+- [js/configurador.js](js/configurador.js) — Three.js packaging configurator on `pages/online-quote.html` and `es/configurador.html`. POSTs to API for leads.
+- [js/config.js](js/config.js) — defines `window.AKUMAL_CONFIG.API_URL` for the Odoo proxy. Change URL for production.
+- [js/odoo-jobs.js](js/odoo-jobs.js) — fetches published jobs from Odoo Recruitment. Currently dormant (`OdooJobs.init()` commented at file end). Activate when Odoo is wired.
+- [js/vendor/](js/vendor/) — locally-served `infinityslide.js` and `splittext.min.js`.
 
 **Counter requirement:** `<body class="counter-scroll">` must be present for `.wg-counter` + `.odometer` elements to animate on scroll.
 
+## Backend Proxy — [api/](api/)
+
+Express server on `localhost:3001` that forwards contact-form submissions to **Odoo CRM** as leads (`/api/lead` endpoint).
+
+```bash
+cd api && npm install
+cp .env.example .env   # set ODOO_URL, ODOO_DB, ODOO_USERNAME, ODOO_API_KEY
+npm start
+```
+
+Forms fail gracefully (alert with email fallback) if the proxy is down.
+
 ## External Dependencies (CDN)
 
-All libraries are loaded from CDN — no local node_modules. Key ones:
-
 - **Bootstrap 5.3.3** — grid and utilities
-- **GSAP 3.12.5** — ScrollTrigger, ScrollToPlugin (loaded before `gsap-animations.js`)
-- **Three.js** — required by `hero-bottle.js` (only on pages with the 3D bottle canvas)
-- **Swiper 11** — carousels, configured via `data-*` attributes on `.tf-swiper` elements (see [js/carousel.js](js/carousel.js))
-- **jQuery** — required by [js/main.js](js/main.js) and [js/carousel.js](js/carousel.js)
-- **Odometer.js** — animated counters triggered on scroll (`.wg-counter` + `.odometer` elements)
-- **Slick** — secondary carousel plugin
-- **Icomoon** — icon font loaded from `wpriverthemes.com` (external host)
+- **GSAP 3.12.5** — ScrollTrigger + ScrollToPlugin
+- **Three.js 0.160** — required by [js/configurador.js](js/configurador.js) (only on configurador/online-quote)
+- **Swiper 11** — carousels via `data-*` attributes on `.tf-swiper`
+- **Slick 1.8.1** — only loaded on `index.html` and `es/index.html` (the only pages using `.slick-for` / `.slick-nav`)
+- **jQuery 3.7.1** — required by `main.js` and `carousel.js`
+- **jQuery nice-select** — styled `<select>` for forms
+- **Odometer.js** — animated counters
 
 ## Shared Header/Footer — Use the Tools
 
-The header, footer, and offcanvas mobile menu are duplicated across all HTML files. Instead of editing each file manually, use the scripts in [tools/](tools/):
+The header, footer, and offcanvas mobile menu are duplicated across HTML files. Use scripts in [tools/](tools/) to keep them in sync:
 
 ```bash
-# From project root:
-python3 tools/update_header.py        # updates logo + contact info in header
+python3 tools/update_header.py        # updates logo + contact info
 python3 tools/update_footer_menu.py   # updates footer block + offcanvas menu
-perl tools/replace_menu.pl index.html # updates nav menus in one file
+perl tools/replace_menu.pl <file>     # updates nav menus in one file
 ```
 
 `replace_menu.pl` replaces three menu lists simultaneously: `.nav-menu-main` (desktop), `.mb-menu-list` (mobile offcanvas), and `.footer-menu-list`. Run it per-file.
 
-`update_header.py` and `update_footer_menu.py` operate on `index.html`, `nosotros.html`, and `contacto.html` only — **`login.html` is excluded** from both scripts.
-
-When adding a new page, copy the header/footer from an existing page and run the tools to keep them in sync.
-
 ## Navigation Items
 
 ```
-01 / INICIO          → index.html
-02 / SOBRE NOSOTROS  → nosotros.html
-03 / COTIZA ONLINE   → contacto.html
-04 / ÚNETE AL EQUIPO → # (placeholder)
+01 / INICIO          → index.html / es/index.html
+02 / SOBRE NOSOTROS  → pages/about-us.html / es/nosotros.html
+03 / COTIZA ONLINE   → pages/contact.html / es/contacto.html
+04 / ÚNETE AL EQUIPO → pages/join-the-team.html / es/equipo.html
 ```

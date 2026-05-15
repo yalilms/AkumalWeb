@@ -458,6 +458,9 @@
         let tl = null;
         let stInstance = null;
         let isNavigating = false;
+        let isAnimating = false;
+        let currentStep = 0;
+        let safetyTimer = null;
 
         function debounce(fn, wait = 100) {
             let timeout;
@@ -468,41 +471,35 @@
             };
         }
 
-        const detectAnchorNavigation = () => {
-            $('a[href^="#"]').on("click", function (e) {
-                const targetId = $(this).attr("href");
-                const $target = $(targetId);
+        const unlockAnim = () => {
+            isAnimating = false;
+            clearTimeout(safetyTimer);
+        };
 
+        const detectAnchorNavigation = () => {
+            $('a[href^="#"]').on("click", function () {
+                const $target = $($(this).attr("href"));
                 if ($target.length) {
                     isNavigating = true;
-
-                    setTimeout(() => {
-                        isNavigating = false;
-                    }, 1500);
+                    setTimeout(() => { isNavigating = false; }, 1500);
                 }
             });
-
             if (window.location.hash) {
                 isNavigating = true;
-                setTimeout(() => {
-                    isNavigating = false;
-                }, 1500);
+                setTimeout(() => { isNavigating = false; }, 1500);
             }
         };
 
         const initDesktop = () => {
             const $mainScrolls = $section.find(".wg-service-2");
+            currentStep = 0;
+            isAnimating = false;
 
             $mainScrolls.css("pointer-events", "none");
             $mainScrolls.eq(0).css("pointer-events", "auto");
 
-            // Estado inicial explícito: solo el primer item visible
             $mainScrolls.each(function (i, el) {
-                if (i === 0) {
-                    gsap.set(el, { opacity: 1, scale: 1 });
-                } else {
-                    gsap.set(el, { opacity: 0, scale: 0.95 });
-                }
+                gsap.set(el, i === 0 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 });
             });
 
             tl = gsap.timeline({ paused: true });
@@ -517,138 +514,75 @@
                 if ($next.length) {
                     if ($itemImage.length) {
                         tl.to($itemImage, {
-                            left: 0,
-                            width: 424,
-                            height: 530,
-                            opacity: 0,
-                            duration: 1,
-                            ease: "power2.out",
+                            left: 0, width: 424, height: 530,
+                            opacity: 0, duration: 1, ease: "power2.out",
                         });
                     }
 
-                    tl.to(
-                        $main,
-                        {
-                            opacity: 0,
-                            duration: 0.8,
-                            ease: "power2.out",
-                            onStart: () => {
-                                $main.css("pointer-events", "none");
-                            },
-                            onReverseComplete: () => {
-                                $main.css("pointer-events", "auto");
-                            },
-                        },
-                        "<"
-                    );
+                    tl.to($main, {
+                        opacity: 0, duration: 0.8, ease: "power2.out",
+                        onStart: () => { $main.css("pointer-events", "none"); },
+                        onReverseComplete: () => { $main.css("pointer-events", "auto"); },
+                    }, "<");
 
-                    tl.fromTo(
-                        $next,
-                        { scale: 0.95, opacity: 0 },
-                        {
-                            scale: 1,
-                            opacity: 1,
-                            duration: 1,
-                            ease: "power2.out",
-                            onStart: () => {
-                                $next.css("pointer-events", "auto");
-                            },
-                            onReverseComplete: () => {
-                                $next.css("pointer-events", "none");
-                            },
-                        },
-                        "<"
-                    );
+                    tl.fromTo($next, { scale: 0.95, opacity: 0 }, {
+                        scale: 1, opacity: 1, duration: 1, ease: "power2.out",
+                        onStart: () => { $next.css("pointer-events", "auto"); },
+                        onReverseComplete: () => { $next.css("pointer-events", "none"); },
+                    }, "<");
 
                     if ($bgCurrent.length && $bgNext.length) {
-                        tl.to(
-                            $bgCurrent,
-                            {
-                                opacity: 0,
-                                duration: 1,
-                                ease: "power2.out",
-                            },
-                            "<"
-                        );
-
-                        tl.fromTo(
-                            $bgNext,
-                            { opacity: 0 },
-                            {
-                                opacity: 1,
-                                duration: 1,
-                                ease: "power2.out",
-                            },
-                            "<"
-                        );
+                        tl.to($bgCurrent, { opacity: 0, duration: 1, ease: "power2.out" }, "<");
+                        tl.fromTo($bgNext, { opacity: 0 }, { opacity: 1, duration: 1, ease: "power2.out" }, "<");
                     }
                 }
             });
 
             const totalSteps = $mainScrolls.length - 1;
             const stepLength = 1 / totalSteps;
-            let currentStep = 0;
-            let isAnimating = false;
-            let lastScrollTime = Date.now();
-            let scrollVelocity = 0;
-
-            const startValue = window.innerWidth < 1600 ? "top top" : "top top";
 
             stInstance = ScrollTrigger.create({
                 trigger: $section[0],
-                start: startValue,
+                start: "top top",
                 end: "+=" + totalSteps * 1000,
                 pin: true,
                 scrub: false,
                 markers: false,
                 anticipatePin: 1,
+                invalidateOnRefresh: true,
                 onRefresh: (self) => {
-                    // On page load/reload, sync timeline to correct step immediately
-                    if (self.progress > 0 && !isAnimating) {
+                    // Sync visual state on reload — do it after a frame so layout is settled
+                    requestAnimationFrame(() => {
+                        isAnimating = false;
+                        clearTimeout(safetyTimer);
                         const targetStep = Math.round(self.progress * totalSteps);
-                        if (targetStep !== currentStep) {
-                            currentStep = targetStep;
-                            tl.progress(targetStep * stepLength);
-                        }
-                    }
+                        currentStep = targetStep;
+                        if (tl) tl.progress(currentStep * stepLength);
+
+                        // Sync pointer-events to match current step
+                        $mainScrolls.css("pointer-events", "none");
+                        $mainScrolls.eq(currentStep).css("pointer-events", "auto");
+                    });
                 },
                 onUpdate: (self) => {
-                    if (isNavigating) {
-                        return;
-                    }
+                    if (isNavigating || isAnimating) return;
 
-                    const now = Date.now();
-                    const timeDelta = now - lastScrollTime;
-                    const progressDelta = Math.abs(self.progress - currentStep * stepLength);
-                    scrollVelocity = progressDelta / (timeDelta || 1);
-                    lastScrollTime = now;
+                    const targetStep = Math.round(self.progress * totalSteps);
+                    if (targetStep === currentStep) return;
 
-                    const progress = self.progress;
-                    const targetStep = Math.round(progress * totalSteps);
+                    isAnimating = true;
+                    currentStep = targetStep;
+                    const duration = Math.min(Math.abs(targetStep - currentStep) * 0.8 + 0.6, 1.2);
 
-                    if (targetStep !== currentStep) {
-                        if (isAnimating && scrollVelocity > 0.001) {
-                            self.scroll(self.start + (currentStep / totalSteps) * (self.end - self.start));
-                            return;
-                        }
+                    // Safety valve: always unlock after max animation time + buffer
+                    safetyTimer = setTimeout(unlockAnim, (duration + 0.8) * 1000);
 
-                        if (!isAnimating) {
-                            isAnimating = true;
-                            const oldStep = currentStep;
-                            currentStep = targetStep;
-                            const distance = Math.abs(targetStep - oldStep);
-                            const baseDuration = 1;
-                            const duration = baseDuration * Math.min(distance, 1.2);
-
-                            tl.tweenTo(currentStep * stepLength * tl.duration(), {
-                                duration: duration,
-                                ease: "power2.inOut",
-                                onComplete: () => {
-                                    isAnimating = false;
-                                },
-                            });
-                        }
-                    }
+                    tl.tweenTo(currentStep * stepLength * tl.duration(), {
+                        duration: duration,
+                        ease: "power2.inOut",
+                        onComplete: unlockAnim,
+                        onInterrupt: unlockAnim,
+                    });
                 },
             });
 
@@ -656,37 +590,15 @@
         };
 
         const destroyDesktop = () => {
-            if (stInstance) {
-                stInstance.kill();
-                stInstance = null;
-            }
+            unlockAnim();
 
-            if (tl) {
-                tl.kill();
-                tl = null;
-            }
+            if (stInstance) { stInstance.kill(); stInstance = null; }
+            if (tl) { tl.kill(); tl = null; }
 
-            ScrollTrigger.getAll().forEach((st) => {
-                if (st.trigger === $section[0]) {
-                    st.kill();
-                }
-            });
-
-            $section.find(".wg-service-2, .image-2").removeAttr("style");
-            $section.find(".wg-service-2").css({
-                opacity: "",
-                transform: "",
-                "pointer-events": "",
-            });
-            $section.find(".image-2").css({
-                opacity: "",
-                transform: "",
-                left: "",
-                width: "",
-                height: "",
-            });
-
+            $section.find(".wg-service-2").css({ opacity: "", transform: "", "pointer-events": "" });
+            $section.find(".image-2").css({ opacity: "", transform: "", left: "", width: "", height: "" });
             $section.removeAttr("style");
+
             ScrollTrigger.refresh();
         };
 

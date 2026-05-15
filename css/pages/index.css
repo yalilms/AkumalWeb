@@ -214,6 +214,24 @@ body .section-selected-work .image-award img {
 
 .section-service-2 {
   background-color: #ffffff;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Override flat-spacing — less padding so content breathes naturally */
+.section-service-2.flat-spacing {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+/* Image fills viewport height like product-feature section */
+.section-service-2 .wg-service-2 .main-image .image img {
+  height: 55dvh;
+  width: auto;
+  max-width: 424px;
+  object-fit: cover;
 }
 
 /* El service-2 ya usa color:#212529 para texto — OK */

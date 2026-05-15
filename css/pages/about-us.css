@@ -96,7 +96,7 @@ body {
   filter: brightness(0) invert(1);
 }
 
-/* Firma/logo: ya apunta a logoAkumalVerde.png directo en HTML */
+/* Firma/logo: ya apunta a logos/logoAkumalVerde.png directo en HTML */
 
 /* Texto encima del vídeo */
 .section-about-me .text-display-2,

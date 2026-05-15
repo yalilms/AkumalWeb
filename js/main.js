@@ -46,7 +46,7 @@
                 if (!$logo.data('orig-src')) {
                     $logo.data('orig-src', $logo.attr('src'));
                 }
-                $logo.attr('src', $logo.attr('src').replace(/LOGO AKUMAL NUTRITION-\d+\.png/i, 'LOGO AKUMAL NUTRITION-08.png'));
+                $logo.attr('src', $logo.attr('src').replace(/logo-akumal-nutrition-\d+\.png/i, 'logo-akumal-nutrition-08.png'));
             } else {
                 $header.removeClass("header-sticky");
                 var $logo = $header.find('.logo-site img');
