@@ -100,9 +100,18 @@
             letter-spacing: .08em;
             text-transform: uppercase;
         }
-        /* ── intl-tel-input overrides ── */
-        .scf-field .iti { display:block!important; width:100%!important; }
-        .scf-field .iti input { width:100%!important; }
+        /* ── intl-tel-input — bottom-border style ── */
+        .scf-field .iti { display:block!important; width:100%!important; border-bottom:1.5px solid #d4d8d4!important; transition:border-color .2s!important; }
+        .scf-field .iti:focus-within { border-bottom-color:#607561!important; }
+        .scf-field .iti .iti__selected-flag { background:transparent!important; outline:none!important; }
+        .scf-field .iti .iti__selected-dial-code { color:#607561!important; font-weight:600!important; font-size:14px!important; font-family:'Inter',sans-serif!important; margin-left:4px!important; }
+        .scf-field .iti .iti__arrow { border-top-color:rgba(96,117,97,.7)!important; }
+        .scf-field .iti input[type=tel] { border:none!important; outline:none!important; background:transparent!important; padding-top:9px!important; padding-bottom:9px!important; padding-right:0!important; font-size:15px!important; color:#2a3328!important; font-family:inherit!important; }
+        .scf-field .iti input::placeholder { color:rgba(0,0,0,.25)!important; }
+        .iti__dropdown-content, .iti__country-list { border:1.5px solid #dde1dc!important; border-radius:6px!important; box-shadow:0 6px 24px rgba(0,0,0,.10)!important; font-size:13px!important; }
+        .iti__search-input { font-size:13px!important; border-bottom:1px solid #e8ebe8!important; padding:8px 12px!important; font-family:'Inter',sans-serif!important; outline:none!important; }
+        .iti__country.iti__highlight { background:rgba(96,117,97,.08)!important; }
+        .iti__dial-code { color:rgba(0,0,0,.45)!important; }
         /* ── Success summary ── */
         .survey-success-summary { text-align:left; width:100%; max-width:520px; margin:20px auto 0; }
         .ss-section { margin-bottom:16px; }
@@ -793,7 +802,7 @@
                                 </div>
                                 <div class="scf-field">
                                     <label for="sq-telefono">Phone Number *</label>
-                                    <input type="tel" id="sq-telefono" name="telefono" placeholder="600 000 000">
+                                    <input type="tel" id="sq-telefono" name="telefono" inputmode="numeric">
                                 </div>
                             </div>
                             <div class="scf-full scf-field">
@@ -845,7 +854,7 @@
                         <div class="survey-success-actions">
                             <button class="survey-btn-download" id="surveyDownloadBtn" type="button">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                                Download Summary
+                                Download PDF
                             </button>
                             <a href="../index.html" class="survey-btn-home">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -1161,13 +1170,6 @@
             if (target) target.classList.add('active');
             if (n === 2) showAcondSubgrid();
             if (n === 3) showVolumenSubform();
-            if (n === 8 && window.intlTelInput && !window.itiPhone) {
-                window.itiPhone = window.intlTelInput(document.getElementById('sq-telefono'), {
-                    initialCountry: 'es',
-                    separateDialCode: true,
-                    utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/utils.js'
-                });
-            }
             stepCurrent.textContent = n;
             progressBar.style.width = (n / TOTAL_STEPS * 100) + '%';
             btnBack.style.display   = n > 1 ? 'inline-flex' : 'none';
@@ -1339,36 +1341,94 @@
 
             successData.innerHTML = html;
 
-            document.getElementById('surveyDownloadBtn').addEventListener('click', function () {
-                var lines = ['AKUMAL SPORT NUTRITION — QUOTE REQUEST SUMMARY', '==================================================', ''];
-                lines.push('PRODUCT');
-                if (data.galenica)          lines.push('  Form:       ' + data.galenica);
-                if (data.acondicionamiento) lines.push('  Packaging:  ' + data.acondicionamiento);
-                if (volParts.length)        lines.push('  Volume/Qty: ' + volParts.join(', '));
-                lines.push('');
-                lines.push('FORMULA & MARKET');
-                if (data['fórmula'])    lines.push('  Formula:     ' + data['fórmula']);
-                if (data.volumen_anual) lines.push('  Annual Vol:  ' + data.volumen_anual);
-                if (data.aplicacion)    lines.push('  Applications: ' + data.aplicacion);
-                lines.push('');
-                lines.push('COMPANY');
-                if (data.empresa_constituida) lines.push('  Incorporated:    ' + data.empresa_constituida);
-                if (data.registro_sanitario)  lines.push('  Health Reg:      ' + data.registro_sanitario);
-                if (data.fecha_constitucion)  lines.push('  Incorp. Date:    ' + data.fecha_constitucion);
-                if (data.fecha_lanzamiento)   lines.push('  Launch Date:     ' + data.fecha_lanzamiento);
-                if (data.servicios)           lines.push('  Services:        ' + data.servicios);
-                lines.push('');
-                lines.push('CONTACT');
-                lines.push('  Name:    ' + data.nombre + (data.apellidos ? ' ' + data.apellidos : ''));
-                lines.push('  Company: ' + data.empresa);
-                lines.push('  Email:   ' + data.email);
-                lines.push('  Phone:   ' + data.telefono);
-                if (data.notas) { lines.push(''); lines.push('ADDITIONAL NOTES'); lines.push(data.notas); }
-                var blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
-                var url  = URL.createObjectURL(blob);
-                var a    = document.createElement('a');
-                a.href = url; a.download = 'akumal-quote-summary.txt'; a.click();
-                URL.revokeObjectURL(url);
+            document.getElementById('surveyDownloadBtn').addEventListener('click', async function () {
+                if (!window.jspdf) { alert('PDF library not loaded. Please refresh and try again.'); return; }
+                var doc = new window.jspdf.jsPDF({ unit: 'mm', format: 'a4' });
+                var W = 210, mg = 18, cW = W - mg * 2;
+                var y = 0;
+
+                // Header
+                doc.setFillColor(96, 117, 97);
+                doc.rect(0, 0, W, 30, 'F');
+                try {
+                    var resp = await fetch('../assets/images/akumal/logos/logo-akumal-nutrition-08.png');
+                    var imgBlob = await resp.blob();
+                    var imgUrl  = URL.createObjectURL(imgBlob);
+                    var img = await new Promise(function (res, rej) { var i = new Image(); i.onload = function () { res(i); }; i.onerror = rej; i.src = imgUrl; });
+                    var cv = document.createElement('canvas'); cv.width = img.width; cv.height = img.height;
+                    var ctx = cv.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+                    ctx.globalCompositeOperation = 'source-in';
+                    ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, cv.width, cv.height);
+                    URL.revokeObjectURL(imgUrl);
+                    var b64 = cv.toDataURL('image/png');
+                    doc.addImage(b64, 'PNG', mg, 11, 60, 7);
+                } catch (_) {
+                    doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.setTextColor(255, 255, 255);
+                    doc.text('AKUMAL SPORT NUTRITION', mg, 19);
+                }
+                doc.setFont('helvetica', 'normal'); doc.setFontSize(8); doc.setTextColor(255, 255, 255);
+                doc.text('QUOTE REQUEST SUMMARY', W - mg, 19, { align: 'right' });
+                y = 42;
+
+                doc.setFontSize(8); doc.setTextColor(160, 170, 160);
+                doc.text(new Date().toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }), mg, y);
+                y += 12;
+
+                function pdfSection(title) {
+                    doc.setFillColor(241, 244, 241); doc.rect(mg, y - 1, cW, 8, 'F');
+                    doc.setDrawColor(96, 117, 97); doc.setLineWidth(0.5); doc.line(mg, y - 1, mg, y + 7);
+                    doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(96, 117, 97);
+                    doc.text(title, mg + 4, y + 5); y += 14;
+                }
+                function pdfRow(label, value) {
+                    if (!value) return;
+                    var lines = doc.splitTextToSize(String(value), cW - 58);
+                    doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); doc.setTextColor(130, 140, 130);
+                    doc.text(label, mg + 4, y);
+                    doc.setFont('helvetica', 'bold'); doc.setTextColor(26, 34, 24);
+                    doc.text(lines, mg + 58, y); y += Math.max(7, lines.length * 5.5);
+                }
+
+                pdfSection('PRODUCT');
+                pdfRow('Form', data.galenica);
+                pdfRow('Packaging', data.acondicionamiento);
+                if (volParts.length) pdfRow('Volume / Qty', volParts.join(', '));
+                y += 3;
+
+                pdfSection('FORMULA & MARKET');
+                pdfRow('Formula', data['fórmula']);
+                pdfRow('Annual Volume', data.volumen_anual);
+                pdfRow('Applications', data.aplicacion);
+                y += 3;
+
+                pdfSection('COMPANY');
+                pdfRow('Incorporated', data.empresa_constituida);
+                if (data.empresa_constituida === 'Yes') pdfRow('Health Registration', data.registro_sanitario);
+                if (data.empresa_constituida === 'No' && data.fecha_constitucion) pdfRow('Incorporation Date', data.fecha_constitucion);
+                if (data.fecha_lanzamiento) pdfRow('Launch Date', data.fecha_lanzamiento);
+                if (data.servicios) pdfRow('Services', data.servicios);
+                y += 3;
+
+                if (data.notas) {
+                    pdfSection('ADDITIONAL NOTES');
+                    var noteLines = doc.splitTextToSize(data.notas, cW - 8);
+                    doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); doc.setTextColor(26, 34, 24);
+                    doc.text(noteLines, mg + 4, y); y += Math.max(7, noteLines.length * 5.5) + 3;
+                }
+
+                pdfSection('CONTACT');
+                pdfRow('Name', data.nombre + (data.apellidos ? ' ' + data.apellidos : ''));
+                pdfRow('Company', data.empresa);
+                pdfRow('Email', data.email);
+                pdfRow('Phone', data.telefono);
+
+                // Footer
+                doc.setFillColor(96, 117, 97); doc.rect(0, 285, W, 12, 'F');
+                doc.setFont('helvetica', 'normal'); doc.setFontSize(8); doc.setTextColor(255, 255, 255);
+                doc.text('www.akumalsportnutrition.com', W / 2, 293, { align: 'center' });
+
+                doc.save('akumal-quote-summary.pdf');
             });
         }
 
@@ -1440,8 +1500,17 @@
         renderStep(1);
     })();
     </script>
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <!-- intl-tel-input -->
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/intlTelInput.min.js"></script>
+    <script>
+    window.itiPhone = window.intlTelInput(document.getElementById('sq-telefono'), {
+        initialCountry: 'es',
+        separateDialCode: true,
+        utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/utils.js'
+    });
+    </script>
     <!-- Survey image lightbox -->
     <script>
     (function () {
