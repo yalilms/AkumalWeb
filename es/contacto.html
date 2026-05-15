@@ -1352,93 +1352,127 @@
             successData.innerHTML = html;
 
             document.getElementById('surveyDownloadBtn').addEventListener('click', async function () {
-                if (!window.jspdf) { alert('Librería PDF no cargada. Recarga la página e inténtalo de nuevo.'); return; }
-                var doc = new window.jspdf.jsPDF({ unit: 'mm', format: 'a4' });
-                var W = 210, mg = 18, cW = W - mg * 2;
-                var y = 0;
+                if (!window.PDFLib) { alert('Librería PDF no cargada. Recarga la página e inténtalo de nuevo.'); return; }
+                const { PDFDocument, rgb, StandardFonts } = window.PDFLib;
 
-                // Cabecera
-                doc.setFillColor(96, 117, 97);
-                doc.rect(0, 0, W, 30, 'F');
+                let templateBytes;
                 try {
-                    var resp = await fetch('../assets/images/akumal/logos/logo-akumal-nutrition-08.png');
-                    var imgBlob = await resp.blob();
-                    var imgUrl  = URL.createObjectURL(imgBlob);
-                    var img = await new Promise(function (res, rej) { var i = new Image(); i.onload = function () { res(i); }; i.onerror = rej; i.src = imgUrl; });
-                    var cv = document.createElement('canvas'); cv.width = img.width; cv.height = img.height;
-                    var ctx = cv.getContext('2d');
-                    ctx.drawImage(img, 0, 0);
-                    ctx.globalCompositeOperation = 'source-in';
-                    ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, cv.width, cv.height);
-                    URL.revokeObjectURL(imgUrl);
-                    var b64 = cv.toDataURL('image/png');
-                    doc.addImage(b64, 'PNG', mg, 11, 60, 7);
-                } catch (_) {
-                    doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.setTextColor(255, 255, 255);
-                    doc.text('AKUMAL SPORT NUTRITION', mg, 19);
-                }
-                doc.setFont('helvetica', 'normal'); doc.setFontSize(8); doc.setTextColor(255, 255, 255);
-                doc.text('RESUMEN DE SOLICITUD', W - mg, 19, { align: 'right' });
-                y = 42;
-
-                doc.setFontSize(8); doc.setTextColor(160, 170, 160);
-                doc.text(new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' }), mg, y);
-                y += 12;
-
-                function pdfSection(title) {
-                    doc.setFillColor(241, 244, 241); doc.rect(mg, y - 1, cW, 8, 'F');
-                    doc.setDrawColor(96, 117, 97); doc.setLineWidth(0.5); doc.line(mg, y - 1, mg, y + 7);
-                    doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(96, 117, 97);
-                    doc.text(title, mg + 4, y + 5); y += 14;
-                }
-                function pdfRow(label, value) {
-                    if (!value) return;
-                    var lines = doc.splitTextToSize(String(value), cW - 58);
-                    doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); doc.setTextColor(130, 140, 130);
-                    doc.text(label, mg + 4, y);
-                    doc.setFont('helvetica', 'bold'); doc.setTextColor(26, 34, 24);
-                    doc.text(lines, mg + 58, y); y += Math.max(7, lines.length * 5.5);
+                    templateBytes = await fetch('../assets/plantilla/PlantillaSolicitud.pdf').then(function (r) { return r.arrayBuffer(); });
+                } catch (e) {
+                    alert('No se pudo cargar la plantilla PDF.'); return;
                 }
 
-                pdfSection('PRODUCTO');
-                pdfRow('Forma', data.galenica);
-                pdfRow('Acondicionamiento', data.acondicionamiento);
-                if (volParts.length) pdfRow('Volumen / Cantidad', volParts.join(', '));
-                y += 3;
+                const pdfDoc = await PDFDocument.load(templateBytes);
+                const page = pdfDoc.getPages()[0];
+                const { width, height } = page.getSize();
 
-                pdfSection('FÓRMULA Y MERCADO');
-                pdfRow('Fórmula', data['fórmula']);
-                pdfRow('Volumen Anual', data.volumen_anual);
-                pdfRow('Aplicaciones', data.aplicacion);
-                y += 3;
+                const fontN = await pdfDoc.embedFont(StandardFonts.Helvetica);
+                const fontB = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
-                pdfSection('EMPRESA');
-                pdfRow('¿Constituida?', data.empresa_constituida);
-                if (data.empresa_constituida === 'Sí') pdfRow('Registro Sanitario', data.registro_sanitario);
-                if (data.empresa_constituida === 'No' && data.fecha_constitucion) pdfRow('Fecha constitución', data.fecha_constitucion);
-                if (data.fecha_lanzamiento) pdfRow('Fecha lanzamiento', data.fecha_lanzamiento);
-                if (data.servicios) pdfRow('Servicios', data.servicios);
-                y += 3;
+                const cGreen = rgb(0.376, 0.459, 0.380);
+                const cDark  = rgb(0.102, 0.133, 0.094);
+                const cGray  = rgb(0.510, 0.549, 0.510);
+                const cBg    = rgb(0.945, 0.957, 0.945);
+                const cDate  = rgb(0.627, 0.667, 0.627);
+
+                const mg = 51, cW = width - mg - 51;
+                let y = height - 128;
+
+                // Fecha
+                page.drawText(new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' }), { x: mg, y: y, size: 8, font: fontN, color: cDate });
+                y -= 22;
+
+                const FLOOR = 65;
+
+                function drawSection(title) {
+                    if (y < FLOOR + 30) return;
+                    page.drawRectangle({ x: mg, y: y - 3, width: cW, height: 21, color: cBg });
+                    page.drawLine({ start: { x: mg, y: y - 3 }, end: { x: mg, y: y + 18 }, thickness: 2, color: cGreen });
+                    page.drawText(title, { x: mg + 10, y: y + 4, size: 8, font: fontB, color: cGreen });
+                    y -= 35;
+                }
+
+                function wrapText(text, font, size, maxW) {
+                    var words = String(text).split(' '), lines = [], line = '';
+                    for (var i = 0; i < words.length; i++) {
+                        var word = words[i];
+                        // Split words que son más anchos que maxW carácter a carácter
+                        if (font.widthOfTextAtSize(word, size) > maxW) {
+                            if (line) { lines.push(line); line = ''; }
+                            var chunk = '';
+                            for (var c = 0; c < word.length; c++) {
+                                var tc = chunk + word[c];
+                                if (font.widthOfTextAtSize(tc, size) > maxW) { lines.push(chunk); chunk = word[c]; }
+                                else { chunk = tc; }
+                            }
+                            line = chunk;
+                            continue;
+                        }
+                        var test = line ? line + ' ' + word : word;
+                        if (font.widthOfTextAtSize(test, size) > maxW && line) { lines.push(line); line = word; }
+                        else { line = test; }
+                    }
+                    if (line) lines.push(line);
+                    return lines;
+                }
+
+                const lX = mg + 10, vX = mg + 162, vW = cW - 162 - 8;
+
+                function drawRow(label, value) {
+                    if (!value || y < FLOOR) return;
+                    page.drawText(label, { x: lX, y: y, size: 9, font: fontN, color: cGray });
+                    var lines = wrapText(String(value), fontB, 9, vW);
+                    for (var i = 0; i < lines.length; i++) {
+                        if (y - i * 13 < FLOOR) break;
+                        page.drawText(lines[i], { x: vX, y: y - i * 13, size: 9, font: fontB, color: cDark });
+                    }
+                    y -= Math.max(21, lines.length * 13 + 4);
+                }
+
+                drawSection('PRODUCTO');
+                drawRow('Forma', data.galenica);
+                drawRow('Acondicionamiento', data.acondicionamiento);
+                if (volParts.length) drawRow('Volumen / Cantidad', volParts.join(', '));
+                y -= 18;
+
+                drawSection('FORMULA Y MERCADO');
+                drawRow('Formula', data['formula'] || data['fórmula']);
+                drawRow('Volumen Anual', data.volumen_anual);
+                drawRow('Aplicaciones', data.aplicacion);
+                y -= 18;
+
+                drawSection('EMPRESA');
+                drawRow('Constituida', data.empresa_constituida);
+                if (data.empresa_constituida === 'Si' || data.empresa_constituida === 'Sí') drawRow('Registro Sanitario', data.registro_sanitario);
+                if ((data.empresa_constituida === 'No') && data.fecha_constitucion) drawRow('Fecha constitucion', data.fecha_constitucion);
+                if (data.fecha_lanzamiento) drawRow('Fecha lanzamiento', data.fecha_lanzamiento);
+                if (data.servicios) drawRow('Servicios', data.servicios);
+                y -= 18;
 
                 if (data.notas) {
-                    pdfSection('NOTAS ADICIONALES');
-                    var noteLines = doc.splitTextToSize(data.notas, cW - 8);
-                    doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); doc.setTextColor(26, 34, 24);
-                    doc.text(noteLines, mg + 4, y); y += Math.max(7, noteLines.length * 5.5) + 3;
+                    drawSection('NOTAS ADICIONALES');
+                    var noteLines = wrapText(data.notas, fontN, 9, cW - 15);
+                    for (var i = 0; i < noteLines.length; i++) {
+                        if (y - i * 13 < FLOOR) break;
+                        page.drawText(noteLines[i], { x: mg + 10, y: y - i * 13, size: 9, font: fontN, color: cDark });
+                    }
+                    y -= Math.max(21, noteLines.length * 13 + 4);
+                    y -= 18;
                 }
 
-                pdfSection('CONTACTO');
-                pdfRow('Nombre', data.nombre + (data.apellidos ? ' ' + data.apellidos : ''));
-                pdfRow('Empresa', data.empresa);
-                pdfRow('Email', data.email);
-                pdfRow('Teléfono', data.telefono);
+                drawSection('CONTACTO');
+                drawRow('Nombre', data.nombre + (data.apellidos ? ' ' + data.apellidos : ''));
+                drawRow('Empresa', data.empresa);
+                drawRow('Email', data.email);
+                drawRow('Telefono', data.telefono);
 
-                // Pie de página
-                doc.setFillColor(96, 117, 97); doc.rect(0, 285, W, 12, 'F');
-                doc.setFont('helvetica', 'normal'); doc.setFontSize(8); doc.setTextColor(255, 255, 255);
-                doc.text('www.akumalsportnutrition.com', W / 2, 293, { align: 'center' });
-
-                doc.save('akumal-solicitud-resumen.pdf');
+                var pdfBytes = await pdfDoc.save();
+                var blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url; a.download = 'akumal-solicitud-resumen.pdf';
+                document.body.appendChild(a); a.click();
+                document.body.removeChild(a); URL.revokeObjectURL(url);
             });
         }
 
@@ -1547,8 +1581,8 @@
         renderStep(1);
     })();
     </script>
-    <!-- jsPDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- pdf-lib -->
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     <!-- intl-tel-input -->
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/intlTelInput.min.js"></script>
     <script>
